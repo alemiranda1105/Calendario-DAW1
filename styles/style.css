@@ -5,7 +5,7 @@
     padding: 0.5rem;
     margin: auto;
     width: 45vw;
-    height: 60vh;
+    height: fit-content;
     text-align: center;
 }
 
