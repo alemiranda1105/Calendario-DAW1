@@ -1,0 +1,11 @@
+#iniright{
+    padding: 20px;
+    display: right;
+
+}
+
+#inimg{
+    border: 1px solid black;
+    padding: 20px;
+    display: left;
+}
