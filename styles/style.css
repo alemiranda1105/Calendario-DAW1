@@ -1,11 +1,27 @@
-#iniright{
-    padding: 20px;
-    display: right;
-
+.card {
+    background-color: grey;
+    border: 2px solid clear;
+    border-radius: 15px;
+    padding: 0.5rem;
+    margin: auto;
+    width: 45vw;
+    height: 60vh;
+    text-align: center;
 }
 
-#inimg{
-    border: 1px solid black;
-    padding: 20px;
-    display: left;
+.card form input{
+    width: 75%;
+    padding: 12px 10px;
+    margin-bottom: 15vh;
+    border: 2px solid clear;
+    border-radius: 15px;
+}
+
+.card label {
+    margin-top: 10vh;
+    display: block;
+}
+
+.title {
+    text-align: center;
 }
