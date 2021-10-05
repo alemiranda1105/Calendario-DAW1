@@ -1,0 +1,23 @@
+body {
+    margin:0%;
+}
+
+#inimg{
+    margin:0%;
+    float:left;
+    height: 100vh;
+    width: 50%;
+}
+
+#iniright{
+    display: right;
+    float: left;
+    text-align: center;
+    margin-left: 15%;
+    margin-top: 25%;
+}
+
+button{
+    margin: 10px;
+    width: 40%;
+}
