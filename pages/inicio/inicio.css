@@ -2,7 +2,7 @@ body {
     margin:0%;
 }
 
-#inimg{
+#inimg img{
     margin:0%;
     float:left;
     height: 100vh;
@@ -10,26 +10,27 @@ body {
 }
 
 #iniright{
-    display: right;
-    float: left;
     text-align: center;
-    margin-left: 15%;
-    margin-top: 25%;
+    height: 100vh;
 }
 
 a{  
-    background: rgb(97, 23, 124);
+    background: rgb(190, 121, 56);
     color: white;
-    border-radius: 2px;
+    border-radius: 2vh;
+    width: 25vw;
     font-size: 110%;
     margin:20px;
     padding: 10px;
     text-align: center;
     display: inline-block;
+    text-decoration: none;
+    
 }
 
 a:hover{  
-    transform: scale(1.3);
+    color:white;
+    transform: scale(1.1);
     border-radius: 6px;
     
 }
