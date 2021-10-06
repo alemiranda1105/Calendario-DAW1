@@ -5,26 +5,90 @@
 html,body {
     margin:0px;
 }
+
 .mainContainer {
     width: 100%;
     height: 100%;   
 }
 #divMainContent {
     width: 70%;
-}
-#divCalendario {
-    width: 100%;
-    height: 85%;
-    padding: 2em;
-    background-color: red;
+    transition: all linear 300ms;
 }
 
-#divMenu {
-    width: 30%;
-    min-height: 100vh;
-    padding: 1em;
-    background-color: green; 
+#divMainContent.active {
+    width: 100%;
 }
+
+/** ------------------- CALENDARIO -------------------*/
+#divCalendario {
+    width: 100%;
+    min-height: 85%;
+    padding: 2em;
+    background-color: rgb(207, 174, 26);
+}
+.calendar {
+    background: #4ECDC4;
+    min-width: 100%;
+    height: 100%;
+    margin: 1em auto;
+    padding: .5em 0; 
+}
+
+.calendar__info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2em;
+    font-size: 1.2em;
+    text-transform: uppercase; 
+}
+
+.calendar__prev, .calendar__next {
+    color: #C7F464;
+    cursor: pointer;
+    font-size: 1.3em; 
+}
+
+.calendar__prev {
+    margin-right: auto; 
+}
+
+.calendar__next {
+    margin-left: auto; 
+}
+
+.calendar__week, .calendar__dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px; 
+    width: 100%;
+}
+
+.calendar__month, .calendar__year {
+    padding: .5em 1em; 
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.calendar__item {
+    text-align: center;
+    line-height: 4.5em; 
+}
+
+.calendar__today {
+    background: lightcoral;
+    color: white;
+    width: 100%;
+    border-radius: 50%;
+    margin: auto; 
+}
+
+.calendar__last-days {
+    opacity: .3; 
+}
+
+/** ---------------------------- MENU ---------------*/
 
 .spacer {
     flex: 1 1 auto;
@@ -38,34 +102,62 @@ html,body {
 .customImg {
     height: 5rem;
     width: 5rem;
+    margin-top: 20px;
+    margin-right: 20px;
     border-radius: 5rem;
 }
 
-#divEventList {
-    width: 100%;
-}
-
-#containerEventList {
+#eventsTitle {
     padding: 5px;
-    border-radius: 10px;
-    background-color: rgb(79, 80, 85);
 }
 
-.eventList {
-    margin:  0px 0px;
-    border-radius: 15px;
-    border: none;
-    height: 2.5em;
-    width: 10em;
-    margin-bottom: 5px;
+#sidebar {
+    position: fixed;
+    width: 30%;
+    height: 100%;
+    background: black;
+    right: 0px;
+    transition: all linear 300ms;
 }
+  
+#sidebar.active {
+    right: -100%;
+}
+  
+#sidebar ul li {
+    color: rgba(230, 230, 230, .9);
+    list-style: none;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, .3);
+    text-align: center;
+}
+  
+.toggle-btn {
+    position: relative;
+    right: 20px;
+    top: -20px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+  
+#sidebar .toggle-btn {
+    position: absolute;
+    right: 210px;
+    top: 10px;
+}
+  
+
+
+
+/** --------------- FOOTER --------------- */
 
 #divFooter{
     width: 100%;
 }
 
 #divBtnFooter{
-    height: 100%;
+    min-height: 100%;
     background-color: brown;
 }
 
@@ -76,53 +168,54 @@ html,body {
     border-radius: 10px;
     border: none;
 }
-
+/** ---------------------- SWITCH BUTTON --------*/
 #divSwitchBtn{
     margin: 10px 0px;
 }
 
 .icon-custom {
+    position: relative;
+    z-index: 20;
     border: none;
-    width: 20px;
-    height: 20px;
+    width: 2.3em;
+    height: 22px;
     border-radius: 20px;
 }
+
 .checkbox {
 	opacity: 0%;
 }
 
 .bg-checkbox {
-	background-color: gray;
+	background-color: white;
 	border-radius: 50px;
 	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left:-5px;
+	padding: 2px;
 	position: relative;
 	height: 26px;
-	width: 80px;
+	width:5.5em;
 	transform: scale(1.5);
 }
 
 .bg-checkbox .ball {
-	background-color: white;
-	border-radius: 50%;
+	background-color: green;
+	border-radius: 15px;
 	position: absolute;
-	top: 2px;
-	left: 2px;
-	height: 22px;
-	width: 25px;
+    z-index: 10;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 50%;
 	transform: translateX(0px);
 	transition: transform 0.2s linear;
 }
 
-.checkbox:checked + .bg-checkbox {
-    background-color:green;
-}
 .checkbox:checked + .bg-checkbox .ball {
-	transform: translateX(52px);
-    background-color: white
+	transform: translateX(100%);
 }
 
 

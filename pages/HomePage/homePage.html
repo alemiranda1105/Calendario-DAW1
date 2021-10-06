@@ -14,8 +14,31 @@
 <body>
     <div class="mainContainer d-flex">
         <div id="divMainContent">
-            <div id="divCalendario">
-                contenido principal
+            <div id="divCalendario" class="d-flex">
+                <div class="calendar">
+                    <div class="calendar__info">
+                        <div class="calendar__prev" id="prev-month">&#9664;</div>
+                        <div class="calendar__month" id="month"></div>
+                        <div class="calendar__year" id="year"></div>
+                        <div class="calendar__next" id="next-month">&#9654;</div>
+                    </div>
+                
+                    <div class="calendar__week">
+                        <div class="calendar__day calendar__item">LUNES</div>
+                        <div class="calendar__day calendar__item">MARTES</div>
+                        <div class="calendar__day calendar__item">MIÉRCOLES</div>
+                        <div class="calendar__day calendar__item">JUEVES</div>
+                        <div class="calendar__day calendar__item">VIERNES</div>
+                        <div class="calendar__day calendar__item">SÁBADO</div>
+                        <div class="calendar__day calendar__item">DOMINGO</div>
+                    </div>
+                
+                    <div class="calendar__dates" id="dates"></div>
+                </div>
+
+                <div class="">
+                    <img class="toggle-btn" src="/img/menu.svg" alt="">
+                </div>
             </div>
 
             <div id="divFooter">
@@ -23,31 +46,32 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                <button class="customBtn btn-success mb-2">Crear Grupo</button>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
                                 <button class="customBtn btn-success mb-2">Crear evento</button>
                             </div>
-
+                            
                             <div class="col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                <div id="divSwitchBtn" class="d-flex justify-content-center align-items-center">
-
-                                    
-                                    <input type="checkbox" class="checkbox" id="switch-button" />
-                                    <label class="bg-checkbox" for="switch-button">
-                                        <img src="/img/individual_icon.svg" class="icon-custom"></img>
-                                        <img src="/img/group_icon.svg" class="icon-custom"></img>
-                                        <div class="ball"></div>
-                                    </label>
-                                    
-                                    
-                                </div>
+                                <button class="customBtn btn-success mb-2">Crear Grupo</button>
                             </div>
 
                             <div class="col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
                                 <button class="customBtn btn-success mb-2">Gestionar Grupos</button>
                             </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
+                                <div id="divSwitchBtn" class="d-flex justify-content-center align-items-center">
+
+                                    <input type="checkbox" class="checkbox" id="switch-button" />
+                                    <label class="bg-checkbox" for="switch-button">
+                                        <img src="/img/individual_icon.svg" class="icon-custom"></img>
+                                        <span class="spacer"></span>
+                                        <img src="/img/group_icon.svg" class="icon-custom"></img>
+                                        <div class="ball"></div>
+                                    </label>
+                                    
+                                </div>
+                            </div>
+
+                            
                         </div>
                     </div>
                 </div>
@@ -55,30 +79,19 @@
             </div> 
         </div>
 
-        <aside id="divMenu">
-
+        <aside id="sidebar">
             <div id="divImg">
                 <a class="spacer"></a>
                 <img class="customImg" src="/img/avatar.png" alt="">
             </div>
 
-            <h3 class="text-justify">Próximos Eventos</h3>
-            <div id="divEventList" class="d-flex flex-column justify-content-center align-items-center">
-               
-                <div id="containerEventList" class="d-flex flex-column justify-content-center align-items-center">
-
-                    <input class="eventList"
-                           type="text">
-                    <input class="eventList"
-                           type="text">
-                    <input class="eventList"
-                           type="text">
-                    <input class="eventList"
-                           type="text">
-                    <input class="eventList"
-                           type="text">
-                </div>
-            </div>
+            <h3 id="eventsTitle" class="text-justify ">Próximos Eventos</h3>
+            <ul>
+                
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+              </ul>
 
         </aside>
     </div>
