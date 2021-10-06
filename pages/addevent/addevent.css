@@ -1,0 +1,21 @@
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+.title {
+    text-align: center;
+}
+
+.card {
+    background-color: grey;
+    border: 2px solid clear;
+    border-radius: 15px;
+    padding: 0.5rem;
+    width: 45vw;
+    height: fit-content;
+    text-align: center;
+}
