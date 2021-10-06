@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+
+
 html,body {
     margin:0px;
 }
@@ -55,9 +59,9 @@ html,body {
     width: 10em;
     margin-bottom: 5px;
 }
+
 #divFooter{
     width: 100%;
-    background-color: rgb(0, 0, 0);
 }
 
 #divBtnFooter{
@@ -67,16 +71,61 @@ html,body {
 
 .customBtn {
     margin: 5px;
-    width: 10em;
+    width: 8em;
     height: 3em;
     border-radius: 10px;
     border: none;
-    
 }
+
 #divSwitchBtn{
-    width: 10em;
-    height: 2em;
-    background-color: grey;
-    border-radius: 10px;
+    margin: 10px 0px;
 }
+
+.icon-custom {
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
+.checkbox {
+	opacity: 0%;
+}
+
+.bg-checkbox {
+	background-color: gray;
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	position: relative;
+	height: 26px;
+	width: 80px;
+	transform: scale(1.5);
+}
+
+.bg-checkbox .ball {
+	background-color: white;
+	border-radius: 50%;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	height: 22px;
+	width: 25px;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .bg-checkbox {
+    background-color:green;
+}
+.checkbox:checked + .bg-checkbox .ball {
+	transform: translateX(52px);
+    background-color: white
+}
+
+
+
+
 
