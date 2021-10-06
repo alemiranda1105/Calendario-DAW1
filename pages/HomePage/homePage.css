@@ -1,0 +1,82 @@
+html,body {
+    margin:0px;
+}
+.mainContainer {
+    width: 100%;
+    height: 100%;   
+}
+#divMainContent {
+    width: 70%;
+}
+#divCalendario {
+    width: 100%;
+    height: 85%;
+    padding: 2em;
+    background-color: red;
+}
+
+#divMenu {
+    width: 30%;
+    min-height: 100vh;
+    padding: 1em;
+    background-color: green; 
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+#divImg {
+    width: 100%;
+    display: flex;
+}
+
+.customImg {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 5rem;
+}
+
+#divEventList {
+    width: 100%;
+}
+
+#containerEventList {
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(79, 80, 85);
+}
+
+.eventList {
+    margin:  0px 0px;
+    border-radius: 15px;
+    border: none;
+    height: 2.5em;
+    width: 10em;
+    margin-bottom: 5px;
+}
+#divFooter{
+    width: 100%;
+    background-color: rgb(216, 203, 16);
+}
+
+#divBtnFooter{
+    height: 100%;
+    background-color: brown;
+}
+
+.customBtn {
+    margin: 5px;
+    width: 10em;
+    height: 3em;
+    border-radius: 10px;
+    border: none;
+    
+}
+#divSwitchBtn{
+    width: 10em;
+    height: 2em;
+    background-color: grey;
+    border-radius: 10px;
+}
+
