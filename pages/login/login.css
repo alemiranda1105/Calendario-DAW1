@@ -31,6 +31,7 @@
     background-color: rgb(97, 23, 124);
     padding: 1.8vw;
     width: 35vw;
+    font-size: 2vh;
 }
 
 .card form input:hover {
@@ -39,4 +40,9 @@
 
 .title {
     text-align: center;
+}
+
+.card form input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
 }
