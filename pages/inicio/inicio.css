@@ -32,5 +32,5 @@ a:hover{
     color:white;
     transform: scale(1.1);
     border-radius: 6px;
-    
+    transition: 80ms ease;
 }

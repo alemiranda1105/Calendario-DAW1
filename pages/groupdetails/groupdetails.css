@@ -1,0 +1,59 @@
+body{
+    text-align: center;
+}
+
+
+#nGroup{
+    text-align: center;
+}
+
+.card {
+    background-color: grey;
+    border: 2px solid clear;
+    border-radius: 15px;
+    padding: 0.5rem;
+    margin: auto;
+    width: 45vw;
+    height: fit-content;
+    text-align: center;
+}
+
+.card h3 {
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+}
+
+#nGroup {
+    margin: 3vh;
+}
+
+
+#textareas, #textareas input{
+    text-align: left;
+    margin-bottom: 2vh;
+    width: 25vw;
+}
+
+input[id="list"]{
+    height: 30vh;
+    text-align: left;
+}
+button{
+    margin-bottom: 2vh;
+}
+button:hover{
+    transform: scale(1.1);
+    transition: 70ms ease;
+}
+
+img{
+    margin-left: 2vh;
+    height: 4vh;
+    width: 4vh;
+}
+
+img:hover{
+    transform: scale(1.4);
+    transition: 70ms ease;
+}
+
