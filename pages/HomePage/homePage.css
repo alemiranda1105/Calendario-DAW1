@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
-
-
 html,body {
     margin:0px;
 }
@@ -22,9 +20,8 @@ html,body {
 /** ------------------- CALENDARIO -------------------*/
 #divCalendario {
     width: 100%;
-    min-height: 85%;
+    min-height: 60%;
     padding: 2em;
-    background-color: rgb(207, 174, 26);
 }
 .calendar {
     background: #4ECDC4;
@@ -47,15 +44,15 @@ html,body {
 .calendar__prev, .calendar__next {
     color: #C7F464;
     cursor: pointer;
-    font-size: 1.3em; 
+    font-size: 1em; 
 }
 
 .calendar__prev {
-    margin-right: auto; 
+    margin-right: 0px; 
 }
 
 .calendar__next {
-    margin-left: auto; 
+    margin-left: 0px; 
 }
 
 .calendar__week, .calendar__dates {
@@ -63,17 +60,23 @@ html,body {
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 10px; 
     width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
 }
 
+
 .calendar__month, .calendar__year {
-    padding: .5em 1em; 
+    padding: 0em .5em; 
     font-size: 2em;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .calendar__item {
     text-align: center;
-    line-height: 4.5em; 
+    line-height: 3.7em; 
 }
 
 .calendar__today {
@@ -109,6 +112,19 @@ html,body {
 
 #eventsTitle {
     padding: 5px;
+}
+
+.ulNearEvent{
+    margin-left: 0px;
+    padding: 0px;
+    width: 90%;
+}
+
+.nearEvent {
+    background-color: rgb(204, 63, 63);
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: black;
 }
 
 #sidebar {
