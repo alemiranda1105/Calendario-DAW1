@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+html,body {
+    margin:0px;
+}
+
+.mainContainer {
+    width: 100%;
+    height: 100%;   
+}
+#divMainContent {
+    width: 70%;
+    transition: all linear 300ms;
+}
+
+#divMainContent.active {
+    width: 100%;
+}
+
+/** ------------------- CALENDARIO -------------------*/
+#divCalendario {
+    width: 100%;
+    min-height: 60%;
+    padding: 2em;
+}
+.calendar {
+    background: #4ECDC4;
+    min-width: 100%;
+    height: 100%;
+    margin: 1em auto;
+    padding: .5em 0; 
+}
+
+.calendar__info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2em;
+    font-size: 1.2em;
+    text-transform: uppercase; 
+}
+
+.calendar__prev, .calendar__next {
+    color: #C7F464;
+    cursor: pointer;
+    font-size: 1em; 
+}
+
+.calendar__prev {
+    margin-right: 0px; 
+}
+
+.calendar__next {
+    margin-left: 0px; 
+}
+
+.calendar__week, .calendar__dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px; 
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+
+.calendar__month, .calendar__year {
+    padding: 0em .5em; 
+    font-size: 2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar__item {
+    text-align: center;
+    line-height: 3.7em; 
+}
+
+.calendar__today {
+    background: lightcoral;
+    color: white;
+    width: 100%;
+    border-radius: 50%;
+    margin: auto; 
+}
+
+.calendar__last-days {
+    opacity: .3; 
+}
+
+/** ---------------------------- MENU ---------------*/
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+#divImg {
+    width: 100%;
+    display: flex;
+}
+
+.customImg {
+    height: 5rem;
+    width: 5rem;
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 5rem;
+}
+
+#eventsTitle {
+    padding: 5px;
+}
+
+.ulNearEvent{
+    margin-left: 0px;
+    padding: 0px;
+    width: 90%;
+}
+
+.nearEvent {
+    background-color: rgb(204, 63, 63);
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: black;
+}
+
+#sidebar {
+    position: fixed;
+    width: 30%;
+    height: 100%;
+    background: black;
+    right: 0px;
+    transition: all linear 300ms;
+}
+  
+#sidebar.active {
+    right: -100%;
+}
+  
+#sidebar ul li {
+    color: rgba(230, 230, 230, .9);
+    list-style: none;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, .3);
+    text-align: center;
+}
+  
+.toggle-btn {
+    position: relative;
+    right: 20px;
+    top: -20px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+  
+#sidebar .toggle-btn {
+    position: absolute;
+    right: 210px;
+    top: 10px;
+}
+  
+
+
+
+/** --------------- FOOTER --------------- */
+
+#divFooter{
+    width: 100%;
+}
+
+#divBtnFooter{
+    min-height: 100%;
+    background-color: brown;
+}
+
+.customBtn {
+    margin: 5px;
+    width: 8em;
+    height: 3em;
+    border-radius: 10px;
+    border: none;
+}
+/** ---------------------- SWITCH BUTTON --------*/
+#divSwitchBtn{
+    margin: 10px 0px;
+}
+
+.icon-custom {
+    position: relative;
+    z-index: 20;
+    border: none;
+    width: 2.3em;
+    height: 22px;
+    border-radius: 20px;
+}
+
+.checkbox {
+	opacity: 0%;
+}
+
+.bg-checkbox {
+	background-color: white;
+	border-radius: 50px;
+	cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left:-5px;
+	padding: 2px;
+	position: relative;
+	height: 26px;
+	width:5.5em;
+	transform: scale(1.5);
+}
+
+.bg-checkbox .ball {
+	background-color: green;
+	border-radius: 15px;
+	position: absolute;
+    z-index: 10;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .bg-checkbox .ball {
+	transform: translateX(100%);
+}
+
+
+
+
+
