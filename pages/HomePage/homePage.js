@@ -1,4 +1,4 @@
-let monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September','October', 'November', 'December'];
+let monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre','Octubre', 'Noviembre', 'Deciembre'];
 
 let currentDate = new Date();
 let currentDay = currentDate.getDate();
@@ -23,7 +23,7 @@ nextMonthDOM.addEventListener('click', ()=>nextMonth());
 const writeMonth = (month) => {
 
     for(let i = startDay(); i>0;i--){
-        dates.innerHTML += ` <div class="calendar__date calendar__item calendar__last-days">
+        dates.innerHTML += ` <div id="meses" class="calendar__date calendar__item calendar__last-days">
             ${getTotalDays(monthNumber-1)-(i-1)}
         </div>`;
     }
@@ -94,12 +94,16 @@ const setNewDate = () => {
 writeMonth(monthNumber);
 
 /** MENU DESPLEGABLE */
-
 // sidebar toggle
 const btnToggle = document.querySelector('.toggle-btn');
+const btnToggleMenu = document.querySelector('#toggleMenu');
 
 btnToggle.addEventListener('click', function () {
   document.getElementById('sidebar').classList.toggle('active');
   document.getElementById('divMainContent').classList.toggle('active');
+});
+
+btnToggleMenu.addEventListener('click', function () {
+    document.getElementById('sidebar').classList.toggle('active');
 });
 
