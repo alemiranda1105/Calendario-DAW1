@@ -112,6 +112,7 @@ html,body {
 }
 
 #eventsTitle {
+    margin-left: 20px;
     color: white;
     padding: 5px;
 }
@@ -188,6 +189,15 @@ html,body {
     height: 50px;
     border-radius: 10px;
     margin: 20px;
+    font-size: large;
+    font-weight: bold;
+    animation: 0.5s ease;
+}
+
+#btnLogout:hover {
+    background-color: transparent;
+    font-weight: bold;
+    color: rgba(255, 0, 0, 0.815);
 }
 
 
