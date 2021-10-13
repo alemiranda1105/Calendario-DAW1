@@ -11,21 +11,29 @@
         <div class="justify-content-center align-items-center">
             <h1 class="title">Agregar evento</h1>
             <div class="d-flex justify-content-center align-items-center">
-                <div class="card">
+                <div class="d-flex align-items-center flex-column mb-3 card">
                     <h2>Datos</h2>
                     <form>
-                        <div class="mb-3">
-                            <label for="eventName" class="form-label">Nombre del evento</label>
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="eventName" placeholder="Nombre">
+                            <label for="eventName" class="form-label">Nombre del evento</label>
                         </div>
                         <div class="mb-3">
-                            <label for="eventDescription" class="form-label">Descripción del evento</label>
-                            <textarea class="form-control" id="eventDescription" rows="3"></textarea>
+                            <textarea class="form-control" id="eventDescription" rows="5" placeholder="Descripción"></textarea>
                         </div>
-                        <div class="col-auto">
-                            <input type="text" name="" id="">
+                        <div class="d-flex flex-column mb-3" id="date-div">
+                            <label for="event-date"><h4>Seleccionar fecha</h4></label>
+                            <input type="date" name="event-date" id="event-date">
                         </div>
-
+                        <div class="mb-3 dropend">
+                            <button type="button" class="btn dropdown-toggle" id="group-selector" data-bs-toggle="dropdown" aria-expanded="false">
+                                Seleccionar grupo
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><p class="dropdown-item">Action</p></li>
+                            </ul>
+                        </div>
+                        <input class="btn btn-primary" type="submit" value="Guardar" id="save-btn">
                     </form>
                 </div>
             </div>
