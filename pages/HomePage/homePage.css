@@ -8,8 +8,9 @@ html,body {
     width: 100%;
     height: 100%;   
 }
+
 #divMainContent {
-    width: 70%;
+    width: 100%;
     transition: all linear 300ms;
 }
 
@@ -37,7 +38,7 @@ html,body {
     justify-content: center;
     align-items: center;
     padding: 0 2em;
-    font-size: 1.2em;
+    font-size: 2.5vw;
     text-transform: uppercase; 
 }
 
@@ -60,7 +61,7 @@ html,body {
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 10px; 
     width: 100%;
-    font-size: 1.2rem;
+    font-size: auto;
     text-align: center;
 }
 
@@ -111,6 +112,7 @@ html,body {
 }
 
 #eventsTitle {
+    color: white;
     padding: 5px;
 }
 
@@ -118,6 +120,8 @@ html,body {
     margin-left: 0px;
     padding: 0px;
     width: 90%;
+    color: white;
+    font-weight: bold;
 }
 
 .nearEvent {
@@ -129,7 +133,7 @@ html,body {
 
 #sidebar {
     position: fixed;
-    width: 30%;
+    width: 0%;
     height: 100%;
     background: black;
     right: 0px;
@@ -137,7 +141,8 @@ html,body {
 }
   
 #sidebar.active {
-    right: -100%;
+    width: 100%;
+    background-color: rgb(48, 46, 46);
 }
   
 #sidebar ul li {
@@ -162,7 +167,28 @@ html,body {
     right: 210px;
     top: 10px;
 }
+
+#toggleMenu{
+    position: relative;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    color: white;
+}
+
+#btnConfig{
+    width: 100%;
+
+}
   
+#btnLogout{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    margin: 20px;
+}
 
 
 
@@ -218,7 +244,6 @@ html,body {
 }
 
 .bg-checkbox .ball {
-	background-color: green;
 	border-radius: 15px;
 	position: absolute;
     z-index: 10;
@@ -233,8 +258,3 @@ html,body {
 .checkbox:checked + .bg-checkbox .ball {
 	transform: translateX(100%);
 }
-
-
-
-
-
