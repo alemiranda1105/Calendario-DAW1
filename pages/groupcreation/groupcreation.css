@@ -8,6 +8,11 @@ h1{
 #nGroup{
     text-align: center;
     margin: 3vh;
+    
+}
+
+#nGroup input{
+    width: 25vw;
 }
 
 .card {
