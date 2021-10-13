@@ -2,9 +2,13 @@ body{
     text-align: center;
 }
 
-
+h1{
+    margin:5vh 0px;
+}
 #nGroup{
     text-align: center;
+    margin: 3vh;
+    
 }
 
 .card {
@@ -13,7 +17,7 @@ body{
     border-radius: 15px;
     padding: 0.5rem;
     margin: auto;
-    width: 45vw;
+    width: 60vw;
     height: fit-content;
     text-align: center;
 }
@@ -23,15 +27,10 @@ body{
     margin-bottom: 10vh;
 }
 
-#nGroup {
-    margin: 3vh;
-}
-
-
 #textareas, #textareas input{
     text-align: left;
     margin-bottom: 2vh;
-    width: 25vw;
+    width: 40vw;
 }
 
 input[id="list"]{
@@ -57,3 +56,11 @@ img:hover{
     transition: 70ms ease;
 }
 
+#textareas{
+
+}
+#textareas li:hover{
+    background-color: lightblue;
+    transform: scale(1.02);
+    transition: 70ms ease;
+}
