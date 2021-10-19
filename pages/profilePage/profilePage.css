@@ -3,9 +3,17 @@ html,body{
     height: 100%;
 }
 
-.btn-close {
+#goBack {
     margin-top: 20px;
     margin-left: 20px;
+    width: 20px;
+    height: 20px;
+    transition: all linear 200ms;
+}
+
+#goBack:hover{
+    width: 30px;
+    height: 30px;
 }
 
 #main {
@@ -14,7 +22,7 @@ html,body{
 }
 
 #bgProfile{
-    margin-top: 20px;
+    margin: 30px 0px;
     background-color: gray;
     width: 80%;
     min-height: 80%;
@@ -66,4 +74,10 @@ html,body{
 
 .friendComponent {
     max-width: 5em;
+    transition: ease-in 100ms;
+}
+
+.friendComponent:hover{
+    cursor: pointer;
+    transform: translateY(-7px);
 }

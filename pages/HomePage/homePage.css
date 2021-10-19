@@ -2,6 +2,7 @@
 
 html,body {
     margin:0px;
+    height: 100%;
 }
 
 .mainContainer {
@@ -21,15 +22,13 @@ html,body {
 /** ------------------- CALENDARIO -------------------*/
 #divCalendario {
     width: 100%;
-    min-height: 60%;
+    min-height: 80%;
     padding: 2em;
 }
 .calendar {
     background: #4ECDC4;
     min-width: 100%;
-    height: 100%;
-    margin: 1em auto;
-    padding: .5em 0; 
+    margin: 0.7em auto;
 }
 
 .calendar__info {
@@ -38,22 +37,26 @@ html,body {
     justify-content: center;
     align-items: center;
     padding: 0 2em;
-    font-size: 2.5vw;
+    font-size: 2.3vw;
     text-transform: uppercase; 
 }
 
 .calendar__prev, .calendar__next {
     color: #C7F464;
     cursor: pointer;
-    font-size: 1em; 
+    font-size: 1.5rem;
 }
 
 .calendar__prev {
-    margin-right: 0px; 
+    width: 100%;
+    margin-left: auto;
 }
 
 .calendar__next {
-    margin-left: 0px; 
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-right: auto;
 }
 
 .calendar__week, .calendar__dates {
@@ -70,13 +73,12 @@ html,body {
     padding: 0em .5em; 
     font-size: 2em;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
 }
 
 .calendar__item {
     text-align: center;
+    font-weight: bold;
     line-height: 3.7em; 
 }
 
@@ -84,7 +86,7 @@ html,body {
     background: lightcoral;
     color: white;
     width: 100%;
-    border-radius: 50%;
+    border-radius: 20px;
     margin: auto; 
 }
 
@@ -217,7 +219,6 @@ html,body {
 }
 
 #btnLogout:active {
-
     transition: all ease-out 10ms;
     box-shadow: 0 1px rgb(224, 23, 56);
     transform: translateY(4px);
@@ -232,8 +233,6 @@ html,body {
 }
 
 #divBtnFooter{
-    min-height: 100%;
-    background-color: brown;
 }
 
 .customBtn {
