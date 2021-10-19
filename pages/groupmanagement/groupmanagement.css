@@ -1,13 +1,19 @@
 body{
     text-align: center;
+    background-image: url("/img/fondo1.png");
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
 }
 
 h1{
-    margin:5vh 0px;
+    margin: 5vh 60vh;
+    background-color: rgb(39, 55, 78);
+    color: white;
 }
 
 .card {
-    background-color: grey;
+    background-color: rgb(39, 55, 78);
     border: 2px solid clear;
     border-radius: 15px;
     padding: 0.5rem;
@@ -17,17 +23,16 @@ h1{
     text-align: center;
 }
 
-.card h3 {
-    margin-top: 5vh;
-    margin-bottom: 10vh;
-}
-
 .fila{
-    background-color: white;
+    background-color: whitesmoke;
     border-radius: 15px;
     margin-top: 2vh;
     margin-bottom: 2vh;
     padding: 2vh;
+}
+.fila:hover{
+    transform: scale(1.005);
+    transition: 70ms ease;
 }
 
 #textareas{
@@ -48,7 +53,7 @@ button{
     margin-top: 1vh;
 }
 button:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: 70ms ease;
 }
 
@@ -59,8 +64,6 @@ img{
 }
 
 img:hover{
-    transform: scale(1.4);
+    transform: scale(1.05);
     transition: 70ms ease;
 }
-
-
