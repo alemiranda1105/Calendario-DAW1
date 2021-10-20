@@ -1,3 +1,5 @@
+
+
 #divGoBack{
     position: absolute;
     margin-top: 1em;
@@ -16,17 +18,14 @@
 }
 
 #main {
-    min-width: 100vw;
+    min-width: 90vw;
     min-height: 100vh;
 }
 
 #bgProfile{
     margin-top: 4.5rem;
-    margin-right: 3em;
-    margin-left: 3em;
-    margin-bottom: 10px;
-    background-color: gray;
-    width: 100%;
+    margin-bottom: 10px;;
+    width: 80%;
     border-radius: 15px;
 }
 
@@ -54,6 +53,7 @@
 
 
 .dataProfileTxt {
+    color: white;
     font-size: 1.1em;
     font-weight: bold;
     text-align: justify;
