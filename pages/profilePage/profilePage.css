@@ -7,14 +7,14 @@
 }
 
 #goBack {
-    width: 20px;
-    height: 20px;
+    width: 2rem;
+    height: 2rem;
     transition: all linear 200ms;
 }
 
 #goBack:hover{
-    width: 30px;
-    height: 30px;
+    width: 4rem;
+    height: 4rem;
 }
 
 #main {

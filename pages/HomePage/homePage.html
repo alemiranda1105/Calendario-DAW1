@@ -21,7 +21,7 @@
     <div class="mainContainer d-flex bg-image">
         <div id="divMainContent" class="animate__animated animate__fadeIn">
             <div id="divCalendario" class="d-flex">
-                <div class="calendar">
+                <div class="calendar bg-blue">
                     <div class="calendar__info">
                         <div class="calendar__prev" id="prev-month">&#9664;</div>
                         <div class="calendar__month" id="month"></div>
@@ -31,13 +31,13 @@
                 
                     <div class="calendar__week">
                         
-                        <div class="calendar__day calendar__item">Lun</div>
-                        <div class="calendar__day calendar__item">Mar</div>
-                        <div class="calendar__day calendar__item">Mier</div>
-                        <div class="calendar__day calendar__item">Jue</div>
-                        <div class="calendar__day calendar__item">Vie</div>
-                        <div class="calendar__day calendar__item">Sáb</div>
-                        <div class="calendar__day calendar__item">Dom</div>
+                        <div class="calendar__day ">Lun</div>
+                        <div class="calendar__day ">Mar</div>
+                        <div class="calendar__day ">Mier</div>
+                        <div class="calendar__day ">Jue</div>
+                        <div class="calendar__day ">Vie</div>
+                        <div class="calendar__day ">Sáb</div>
+                        <div class="calendar__day ">Dom</div>
                         
                         
                     </div>
@@ -55,15 +55,15 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                <button class="customBtn btn-success mb-2">Crear evento</button>
+                                <button class="customBtn bg-blue mb-2">Crear evento</button>
                             </div>
                             
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                <button class="customBtn btn-success mb-2">Crear Grupo</button>
+                                <button class="customBtn bg-blue mb-2">Crear Grupo</button>
                             </div>
 
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                <button class="customBtn btn-success mb-2">Gestionar Grupos</button>
+                                <button class="customBtn bg-blue mb-2">Gestionar Grupos</button>
                             </div>
 
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
@@ -74,13 +74,12 @@
                                         <img src="/img/individual_icon.svg" class="icon-custom"></img>
                                         <span class="spacer"></span>
                                         <img src="/img/group_icon.svg" class="icon-custom"></img>
-                                        <div class="ball btn-success"></div>
+                                        <div class="ball bg-blue"></div>
                                     </label>
                                     
                                 </div>
                             </div>
 
-                            
                         </div>
                     </div>
                 </div>
@@ -89,10 +88,8 @@
         </div>
 
         <aside id="sidebar" class="bg-grey">
-            <div class="">
-                <img id="toggleMenu" src="/img/menu_white.svg" alt="">
-            </div>
             <div id="divImg">
+                <img id="toggleMenu" src="/img/menu_white.svg" alt="">
                 <span class="spacer"></span>
                 <a href="/pages/profilePage/profilePage.html">
                     <img class="customImg" src="/img/avatar.png" alt="">
@@ -101,7 +98,7 @@
 
             <h3 id="eventsTitle" class="text-justify ">Próximos Eventos</h3>
             <div class="divisor"></div>
-            <div class="d-flex flex-column justify-content-center align-items-center">
+            <div id="listMain" class="d-flex flex-column justify-content-center align-items-center">
                 <ul class="ulNearEvent">
 
                     <li class="nearEvent bg-orange">evento de prueba</li>
@@ -109,6 +106,11 @@
                     <li class="nearEvent bg-orange">evento de prueba</li>
                     <li class="nearEvent bg-orange">evento de prueba</li>
                     <li class="nearEvent bg-orange">evento de prueba</li>
+                    <li class="nearEvent bg-orange">evento de prueba</li>
+
+                   
+
+
                 </ul>
 
                 

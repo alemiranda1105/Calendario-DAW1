@@ -23,16 +23,16 @@ nextMonthDOM.addEventListener('click', ()=>nextMonth());
 const writeMonth = (month) => {
 
     for(let i = startDay(); i>0;i--){
-        dates.innerHTML += ` <div id="meses" class="calendar__date calendar__item calendar__last-days">
+        dates.innerHTML += ` <div id="meses" class="calendar__dates calendar__item calendar__last-days">
             ${getTotalDays(monthNumber-1)-(i-1)}
         </div>`;
     }
 
     for(let i=1; i<=getTotalDays(month); i++){
         if(i===currentDay) {
-            dates.innerHTML += ` <div class="calendar__date calendar__item calendar__today">${i}</div>`;
+            dates.innerHTML += ` <div class="calendar__dates calendar__item calendar__today">${i}</div>`;
         }else{
-            dates.innerHTML += ` <div class="calendar__date calendar__item">${i}</div>`;
+            dates.innerHTML += ` <div class="calendar__dates calendar__item">${i}</div>`;
         }
     }
 }
@@ -79,7 +79,6 @@ const nextMonth = () => {
         monthNumber = 0;
         currentYear++;
     }
-
     setNewDate();
 }
 
@@ -99,8 +98,8 @@ const btnToggle = document.querySelector('.toggle-btn');
 const btnToggleMenu = document.querySelector('#toggleMenu');
 
 btnToggle.addEventListener('click', function () {
-  document.getElementById('sidebar').classList.toggle('active');
-  document.getElementById('divMainContent').classList.toggle('active');
+    document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('divMainContent').classList.toggle('active');
 });
 
 btnToggleMenu.addEventListener('click', function () {
