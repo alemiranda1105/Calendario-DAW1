@@ -1,19 +1,12 @@
 body{
-    text-align: center;
-    background-image: url("/img/fondo1.png");
-    background-size: cover;
-    background-repeat:no-repeat;
-    background-position: center center;
+    
 }
 
 h1{
-    margin: 5vh 60vh;
-    background-color: rgb(39, 55, 78);
-    color: white;
+    margin: 5vh auto;
 }
 
 .card {
-    background-color: rgb(39, 55, 78);
     border: 2px solid clear;
     border-radius: 15px;
     padding: 0.5rem;
@@ -51,7 +44,9 @@ input[id="list"]{
 button{
     margin-bottom: 1vh;
     margin-top: 1vh;
+    transition: 7000ms ease;
 }
+
 button:hover{
     transform: scale(1.05);
     transition: 70ms ease;
