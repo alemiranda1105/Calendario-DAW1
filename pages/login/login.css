@@ -1,4 +1,5 @@
 h1 {
+    margin: 10px;
     font-size: 3rem;
 }
 
@@ -9,12 +10,14 @@ h2 {
 .card {
     display: flex;
     flex-direction: column;
-    border: 2px solid clear;
+    border-style: none;
     border-radius: 15px;
     padding: 0.5rem;
+    margin-top: 30px;
     width: 60vw;
-    height: 85vh;
+    height: 65vh;
     text-align: center;
+    box-shadow: 0 0 20px #353535;
 }
 
 .card h2 {
@@ -29,16 +32,6 @@ h2 {
     border-style: none;
     border: 2px solid clear;
     border-radius: 8px;
-}
-
-.card form button[type="submit"] {
-    margin-top: 10vh;
-    border: 2px solid clear;
-    border-radius: 15px;
-    border-style: none;
-    padding: 1.3vw;
-    width: 32vw;
-    font-size: 2.22vh;
 }
 
 .card div {
@@ -63,6 +56,30 @@ h2 {
 
 .title {
     text-align: center;
+}
+
+#logBtn {
+    margin-top: 20px;
+    border: 2px solid clear;
+    border-radius: 15px;
+    border-style: none;
+    padding: 1.3vw;
+    width: 32vw;
+    max-width: 350px;
+    font-size: 2.25vh;
+    transition: 70ms ease;
+}
+
+@media (max-width: 600px) {
+    #logBtn {
+        margin-top: 15px;
+    }
+}
+
+#logBtn:hover {
+    border-radius: 10px;
+    transform: scale(1.05);
+    transition: 70ms ease;
 }
 
 #switchLabel {
