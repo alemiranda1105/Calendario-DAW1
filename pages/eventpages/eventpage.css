@@ -23,7 +23,6 @@ textarea {
 }
 
 .card {
-    background-color: grey;
     border: 2px solid clear;
     border-radius: 15px;
     padding: 0.5rem;
@@ -51,7 +50,6 @@ textarea {
     border-radius: 10px;
     border-style: none;
     margin-bottom: 1.75rem;
-    background-color: #00c968;
 }
 
 #save-btn {
