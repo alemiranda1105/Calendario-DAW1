@@ -9,7 +9,6 @@ h2 {
 .card {
     display: flex;
     flex-direction: column;
-    background-color: grey;
     border: 2px solid clear;
     border-radius: 15px;
     padding: 0.5rem;
@@ -36,9 +35,7 @@ h2 {
     margin-top: 10vh;
     border: 2px solid clear;
     border-radius: 15px;
-    color: white;
     border-style: none;
-    background-color: rgb(97, 23, 124);
     padding: 1.3vw;
     width: 32vw;
     font-size: 2.22vh;
