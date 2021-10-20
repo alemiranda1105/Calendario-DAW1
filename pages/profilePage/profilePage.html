@@ -10,10 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <a href="/pages/HomePage/homePage.html">
-        <img id="goBack" src="/img/goBack.svg" alt="Volver">
-    </a>
-
+    
+    <div id="divGoBack" class="d-flex align-items-start">
+        <a href="/pages/HomePage/homePage.html">
+            <img id="goBack" src="/img/goBack.svg" alt="Volver">
+        </a>
+    </div>
+    
     <div id="main" class="d-flex justify-content-center align-items-center">
         <div id="bgProfile" class="d-flex flex-column align-items-center">
 
@@ -23,30 +26,16 @@
 
             <div id="bodyProfile" class="d-flex flex-column align-items-center">
 
-                <div id="dataProfile">
-                    
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <p class="dataProfileTxt">Nombre:</p>
-                        </div>
-
-                        <div class="col-md-6 col-lg-6">
-                            <p class="dataProfileTxt">Emilio Martel Díaz </p>
-                        </div>
+                <div id="dataProfile" class="d-flex justify-content-center">
+                    <div class="">
+                        <p class="dataProfileTxt">Nombre:</p>
+                        <p class="dataProfileTxt">Email:</p>
                     </div>
                 
-
-                
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <p class="dataProfileTxt">Email:</p>
-                        </div>
-
-                        <div class="col-md-6 col-lg-6">
-                            <p class="dataProfileTxt">test1@test.com</p>
-                        </div>
+                    <div class="">
+                        <p class="dataProfileTxt">Emilio Martel Díaz </p>
+                        <p class="dataProfileTxt">test1@test.com</p>
                     </div>
-                    
                 </div>
                 
                 <div id="friendList">
@@ -158,9 +147,9 @@
                         
 
                     </div>
-
             
                 </div>
+                
             </div>
         </div>
     </div>
