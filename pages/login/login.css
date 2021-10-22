@@ -15,7 +15,7 @@ h2 {
     padding: 0.5rem;
     margin-top: 30px;
     width: 60vw;
-    height: 65vh;
+    height: max-content;
     text-align: center;
     box-shadow: 0 0 20px #353535;
 }

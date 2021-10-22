@@ -1,6 +1,6 @@
 h1 {
+    margin: 10px;
     font-size: 3rem;
-    margin: 1.5vh;
 }
 
 h2 {
@@ -23,12 +23,16 @@ textarea {
 }
 
 .card {
-    border: 2px solid clear;
+    display: flex;
+    flex-direction: column;
+    border-style: none;
     border-radius: 15px;
     padding: 0.5rem;
+    margin-top: 30px;
     width: 60vw;
-    height: fit-content;
+    height: max-content;
     text-align: center;
+    box-shadow: 0 0 20px #353535;
 }
 
 #eventDescription {
@@ -53,9 +57,21 @@ textarea {
 }
 
 #save-btn {
-    margin-top: 7.5vh;
+    margin-top: 20px;
+    border: 2px solid clear;
+    border-radius: 15px;
+    border-style: none;
+    padding: 1vw;
+    width: 32vw;
+    max-width: 350px;
+    font-size: 2.25vh;
+    transition: 70ms ease;
+}
+
+#save-btn:hover {
     border-radius: 10px;
-    width: 60%;
+    transform: scale(1.05);
+    transition: 70ms ease;
 }
 
 ::-webkit-input-placeholder {
