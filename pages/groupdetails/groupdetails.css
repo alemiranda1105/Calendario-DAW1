@@ -11,19 +11,13 @@ h1{
 }
 
 .card {
-    background-color: grey;
     border: 2px solid clear;
     border-radius: 15px;
     padding: 0.5rem;
     margin: auto;
-    width: 60vw;
+    width: 55vw;
     height: fit-content;
     text-align: center;
-}
-
-.card h3 {
-    margin-top: 5vh;
-    margin-bottom: 10vh;
 }
 
 #textareas, #textareas input{
@@ -32,10 +26,13 @@ h1{
     width: 40vw;
 }
 
-input[id="list"]{
-    height: 30vh;
-    text-align: left;
+#textareas li:hover{
+    background-color: lightblue;
+    transform: scale(1.02);
+    transition: 70ms ease;
+    cursor: pointer;
 }
+
 button{
     margin-bottom: 2vh;
 }
@@ -55,9 +52,3 @@ img:hover{
     transition: 70ms ease;
 }
 
-#textareas li:hover{
-    background-color: lightblue;
-    transform: scale(1.02);
-    transition: 70ms ease;
-    cursor: pointer;
-}
