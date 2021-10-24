@@ -2,8 +2,8 @@
 
 html,body {
     margin:0px;
+    min-height: 100vh;
 }
-
 .mainContainer {
     width: 100%;
     height: 100%;   
@@ -11,6 +11,7 @@ html,body {
 
 #divMainContent {
     width: 100%;
+    min-height: 100vh;
     transition: all linear 300ms;
 }
 
@@ -21,15 +22,13 @@ html,body {
 /** ------------------- CALENDARIO -------------------*/
 #divCalendario {
     width: 100%;
-    min-height: 60%;
     padding: 2em;
 }
 .calendar {
-    background: #4ECDC4;
     min-width: 100%;
-    height: 100%;
-    margin: 1em auto;
-    padding: .5em 0; 
+
+    margin-top: 0.7em;
+    box-shadow: 0px 0px 3px black;
 }
 
 .calendar__info {
@@ -38,31 +37,48 @@ html,body {
     justify-content: center;
     align-items: center;
     padding: 0 2em;
-    font-size: 2.5vw;
+    font-size: 2.3vw;
     text-transform: uppercase; 
 }
 
 .calendar__prev, .calendar__next {
     color: #C7F464;
     cursor: pointer;
-    font-size: 1em; 
+    font-size: 1.5rem;
 }
 
 .calendar__prev {
-    margin-right: 0px; 
+    width: 100%;
+    margin-left: auto;
 }
 
 .calendar__next {
-    margin-left: 0px; 
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-right: auto;
 }
 
-.calendar__week, .calendar__dates {
+.calendar__week {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-gap: 10px; 
-    width: 100%;
-    font-size: auto;
+    font-size: 1em;
+}
+
+.calendar__day {
     text-align: center;
+    font-size: 1.2em;
+
+}
+
+.calendar__dates {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 8em;
+    box-shadow: 0px 0px 2px black;
+    background-color: white;
+    font-size: auto;
 }
 
 
@@ -70,21 +86,19 @@ html,body {
     padding: 0em .5em; 
     font-size: 2em;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
 }
 
 .calendar__item {
     text-align: center;
-    line-height: 3.7em; 
+    font-weight: bold;
+    line-height: 3.7em;
 }
 
 .calendar__today {
     background: lightcoral;
     color: white;
     width: 100%;
-    border-radius: 50%;
     margin: auto; 
 }
 
@@ -109,9 +123,17 @@ html,body {
     margin-top: 20px;
     margin-right: 20px;
     border-radius: 5rem;
+    transition: all linear 200ms;
+}
+
+.customImg:hover {
+    height: 6rem;
+    width: 6rem;
+    box-shadow: 0px 0px 30px white;
 }
 
 #eventsTitle {
+    margin-left: 20px;
     color: white;
     padding: 5px;
 }
@@ -125,9 +147,10 @@ html,body {
 }
 
 .nearEvent {
-    background-color: rgb(204, 63, 63);
     margin-bottom: 10px;
     border-radius: 10px;
+    height: 5em;
+    
     color: black;
 }
 
@@ -135,14 +158,13 @@ html,body {
     position: fixed;
     width: 0%;
     height: 100%;
-    background: black;
     right: 0px;
     transition: all linear 300ms;
 }
   
 #sidebar.active {
     width: 100%;
-    background-color: rgb(48, 46, 46);
+    
 }
   
 #sidebar ul li {
@@ -179,15 +201,39 @@ html,body {
 }
 
 #btnConfig{
-    width: 100%;
-
+    display: flex;
+    width: 90%;
 }
   
 #btnLogout{
-    width: 100%;
     height: 50px;
+    width: 8rem;
     border-radius: 10px;
-    margin: 20px;
+    font-size: large;
+    font-weight: bold;
+    transition: all linear 300ms;
+}
+
+#btnLogout:hover {
+    width: 9rem;
+    height: 60px;
+    background-color: transparent;
+    font-weight: bold;
+    color: rgba(255, 0, 0, 0.815);
+    box-shadow: 0px 5px rgb(224, 23, 56);
+    
+}
+
+.divisor{
+    height: 1px;
+    margin: 15px 25px;
+    background-color: white;
+}
+
+#btnLogout:active {
+    transition: all ease-out 10ms;
+    box-shadow: 0 1px rgb(224, 23, 56);
+    transform: translateY(4px);
 }
 
 
@@ -198,16 +244,13 @@ html,body {
     width: 100%;
 }
 
-#divBtnFooter{
-    min-height: 100%;
-    background-color: brown;
-}
-
 .customBtn {
-    margin: 5px;
-    width: 8em;
-    height: 3em;
+    margin: 3px;
+    width: 15em;
+    height: 4em;
     border-radius: 10px;
+    color: black;
+    font-weight: bold;
     border: none;
 }
 /** ---------------------- SWITCH BUTTON --------*/
@@ -229,7 +272,7 @@ html,body {
 }
 
 .bg-checkbox {
-	background-color: white;
+	background-color: grey;
 	border-radius: 50px;
 	cursor: pointer;
     display: flex;
