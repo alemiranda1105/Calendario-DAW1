@@ -1,0 +1,83 @@
+h1 {
+    margin: 10px;
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+input[type="text"] {
+    width: 40vw;
+    padding: 1.5vh;
+    border-radius: 10px;
+}
+
+textarea {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.title {
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-style: none;
+    border-radius: 15px;
+    padding: 0.5rem;
+    margin-top: 30px;
+    width: 60vw;
+    height: max-content;
+    text-align: center;
+    box-shadow: 0 0 20px #353535;
+}
+
+#eventDescription {
+    width: 40vw;
+    border-radius: 10px;
+}
+
+#group-selector {
+    background-color: white;
+    width: 70%;
+}
+
+#date-div {
+    width: 40vw;
+}
+
+#date-div input[type="date"] {
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+    margin-bottom: 1.75rem;
+}
+
+#save-btn {
+    margin-top: 20px;
+    border: 2px solid clear;
+    border-radius: 15px;
+    border-style: none;
+    padding: 1vw;
+    width: 32vw;
+    max-width: 350px;
+    font-size: 2.25vh;
+    transition: 70ms ease;
+}
+
+#save-btn:hover {
+    border-radius: 10px;
+    transform: scale(1.05);
+    transition: 70ms ease;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+  
+::-moz-placeholder {
+    text-align: center;
+}
