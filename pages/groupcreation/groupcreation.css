@@ -17,6 +17,8 @@ h1{
 .card {
     border: 2px solid clear;
     border-radius: 15px;
+    border-style: none;
+    box-shadow: 0 0 20px #353535;
     padding: 0.5rem;
     margin: auto;
     width: 55vw;
@@ -39,8 +41,10 @@ h1{
 
 
 button{
+    font-weight: bold;
     margin-bottom: 2vh;
 }
+
 button:hover{
     transform: scale(1.1);
     transition: 70ms ease;
