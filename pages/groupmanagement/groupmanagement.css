@@ -1,0 +1,57 @@
+h1{
+    margin: 5vh auto;
+}
+
+.card {
+    border: 2px solid clear;
+    border-radius: 15px;
+    border-style: none;
+    box-shadow: 0 0 20px #353535;
+    padding: 0.5rem;
+    margin: auto;
+    width: 90%;
+    height: fit-content;
+    text-align: center;
+}
+
+.fila{
+    background-color: whitesmoke;
+    border-radius: 15px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 1vh;
+}
+
+.fila:hover{
+    transform: scale(1.005);
+    transition: 70ms ease;
+}
+
+#textareas{
+    text-align: left;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    width: 95%;
+}
+
+button{
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    transition: 7000ms ease;
+}
+
+button:hover{
+    transform: scale(1.05);
+    transition: 70ms ease;
+}
+
+img{
+    margin-left: 2vh;
+    height: 4vh;
+    width: 4vh;
+}
+
+img:hover{
+    transform: scale(1.05);
+    transition: 70ms ease;
+}

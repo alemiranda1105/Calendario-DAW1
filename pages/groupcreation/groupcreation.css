@@ -1,0 +1,64 @@
+body{
+    text-align: center;
+}
+
+h1{
+    margin:5vh 0px;
+}
+#nGroup{
+    text-align: center;
+    margin: 3vh;
+}
+
+#nGroup input{
+    width: 25vw;
+}
+
+.card {
+    border: 2px solid clear;
+    border-radius: 15px;
+    border-style: none;
+    box-shadow: 0 0 20px #353535;
+    padding: 0.5rem;
+    margin: auto;
+    width: 55vw;
+    height: fit-content;
+    text-align: center;
+}
+
+#textareas, #textareas input{
+    text-align: left;
+    margin-bottom: 2vh;
+    width: 40vw;
+}
+
+#textareas li:hover{
+    background-color: lightblue;
+    transform: scale(1.02);
+    transition: 70ms ease;
+    cursor: pointer;
+}
+
+
+button{
+    font-weight: bold;
+    margin-bottom: 2vh;
+}
+
+button:hover{
+    transform: scale(1.1);
+    transition: 70ms ease;
+}
+
+img{
+    margin-left: 2vh;
+    height: 4vh;
+    width: 4vh;
+}
+
+img:hover{
+    transform: scale(1.4);
+    transition: 70ms ease;
+}
+
+

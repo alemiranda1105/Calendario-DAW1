@@ -1,0 +1,31 @@
+.bg-grey {
+    background-color: #495965;
+}
+
+.bg-blue {
+    background-color: #3EA9F5;
+}
+
+.bg-white {
+    background-color: #FCFDF8;
+}
+
+.bg-orange {
+    background-color: #F37E0D;
+}
+
+.c-grey {
+    color: #495965;
+}
+
+.c-blue {
+    color: #3EA9F5;
+}
+
+.c-white {
+    color: #FCFDF8;
+}
+
+.c-orange {
+    color: #F37E0D;
+}
