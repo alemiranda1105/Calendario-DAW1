@@ -5,6 +5,7 @@ body{
     background-position: center center;
 }
 h1 {
+    margin: 10px;
     font-size: 3rem;
 }
 
@@ -13,14 +14,16 @@ h2 {
 }
 
 .card {
-    background-color: grey;
-    border: 2px solid clear;
+    display: flex;
+    flex-direction: column;
+    border-style: none;
     border-radius: 15px;
     padding: 0.5rem;
-    margin: auto;
-    width: 45vw;
-    height: fit-content;
+    margin-top: 30px;
+    width: 60vw;
+    height: max-content;
     text-align: center;
+    box-shadow: 0 0 20px #353535;
 }
 
 .card h2 {
@@ -29,7 +32,7 @@ h2 {
 }
 
 .card form input[type="text"], .card form input[type="password"] {
-    width: 75%;
+    width: 40vw;
     padding: 12px 10px;
     margin: 1vh;
     border-style: none;
@@ -37,28 +40,52 @@ h2 {
     border-radius: 8px;
 }
 
-.card form button[type="submit"] {
-    margin-top: 18vh;
-    border: 2px solid clear;
-    border-radius: 15px;
-    color: white;
-    border-style: none;
-    background-color: rgb(97, 23, 124);
-    padding: 1.8vw;
-    width: 35vw;
-    font-size: 2vh;
-}
-
-.card form input[type="text"]:hover {
-    box-shadow: 5px 10px #888;
-}
-
 .card div {
-    width: 75%;
+    width: 75vw;
+}
+
+.card .form-check {
+    display: flex;
+    padding-left: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    width: 32vw;
+    margin: auto !important;
+}
+.form-check input[type="checkbox"] {
+    margin: 0;
+    margin-right: 1vw;
 }
 
 .title {
     text-align: center;
+}
+
+#logBtn {
+    margin-top: 20px;
+    border: 2px solid clear;
+    border-radius: 15px;
+    border-style: none;
+    padding: 1.3vw;
+    width: 32vw;
+    max-width: 350px;
+    font-size: 2.25vh;
+    transition: 70ms ease;
+}
+
+@media (max-width: 600px) {
+    #logBtn {
+        margin-top: 15px;
+    }
+}
+
+#logBtn:hover {
+    border-radius: 10px;
+    transform: scale(1.05);
+    transition: 70ms ease;
 }
 
 #switchLabel {
