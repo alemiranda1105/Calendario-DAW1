@@ -25,7 +25,7 @@ h2 {
     margin-bottom: 10vh;
 }
 
-.card form input[type="text"], .card form input[type="password"] {
+.txt-input {
     width: 40vw;
     padding: 12px 10px;
     margin: 1vh;
@@ -58,6 +58,10 @@ h2 {
     text-align: center;
 }
 
+.title-sm {
+    display: none;
+}
+
 #logBtn {
     margin-top: 20px;
     border: 2px solid clear;
@@ -70,12 +74,6 @@ h2 {
     transition: 70ms ease;
 }
 
-@media (max-width: 600px) {
-    #logBtn {
-        margin-top: 15px;
-    }
-}
-
 #logBtn:hover {
     border-radius: 10px;
     transform: scale(1.05);
@@ -84,4 +82,50 @@ h2 {
 
 #switchLabel {
     padding: 10px;
+}
+
+@media (max-width: 600px) {
+    .title {
+        display: none;
+    }
+    .title-sm {
+        display: block;
+        font-size: min(11.5vw, 50px);
+    }
+    .card {
+        width: 90vh;
+        height: 90vh;
+        margin: 2vh;
+        background-color: rgba(73, 89, 101, 0.6);
+    }
+    .txt-input {
+        width: min(85vw, 300px);
+    }
+    .form-check {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+    .card .form-check {
+        display: initial;
+        align-items: center;
+        width: 80vw;
+        margin: auto !important;
+    }
+    .form-check input[type="checkbox"] {
+        margin: 0;
+        margin-right: 1vw;
+    }
+    #login-txt {
+        font-size: min(9.5vw, 40px);
+    }
+    #logBtn {
+        border-radius: 7.5px;
+        padding: 10px;
+        width: min(50vw, 190px);
+        margin-top: 5vh;
+    }
+    #logBtn:hover {
+        border-radius: 5px;
+    }
 }
