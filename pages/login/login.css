@@ -67,9 +67,9 @@ h2 {
     border: 2px solid clear;
     border-radius: 15px;
     border-style: none;
-    padding: 1.3vw;
+    padding: min(1.3vw, 13px);
     width: 32vw;
-    max-width: 350px;
+    max-width: 320px;
     font-size: 2.25vh;
     transition: 70ms ease;
 }
