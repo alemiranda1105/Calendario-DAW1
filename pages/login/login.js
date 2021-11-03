@@ -5,6 +5,8 @@ const emailTxt = document.getElementById('email');
 const passTxt = document.getElementById('password');
 const showPassword = document.getElementById('showPassword');
 
+const URL = "http://localhost:8000/users";
+
 if(showPassword !== null) {
     showPassword.addEventListener('click', (e) => {
         if(passTxt.type === "password") {
@@ -82,20 +84,21 @@ $('#loginForm').submit((e) => {
         "password": pass
     };
 
-    /*fetch("url", {
-        method: 'POST',
-        body: data
-    })
+    console.log(user, pass);
+    fetch(URL)
     .then(res => res.json())
     .then(data => {
-        if(data.error) {
-            const errorTxt = document.getElementById("errorTxt");
-            errorTxt.innerText = data.error;
-            errorTxt.style.display = "block";
-        } else {
-            // Crear JWT ¿?
-            window.location.href = "/pages/HomePage/homePage.html";
+        for(const [key, value] of Object.entries(data)) {
+            if(value.username === user && value.password === pass) {
+                window.location.href = "/pages/HomePage/homePage.html/";
+                return;
+            }
         }
-    });*/
-    window.location.href = "/pages/HomePage/homePage.html";
+        throw 'Usuario y/o contraseña incorrecta';
+    })
+    .catch((error) => {
+        const errorTxt = document.getElementById("errorTxt");
+        errorTxt.innerText = error;
+        errorTxt.style.display = "block";
+    });
 });

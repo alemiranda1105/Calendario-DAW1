@@ -46,21 +46,21 @@
       },
       "3": {
         "id": 3,
-        "name": "Drogas",
+        "name": "Gimnasio",
         "users": ["4","5"],
         "events": {
           "1": {
-            "name": "Droga",
+            "name": "Actividad",
             "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
             "date": "10-11-2021"
           },
           "2": {
-            "name": "Droga 2",
+            "name": "Actividad 2",
             "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
             "date": "12-11-2021"
           },
           "3": {
-            "name": "Droga 3",
+            "name": "Actividad 3",
             "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
             "date": "13-11-2021"
           }
