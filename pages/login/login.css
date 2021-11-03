@@ -84,6 +84,13 @@ h2 {
     padding: 10px;
 }
 
+#errorTxt {
+    background-color: rgba(255,0,0,0.75);
+    padding: 12px;
+    border-radius: 20px;
+    display: none;
+}
+
 @media (max-width: 600px) {
     .title {
         display: none;
@@ -127,5 +134,8 @@ h2 {
     }
     #logBtn:hover {
         border-radius: 5px;
+    }
+    #errorTxt {
+        font-size: min(3.5vw, 20px);
     }
 }

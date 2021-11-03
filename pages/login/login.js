@@ -64,3 +64,30 @@ $('#signUpForm').submit((e) => {
     window.location.href = "/pages/HomePage/homePage.html";
 
 });
+
+$('#loginForm').submit((e) => {
+    e.preventDefault();
+    
+    const data = {
+        "user": user,
+        "email": email,
+        "password": pass
+    };
+
+    /*fetch("url", {
+        method: 'POST',
+        body: data
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.error) {
+            const errorTxt = document.getElementById("errorTxt");
+            errorTxt.innerText = data.error;
+            errorTxt.style.display = "block";
+        } else {
+            // Crear JWT ¿?
+            window.location.href = "/pages/HomePage/homePage.html";
+        }
+    });*/
+    window.location.href = "/pages/HomePage/homePage.html";
+});
