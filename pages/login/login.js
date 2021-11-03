@@ -52,26 +52,18 @@ $('#signUpForm').submit((e) => {
     const data = {
         "user": user,
         "email": email,
-        "password": pass
+        "password": pass,
+        "events": []
     };
 
-    /*fetch("url", {
+    fetch(URL, {
         method: 'POST',
-        body: data
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
     })
-    .then(res => res.json())
-    .then(data => {
-        if(data.error) {
-            const errorTxt = document.getElementById("errorTxt");
-            errorTxt.innerText = data.error;
-            errorTxt.style.display = "block";
-        } else {
-            // Crear JWT ¿?
-            window.location.href = "/pages/HomePage/homePage.html";
-        }
-    }
-    });*/
-    window.location.href = "/pages/HomePage/homePage.html";
+    .then(() => {
+        window.location.href = "/pages/HomePage/homePage.html";
+    });
     
 });
 
