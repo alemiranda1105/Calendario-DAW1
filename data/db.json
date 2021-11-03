@@ -1,6 +1,6 @@
 {
-  "groups": {
-    "1": {
+  "groups": [
+    {
       "id": 1,
       "name": "Universidad",
       "users": [
@@ -26,7 +26,7 @@
         }
       }
     },
-    "2": {
+    {
       "id": 2,
       "name": "Furbo",
       "users": [
@@ -51,7 +51,7 @@
         }
       }
     },
-    "3": {
+    {
       "id": 3,
       "name": "Gimnasio",
       "users": [
@@ -76,122 +76,137 @@
         }
       }
     }
-  },
+  ],
   "users": [
     {
       "id": 1,
       "username": "Pepe",
       "email": "pepe@gmail.com",
       "password": "12345",
-      "events": {
-        "1": {
+      "events": [
+        {
           "name": "Examen",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "20-01-2022"
+          "date": "20-01-2022",
+          "id": 1
         },
-        "2": {
+        {
           "name": "Examen 2",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "22-01-2022"
+          "date": "22-01-2022",
+          "id": 2
         },
-        "3": {
+        {
           "name": "Examen 3",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "23-01-2022"
+          "date": "23-01-2022",
+          "id": 3
         }
-      }
+      ]
     },
     {
       "id": 2,
       "username": "Julio",
       "email": "julio@gmail.com",
       "password": "12345",
-      "events": {
-        "1": {
+      "events": [
+        {
           "name": "Examen",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "20-01-2022"
+          "date": "20-01-2022",
+          "id": 1
         },
-        "2": {
+        {
           "name": "Examen 2",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "22-01-2022"
+          "date": "22-01-2022",
+          "id": 2
         },
-        "3": {
+        {
           "name": "Examen 3",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "23-01-2022"
+          "date": "23-01-2022",
+          "id": 3
         }
-      }
+      ]
     },
     {
       "id": 3,
       "username": "Sofia",
       "email": "sofia@gmail.com",
       "password": "12345",
-      "events": {
-        "1": {
+      "events": [
+        {
           "name": "Examen",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "20-01-2022"
+          "date": "20-01-2022",
+          "id": 1
         },
-        "2": {
+        {
           "name": "Examen 2",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "22-01-2022"
+          "date": "22-01-2022",
+          "id": 2
         },
-        "3": {
+        {
           "name": "Examen 3",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "23-01-2022"
+          "date": "23-01-2022",
+          "id": 3
         }
-      }
+      ]
     },
     {
       "id": 4,
       "username": "Tuma",
       "email": "tuma@gmail.com",
       "password": "12345",
-      "events": {
-        "1": {
+      "events": [
+        {
           "name": "Examen",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "20-01-2022"
+          "date": "20-01-2022",
+          "id": 1
         },
-        "2": {
+        {
           "name": "Examen 2",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "22-01-2022"
+          "date": "22-01-2022",
+          "id": 2
         },
-        "3": {
+        {
           "name": "Examen 3",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "23-01-2022"
+          "date": "23-01-2022",
+          "id": 3
         }
-      }
+      ]
     },
     {
       "id": 5,
       "username": "Mastur-bao",
       "email": "mastur.bao@gmail.com",
       "password": "12345",
-      "events": {
-        "1": {
+      "events": [
+        {
           "name": "Examen",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "20-01-2022"
+          "date": "20-01-2022",
+          "id": 1
         },
-        "2": {
+        {
           "name": "Examen 2",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "22-01-2022"
+          "date": "22-01-2022",
+          "id": 2
         },
-        "3": {
+        {
           "name": "Examen 3",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-          "date": "23-01-2022"
+          "date": "23-01-2022",
+          "id": 3
         }
-      }
+      ]
     }
   ]
 }
