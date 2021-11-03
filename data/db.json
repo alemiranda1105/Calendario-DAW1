@@ -192,13 +192,6 @@
           "date": "23-01-2022"
         }
       }
-    },
-    {
-      "user": "ale",
-      "email": "ale@gmail.com",
-      "password": "alejandro",
-      "events": [],
-      "id": 6
     }
   ]
 }

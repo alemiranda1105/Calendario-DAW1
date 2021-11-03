@@ -50,7 +50,7 @@ $('#signUpForm').submit((e) => {
     e.preventDefault();
 
     const data = {
-        "user": user,
+        "username": user,
         "email": email,
         "password": pass,
         "events": []
@@ -70,23 +70,24 @@ $('#signUpForm').submit((e) => {
 $('#loginForm').submit((e) => {
     e.preventDefault();
 
-    const data = {
+    /*const data = {
         "user": user,
         "email": email,
         "password": pass
-    };
+    };*/
 
-    console.log(user, pass);
     fetch(URL)
     .then(res => res.json())
     .then(data => {
-        for(const [key, value] of Object.entries(data)) {
-            if(value.username === user && value.password === pass) {
-                window.location.href = "/pages/HomePage/homePage.html/";
-                return;
-            }
+        data = data.filter((user) => {
+            console.log(user.password, user.username);
+            return (user.username === this.user && user.password === this.pass);
+        });
+        if(data.length < 1) {
+            throw 'Usuario y/o contraseña incorrecta';
         }
-        throw 'Usuario y/o contraseña incorrecta';
+        window.location.href = "/pages/HomePage/homePage.html";
+        return;
     })
     .catch((error) => {
         const errorTxt = document.getElementById("errorTxt");
