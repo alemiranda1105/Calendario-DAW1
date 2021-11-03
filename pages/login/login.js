@@ -53,21 +53,23 @@ $('#signUpForm').submit((e) => {
         "password": pass
     };
 
-    // Envío de datos
-    /* $.post("url", {
-        data: data
-    },
-    function(d, status) {
-        alert("Data: " + d + "\nStatus: " + status);
-    }); */
-
+    /*fetch("url", {
+        method: 'POST',
+        body: data
+    })
+    .then(res => res.json())
+    .then(data => {
+        // Crear JWT ¿?
+        window.location.href = "/pages/HomePage/homePage.html";
+    }
+    });*/
     window.location.href = "/pages/HomePage/homePage.html";
-
+    
 });
 
 $('#loginForm').submit((e) => {
     e.preventDefault();
-    
+
     const data = {
         "user": user,
         "email": email,
