@@ -70,12 +70,9 @@ $('#signUpForm').submit((e) => {
 $('#loginForm').submit((e) => {
     e.preventDefault();
 
-    /*const data = {
-        "user": user,
-        "email": email,
-        "password": pass
-    };*/
-
+    /* CAMBIAR CUANDO EL BACKEND ESTÉ TERMINADO
+       NO ES SEGURO ESTE METODO
+    */
     fetch(URL)
     .then(res => res.json())
     .then(data => {
