@@ -5,13 +5,15 @@ const emailTxt = document.getElementById('email');
 const passTxt = document.getElementById('password');
 const showPassword = document.getElementById('showPassword');
 
-showPassword.addEventListener('click', (e) => {
-    if(passTxt.type === "password") {
-        passTxt.type = "text";
-    } else {
-        passTxt.type = "password";
-    }
-})
+if(showPassword !== null) {
+    showPassword.addEventListener('click', (e) => {
+        if(passTxt.type === "password") {
+            passTxt.type = "text";
+        } else {
+            passTxt.type = "password";
+        }
+    });
+}
 
 userTxt.addEventListener('change', (e) => {
     e.preventDefault();
@@ -35,12 +37,14 @@ if(emailTxt !== null) {
     });
 }
 
-passTxt.addEventListener('change', (e) => {
-    e.preventDefault();
-    pass = e.target.value;
-});
+if(passTxt !== null) {
+    passTxt.addEventListener('change', (e) => {
+        e.preventDefault();
+        pass = e.target.value;
+    });
+}
 
-$('#loginForm').submit((e) => {
+$('#signUpForm').submit((e) => {
     e.preventDefault();
 
     const data = {
@@ -49,11 +53,14 @@ $('#loginForm').submit((e) => {
         "password": pass
     };
 
-    $.post("url", {
+    // Envío de datos
+    /* $.post("url", {
         data: data
     },
     function(d, status) {
         alert("Data: " + d + "\nStatus: " + status);
-    });
+    }); */
+
+    window.location.href = "/pages/HomePage/homePage.html";
 
 });
