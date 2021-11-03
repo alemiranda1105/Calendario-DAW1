@@ -59,8 +59,14 @@ $('#signUpForm').submit((e) => {
     })
     .then(res => res.json())
     .then(data => {
-        // Crear JWT ¿?
-        window.location.href = "/pages/HomePage/homePage.html";
+        if(data.error) {
+            const errorTxt = document.getElementById("errorTxt");
+            errorTxt.innerText = data.error;
+            errorTxt.style.display = "block";
+        } else {
+            // Crear JWT ¿?
+            window.location.href = "/pages/HomePage/homePage.html";
+        }
     }
     });*/
     window.location.href = "/pages/HomePage/homePage.html";
