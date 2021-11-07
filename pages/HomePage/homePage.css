@@ -17,7 +17,8 @@ html,body {
 
 /** ------------------- CALENDARIO -------------------*/
 #divCalendario {
-    min-width: 100vw;
+    min-width: 100%;
+    min-height: 80vh;
     padding: 2em;
 }
 .calendar {
@@ -62,14 +63,14 @@ html,body {
 
 .calendar__day {
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .calendar__dates {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(auto-fill,7em);
+    grid-template-rows: repeat(auto-fit,5em);
     box-shadow: 0px 0px 2px black;
     background-color: white;
     font-size: auto;
