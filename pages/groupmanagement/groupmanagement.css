@@ -63,3 +63,42 @@ a{
 a:hover{
     color: #FCFDF8;
 }
+
+@media (min-width: 700px){
+    .title2{
+        display: none;
+    }
+
+    .nGroup{
+        margin-right: 2vw;
+    }
+
+    .eGroup{
+        margin-inline: 2vw;
+    }
+}
+@media (max-width: 700px) {
+    .title{
+        display: none;
+    }
+    
+    .card {
+        width: 95%;
+        height: 100%;
+        margin: 2vh;
+        background-color: rgba(73, 89, 101, 0.6);
+    }
+
+    .fila{
+        width: 100%;
+    }
+    .nGroup{
+        margin-right: 15vw;
+        margin-left: -5vw;
+        justify-content: left;
+        align-items: left;
+    }
+    .eGroup{
+        margin-inline: 5vw;
+    }
+}
