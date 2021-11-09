@@ -9,7 +9,7 @@ h1{
     box-shadow: 0 0 20px #353535;
     padding: 0.5rem;
     margin: auto;
-    width: 90%;
+    width: 50%;
     height: fit-content;
     text-align: center;
 }
@@ -20,6 +20,7 @@ h1{
     margin-top: 2vh;
     margin-bottom: 2vh;
     padding: 1vh;
+    width: 90%;
 }
 
 .fila:hover{
@@ -54,4 +55,11 @@ img{
 img:hover{
     transform: scale(1.05);
     transition: 70ms ease;
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: #FCFDF8;
 }
