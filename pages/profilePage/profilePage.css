@@ -1,0 +1,106 @@
+
+
+#divGoBack{
+    position: absolute;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+#goBack {
+    width: 2rem;
+    height: 2rem;
+    transition: all linear 200ms;
+}
+
+#goBack:hover{
+    width: 4rem;
+    height: 4rem;
+}
+
+#main {
+    min-width: 90vw;
+    min-height: 100vh;
+}
+
+#bgProfile{
+    margin-top: 4.5rem;
+    margin-bottom: 10px;;
+    width: 80%;
+    border-radius: 15px;
+}
+
+
+#imgProfile{
+    margin-top: -50%;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 25%;
+}
+
+#bodyProfile {
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+}
+
+#dataProfile{
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-auto-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%,7rem),1fr));
+}
+
+
+.dataProfileTxt {
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: justify;
+}
+
+#friendList {
+    width: 100%;
+}
+
+#friendTitle{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.imgFriend {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+}
+
+#friendBody {
+    display: grid;
+    gap: 1rem;
+    grid-auto-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%,7rem),1fr));
+}
+
+.friendComponent {
+    transition: ease-in 100ms;
+}
+
+.friendComponent:hover{
+    cursor: pointer;
+    transform: translateY(-7px);
+}
+
+.friendRequest{ 
+    text-decoration: none;
+    font-size: large;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+}
+
+.friendRequest:hover, .friendRequest:focus{
+    color: #FCFDF8;
+    background-size: 100% 2px;
+}

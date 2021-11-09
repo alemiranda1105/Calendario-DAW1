@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+html,body {
+    margin:0px;
+    min-height: 100vh;
+}
+.mainContainer {
+    width: 100%;
+    height: 100%;   
+}
+
+#divMainContent {
+    width: 100%;
+    min-height: 100vh;
+    transition: all linear 300ms;
+}
+
+#divMainContent.active {
+    width: 100%;
+}
+
+/** ------------------- CALENDARIO -------------------*/
+#divCalendario {
+    width: 100%;
+    padding: 2em;
+}
+.calendar {
+    min-width: 100%;
+
+    margin-top: 0.7em;
+    box-shadow: 0px 0px 3px black;
+}
+
+.calendar__info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2em;
+    font-size: 2.3vw;
+    text-transform: uppercase; 
+}
+
+.calendar__prev, .calendar__next {
+    color: #C7F464;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.calendar__prev {
+    width: 100%;
+    margin-left: auto;
+}
+
+.calendar__next {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-right: auto;
+}
+
+.calendar__week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 1em;
+}
+
+.calendar__day {
+    text-align: center;
+    font-size: 1.2em;
+
+}
+
+.calendar__dates {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 8em;
+    box-shadow: 0px 0px 2px black;
+    background-color: white;
+    font-size: auto;
+}
+
+
+.calendar__month, .calendar__year {
+    padding: 0em .5em; 
+    font-size: 2em;
+    font-weight: bold;
+    
+}
+
+.calendar__item {
+    text-align: center;
+    font-weight: bold;
+    line-height: 3.7em;
+}
+
+.calendar__today {
+    background: lightcoral;
+    color: white;
+    width: 100%;
+    margin: auto; 
+}
+
+.calendar__last-days {
+    opacity: .3; 
+}
+
+/** ---------------------------- MENU ---------------*/
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+#divImg {
+    width: 100%;
+    display: flex;
+}
+
+.customImg {
+    height: 5rem;
+    width: 5rem;
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 5rem;
+    transition: all linear 200ms;
+}
+
+.customImg:hover {
+    height: 6rem;
+    width: 6rem;
+    box-shadow: 0px 0px 30px white;
+}
+
+#eventsTitle {
+    margin-left: 20px;
+    color: white;
+    padding: 5px;
+}
+
+.ulNearEvent{
+    margin-left: 0px;
+    padding: 0px;
+    width: 90%;
+    color: white;
+    font-weight: bold;
+}
+
+.nearEvent {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    height: 5em;
+    
+    color: black;
+}
+
+#sidebar {
+    position: fixed;
+    width: 0%;
+    height: 100%;
+    right: 0px;
+    transition: all linear 300ms;
+}
+  
+#sidebar.active {
+    width: 100%;
+    
+}
+  
+#sidebar ul li {
+    color: rgba(230, 230, 230, .9);
+    list-style: none;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, .3);
+    text-align: center;
+}
+  
+.toggle-btn {
+    position: relative;
+    right: 20px;
+    top: -20px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+  
+#sidebar .toggle-btn {
+    position: absolute;
+    right: 210px;
+    top: 10px;
+}
+
+#toggleMenu{
+    position: relative;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    color: white;
+}
+
+#btnConfig{
+    display: flex;
+    width: 90%;
+}
+  
+#btnLogout{
+    height: 50px;
+    width: 8rem;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: bold;
+    transition: all linear 300ms;
+}
+
+#btnLogout:hover {
+    width: 9rem;
+    height: 60px;
+    background-color: transparent;
+    font-weight: bold;
+    color: rgba(255, 0, 0, 0.815);
+    box-shadow: 0px 5px rgb(224, 23, 56);
+    
+}
+
+.divisor{
+    height: 1px;
+    margin: 15px 25px;
+    background-color: white;
+}
+
+#btnLogout:active {
+    transition: all ease-out 10ms;
+    box-shadow: 0 1px rgb(224, 23, 56);
+    transform: translateY(4px);
+}
+
+
+
+/** --------------- FOOTER --------------- */
+
+#divFooter{
+    width: 100%;
+}
+
+.customBtn {
+    margin: 3px;
+    width: 15em;
+    height: 4em;
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    border: none;
+}
+/** ---------------------- SWITCH BUTTON --------*/
+#divSwitchBtn{
+    margin: 10px 0px;
+}
+
+.icon-custom {
+    position: relative;
+    z-index: 20;
+    border: none;
+    width: 2.3em;
+    height: 22px;
+    border-radius: 20px;
+}
+
+.checkbox {
+	opacity: 0%;
+}
+
+.bg-checkbox {
+	background-color: grey;
+	border-radius: 50px;
+	cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left:-5px;
+	padding: 2px;
+	position: relative;
+	height: 26px;
+	width:5.5em;
+	transform: scale(1.5);
+}
+
+.bg-checkbox .ball {
+	border-radius: 15px;
+	position: absolute;
+    z-index: 10;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .bg-checkbox .ball {
+	transform: translateX(100%);
+}

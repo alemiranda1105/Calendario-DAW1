@@ -1,0 +1,71 @@
+h1{
+    margin: 5vh auto;
+}
+
+.card {
+    border: 2px solid clear;
+    border-radius: 15px;
+    border-style: none;
+    box-shadow: 0 0 20px #353535;
+    padding: 0.5rem;
+    margin: auto;
+    width: 80vw;
+    height: fit-content;
+    text-align: center;
+    max-width: 90vh;
+}
+
+.fila{
+    background-color: whitesmoke;
+    border-radius: 15px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 1vh;
+    width: 70vw;
+    max-width: 80vh;
+}
+
+.fila:hover{
+    transform: scale(1.005);
+    transition: 70ms ease;
+}
+
+.listSolicitudes{
+    text-align: left;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    width: 90%;
+}
+
+button{
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    transition: 7000ms ease;
+    margin: 2px;
+    text-align: right;
+}
+
+button:hover{
+    transform: scale(1.05);
+    transition: 70ms ease;
+}
+.botones{
+    margin-left: 7vh;
+}
+
+#goBack {
+    width: 2rem;
+    height: 2rem;
+    transition: all linear 20ms;    
+    text-decoration: none;
+}
+
+#goBack h6{
+   margin-top: 1.5vh;
+   cursor: pointer;
+}
+
+#goBack:hover{
+    transform: scale(1.05);
+    transition: 70ms ease;
+}
