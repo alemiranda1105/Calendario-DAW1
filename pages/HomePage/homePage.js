@@ -112,7 +112,6 @@ btnToggleMenu.addEventListener('click', function () {
 // CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST
 var datos;
 getData("users").then((data) =>{
-    console.info('Response',data);
     datos = data;
     for(let i = 0; i < data[i].events.length; i++) {
         $(".ulNearEvent").append(`<li class="nearEvent bg-orange">${datos[i].events[i].date}, ${datos[i].events[i].name}</li>`);
