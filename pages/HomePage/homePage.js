@@ -1,4 +1,4 @@
-
+import {getData} from "../../data/db.service.js";
 
 let monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre','Octubre', 'Noviembre', 'Deciembre'];
 
@@ -107,4 +107,15 @@ btnToggle.addEventListener('click', function () {
 btnToggleMenu.addEventListener('click', function () {
     document.getElementById('sidebar').classList.toggle('active');
 });
+
+
+// CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST
+var datos;
+getData("users").then((data) =>{
+    console.info('Response',data);
+    datos = data;
+    for(let i = 0; i < data[i].events.length; i++) {
+        $(".ulNearEvent").append(`<li class="nearEvent bg-orange">${datos[i].events[i].date}, ${datos[i].events[i].name}</li>`);
+    }
+})
 
