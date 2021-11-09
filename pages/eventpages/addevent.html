@@ -19,14 +19,14 @@
                     <h2 id="data-txt" class="c-white">Datos</h2>
                     <form>
                         <div class="form-floating">
-                            <input type="text" class="form-control txt-input" id="eventName" placeholder="Nombre">
+                            <input type="text" class="form-control txt-input" id="eventName" placeholder="Nombre" required>
                             <label for="eventName" class="form-label">Nombre del evento</label>
                         </div>
-                        <textarea class="form-control txt-input" id="eventDescription" rows="5" placeholder="Descripción"></textarea>
+                        <textarea class="form-control txt-input" id="eventDescription" rows="5" placeholder="Descripción" required></textarea>
                         <label for="event-date" class="c-white"><h4>Seleccionar fecha</h4></label><br>
-                        <input type="date" name="event-date" id="event-date">
+                        <input type="date" name="event-date" id="event-date" required>
                         <div class="mb-3">
-                            <select name="group-selector" id="group-selector">
+                            <select name="group-selector" id="group-selector" required>
                                 <option value="none" selected>Individual</option>
                                 <optgroup label="Grupos">
                                 </optgroup>
@@ -39,6 +39,6 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="./eventpages.js"></script>
+        <script src="./addevent.js"></script>
     </body>
 </html>

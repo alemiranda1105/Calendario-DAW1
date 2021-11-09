@@ -53,5 +53,5 @@ $('#save-btn').submit((e) => {
         } else {
             alert("Error");
         }
-    })
+    });
 });
