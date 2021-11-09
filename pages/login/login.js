@@ -7,6 +7,11 @@ const showPassword = document.getElementById('showPassword');
 
 const URL = "http://localhost:8000/users";
 
+function storeSession(data) {
+    data.password = "";
+    sessionStorage.setItem('user', JSON.stringify(data));
+}
+
 if(showPassword !== null) {
     showPassword.addEventListener('click', (e) => {
         if(passTxt.type === "password") {
@@ -61,8 +66,11 @@ $('#signUpForm').submit((e) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
     })
-    .then(() => {
-        window.location.href = "/pages/HomePage/homePage.html";
+    .then((res) => {
+        if(res.ok()) {
+            storeSession(data);
+            window.location.href = "/pages/HomePage/homePage.html";
+        }
     });
     
 });
@@ -77,14 +85,13 @@ $('#loginForm').submit((e) => {
     .then(res => res.json())
     .then(data => {
         data = data.filter((user) => {
-            console.log(user.password, user.username);
             return (user.username === this.user && user.password === this.pass);
         });
         if(data.length < 1) {
             throw 'Usuario y/o contraseña incorrecta';
         }
+        storeSession(data);
         window.location.href = "/pages/HomePage/homePage.html";
-        return;
     })
     .catch((error) => {
         const errorTxt = document.getElementById("errorTxt");
