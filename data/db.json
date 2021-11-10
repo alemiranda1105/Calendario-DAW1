@@ -8,23 +8,26 @@
         "2",
         "5"
       ],
-      "events": {
-        "1": {
+      "events": [
+        {
+          "id": 1,
           "name": "Examen 1",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
           "date": "20-11-2021"
         },
-        "2": {
+        {
+          "id": 2,
           "name": "Examen 2",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
           "date": "22-11-2021"
         },
-        "3": {
+        {
+          "id": 3,
           "name": "Examen 3",
           "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
           "date": "23-11-2021"
         }
-      }
+      ]
     },
     {
       "id": 2,
