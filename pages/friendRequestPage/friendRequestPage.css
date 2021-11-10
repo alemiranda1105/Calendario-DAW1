@@ -60,12 +60,49 @@ button:hover{
     text-decoration: none;
 }
 
-#goBack h6{
-   margin-top: 1.5vh;
-   cursor: pointer;
-}
-
 #goBack:hover{
     transform: scale(1.05);
     transition: 70ms ease;
+    text-decoration: none;
+}
+
+#goBack h6{
+   margin-top: 1.5vh;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+#goBack a{
+    text-decoration: none;
+    color: black;
+}
+#goBack a:hover{
+    color: black;
+}
+
+
+.title2{
+    text-decoration: none;
+}
+@media (min-width: 700px){
+    .title2{
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .title{
+        display: none;
+    }
+    
+    .card {
+        width: 95%;
+        height: 100%;
+        margin: 2vh;
+        background-color: rgba(73, 89, 101, 0.6);
+    }
+
+    .fila{
+        width: 90%;
+    }   
 }
