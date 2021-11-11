@@ -22,6 +22,10 @@ textarea {
     text-align: center;
 }
 
+.title-sm {
+    display: none;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -43,14 +47,14 @@ textarea {
 #group-selector {
     background-color: white;
     width: 70%;
-}
-
-#date-div {
-    width: 40vw;
-}
-
-#date-div input[type="date"] {
     padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+input[type="date"] {
+    padding: 10px;
+    width: 40vw;
     border-radius: 10px;
     border-style: none;
     margin-bottom: 1.75rem;
@@ -80,4 +84,38 @@ textarea {
   
 ::-moz-placeholder {
     text-align: center;
+}
+
+@media (max-width: 600px) {
+    .title {
+        display: none;
+    }
+    .title-sm {
+        display: initial;
+        font-size: min(10.5vw, 40px);
+    }
+    .card {
+        width: 90vh;
+        height: 90vh;
+        margin: 2vh;
+        background-color: rgba(73, 89, 101, 0.6);
+    }
+    .txt-input {
+        width: min(85vw, 300px) !important;
+    }
+    #save-btn {
+        border-radius: 7.5px;
+        padding: 10px;
+        width: min(49vw, 190px);
+        margin: 2vw;
+    }
+    #save-btn:hover {
+        border-radius: 5px;
+    }
+    #data-txt {
+        font-size: min(9.5vw, 35px);
+    }
+    input[type="date"] {
+        width: min(85vw, 300px) !important;
+    }
 }
