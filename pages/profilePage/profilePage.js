@@ -1,5 +1,4 @@
-/** 
-*/
+
 let name = document.getElementById("name");
 let email = document.getElementById("email");
 let lista = document.getElementById("friendBody");
@@ -29,15 +28,4 @@ getCurrentUser().then((user) =>{
                             </div> 
                             `;
     }
-    /*
-    for(let i = friendRequests.length-1; i>=0; i--){
-        getUserById(friendRequests[i]).then(users =>{
-            user.id = users.id;
-            user.username = users.username;
-            console.log(user.id, user.username);
-            
-            lista.innerHTML += ;
-
-        }); 
-    };*/
 });

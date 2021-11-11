@@ -13,30 +13,38 @@
     </head>
 
     <body class="bg-image">
+        <div class="d-flex justify-content-center bg-gradient title">
+            <h1 class="title">Crear grupo</h1>
+        </div>
 
-        <h1>Crear de grupo</h1>
         <div class="d-flex justify-content-center align-items-center card bg-grey">
-            <div id="nGroup" >
+           <form id="groupCreationForm">
+                <div class="d-flex justify-content-center">
+                    <h1 class="title2">Crear grupo</h1>
+                </div>
+
                 <h2 class="c-white">Datos</h2>
-                <input type="text" placeholder="Nombre de grupo">
-            </div>
 
-            <div id="textareas">
-                <input type="text" id="search" name="search" placeholder="Buscar usuario..."><br>
-                <ul class="list-group">
-                    <li class="list-group-item">Marta
-                    <img src="/img/close.svg" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
-                </li>
-                    <li class="list-group-item" >Pepe
-                    <img src="/img/close.svg" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
-                </li>
-                    <li class="list-group-item"> Julio
-                    <img src="/img/close.svg" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
-                </li>
-                  </ul>
-            </div>
-            <button type="button" class="btn bg-blue">Crear grupo</button>
+                <div id="nGroup">
+                    <input type="text" placeholder="Nombre de grupo">
+                </div>
 
+                <div id="textareas" class="d-flex flex-column align-items-center justify-content-center">
+                    <input type="text" id="search" name="search" placeholder="Buscar usuario..."><br>
+                    <ul class="list-group">
+                        <li class="list-group-item">Marta
+                        <img src="/img/close.svg" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
+                    </li>
+                        <li class="list-group-item" >Pepe
+                        <img src="/img/close.svg" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
+                    </li>
+                        <li class="list-group-item"> Julio
+                        <img src="/img/close.svg" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
+                    </li>
+                    </ul>
+                </div>
+                <button type="button" class="btn bg-blue">Crear grupo</button>
+            </form>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
     </body>

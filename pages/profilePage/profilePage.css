@@ -1,4 +1,3 @@
-
 #goBack {
     width: 2rem;
     height: 2rem;
@@ -8,6 +7,7 @@
     top: 10px;
     left: 10px;
     margin-left: 10px;
+
 }
 
 #goBack:hover{
@@ -26,9 +26,11 @@
     text-decoration: none;
     color: black;
 }
+
 #goBack img {
     width: 20px;
 }
+
 #goBack a:hover{
     color: black;
 }
@@ -108,7 +110,7 @@
     transform: translateY(-7px);
 }
 
-.friendRequest{ 
+.friendRequest, .addFriend{ 
     text-decoration: none;
     font-size: large;
     background-image: linear-gradient(currentColor, currentColor);
@@ -118,14 +120,13 @@
     transition: background-size .3s;
 }
 
-.friendRequest:hover, .friendRequest:focus{
-    color: #FCFDF8;
-    background-size: 100% 2px;
-}
-
 .txtNoFriends{
     color: white;
     text-align: justify;
     font-style: italic;
 }
 
+.friendRequest:hover, .friendRequest:focus, .addFriend:hover, .addFriend:focus{
+    color: #FCFDF8;
+    background-size: 100% 2px;
+}
