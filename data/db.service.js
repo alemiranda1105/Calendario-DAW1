@@ -111,7 +111,7 @@ async function getGroupById(id) {
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}users/${id}`,
+        url: `${URL}groups/${id}`,
         type: 'GET',
         success: function(res) {
             result = res;

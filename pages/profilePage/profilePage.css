@@ -1,20 +1,36 @@
 
-
-#divGoBack{
-    position: absolute;
-    margin-top: 1em;
-    margin-left: 1em;
-}
-
 #goBack {
     width: 2rem;
     height: 2rem;
-    transition: all linear 200ms;
+    transition: all linear 20ms;    
+    text-decoration: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    margin-left: 10px;
 }
 
 #goBack:hover{
-    width: 4rem;
-    height: 4rem;
+    transform: scale(1.05);
+    transition: 70ms ease;
+    text-decoration: none;
+}
+
+#goBack h6{
+   margin-top: 1.5vh;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+#goBack a{
+    text-decoration: none;
+    color: black;
+}
+#goBack img {
+    width: 20px;
+}
+#goBack a:hover{
+    color: black;
 }
 
 #main {
@@ -91,3 +107,25 @@
     cursor: pointer;
     transform: translateY(-7px);
 }
+
+.friendRequest{ 
+    text-decoration: none;
+    font-size: large;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+}
+
+.friendRequest:hover, .friendRequest:focus{
+    color: #FCFDF8;
+    background-size: 100% 2px;
+}
+
+.txtNoFriends{
+    color: white;
+    text-align: justify;
+    font-style: italic;
+}
+
