@@ -37,7 +37,6 @@ html,body {
 }
 
 .calendar__prev, .calendar__next {
-    color: #C7F464;
     cursor: pointer;
     font-size: 1.5rem;
 }

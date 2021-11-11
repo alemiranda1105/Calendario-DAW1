@@ -1,6 +1,6 @@
-const URL = "http://localhost:8080/";
+const URL = "http://localhost:8000/";
 
-export async function getData(ruta) {
+async function getData(ruta) {
     let result;
     try{
         result = await $.ajax({
@@ -19,12 +19,11 @@ export async function getData(ruta) {
     }
 }
 
-//@param: jwt es el token unico de cada user
-export async function getUser(jwt) {
+async function getUsers() {
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}users/${jwt}`,
+        url: `${URL}users`,
         type: 'GET',
         success: function(res) {
             result = res;
@@ -39,9 +38,33 @@ export async function getUser(jwt) {
     }
 }
 
-export async function getCurrentUser() {
+//@param id: token unico de cada user
+async function getUserById(id) {
     let result;
-    let key = localStorage.getItem("key");
+    try{
+        result = await $.ajax({
+        url: `${URL}users/${id}`,
+        type: 'GET',
+        success: function(res) {
+            result = res;
+        },
+        error: function() {
+            console.error("No es posible completar la operación");
+        }
+    });
+    return result;
+    }catch(error){
+        console.error(error);
+    }
+}
+
+async function getCurrentUser() {
+    let result;
+    if(!sessionStorage.user) {
+        window.location.href = "http://127.0.0.1:5500/pages/login/login.html";
+    }
+    let user = JSON.parse(sessionStorage.user)[0];
+    let key = user.id;
     if(key){
         try{
             result = await $.ajax({
@@ -60,9 +83,45 @@ export async function getCurrentUser() {
         }
     }else {
         // EN CASO DE QUE BORREN LA KEY, REDIRIGIR AL LOGIN
+        sessionStorage.removeItem('user');
     }
-   
 }
 
+async function getGroups() {
+    let result;
+    try{
+        result = await $.ajax({
+        url: `${URL}groups`,
+        type: 'GET',
+        success: function(res) {
+            result = res;
+        },
+        error: function() {
+            console.error("No es posible completar la operación");
+        }
+    });
+    return result;
+    }catch(error){
+        console.error(error);
+    }
+}
 
-
+//@param id: identificador unico de cada grupo
+async function getGroupById(id) {
+    let result;
+    try{
+        result = await $.ajax({
+        url: `${URL}users/${id}`,
+        type: 'GET',
+        success: function(res) {
+            result = res;
+        },
+        error: function() {
+            console.error("No es posible completar la operación");
+        }
+    });
+    return result;
+    }catch(error){
+        console.error(error);
+    }
+}

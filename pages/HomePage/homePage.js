@@ -1,4 +1,4 @@
-import {getData} from "../../data/db.service.js";
+
 
 let monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre','Octubre', 'Noviembre', 'Deciembre'];
 
@@ -111,10 +111,18 @@ btnToggleMenu.addEventListener('click', function () {
 
 // CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST
 var datos;
-getData("users").then((data) =>{
-    datos = data;
-    for(let i = 0; i < data[i].events.length; i++) {
-        $(".ulNearEvent").append(`<li class="nearEvent bg-orange">${datos[i].events[i].date}, ${datos[i].events[i].name}</li>`);
+getCurrentUser().then((user) =>{
+    var listado = [];
+    for(let i = 0; i < user.events.length; i++) {
+        listado[i] = user.events[i];
+        console.log(listado[i]);
+        $(".ulNearEvent").append(`<li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>`);
     }
-})
+});
 
+let btnLogout = document.getElementById("btnLogout");
+
+btnLogout.addEventListener('click', () => {
+    sessionStorage.removeItem('user');
+    window.location.href = "http://127.0.0.1:5500/pages/login/login.html";
+})
