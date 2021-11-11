@@ -106,7 +106,8 @@
             "id": 3
           }
         ],
-        "groupid" : ["1", "2"]
+        "groupid" : ["1", "2"],
+        "friendRequests" : ["2", "4"]
       },
       {
         "id": 2,
@@ -133,7 +134,8 @@
             "id": 3
           }
         ],
-        "groupid" : ["1"]
+        "groupid" : ["1"],
+        "friendRequests" : ["1", "4"]
       },
       {
         "id": 3,
@@ -160,7 +162,8 @@
             "id": 3
           }
         ],
-        "groupid" : ["1", "2"]
+        "groupid" : ["1", "2"],
+        "friendRequests" : ["4", "5"]
       },
       {
         "id": 4,
@@ -187,11 +190,12 @@
             "id": 3
           }
         ],
-        "groupid" : ["3"]
+        "groupid" : ["3"],
+        "friendRequests" : ["1","2","5"]
       },
       {
         "id": 5,
-        "username": "Mastur-bao",
+        "username": "Masturbao",
         "email": "mastur.bao@gmail.com",
         "password": "12345",
         "events": [
@@ -214,7 +218,8 @@
             "id": 3
           }
         ],
-        "groupid" : ["1", "3"]
+        "groupid" : ["1", "3"],
+        "friendRequests" : ["1","2","3","4"]
       }
     ]
   }

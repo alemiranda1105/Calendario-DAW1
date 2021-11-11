@@ -13,82 +13,31 @@
     </head>
 
     <body class="bg-image">
-
-
-        <div id="divGoBack" class="d-flex align-items-start">
-            <div id ="goBack" class="d-flex align-items-center">
-                <a href="/pages/profilePage/profilePage.html">
-                <img src="/img/goBack.svg" alt="Volver"></a>
-                <a href="/pages/profilePage/profilePage.html"> <h6>Volver</h6></a>
+        <div class="main">
+            <div id="divGoBack" class="d-flex align-items-start">
+                <div id ="goBack" class="d-flex align-items-center">
+                    <a href="/pages/profilePage/profilePage.html">
+                    <img src="/img/goBack.svg" alt="Volver"></a>
+                    <a href="/pages/profilePage/profilePage.html"> <h6>Volver</h6></a>
+                </div>
             </div>
-        </div>
-
-        <div class="d-flex justify-content-center bg-gradient">
-            <h1 class="title">Solicitudes de amistad</h1>
-        </div>
-        <div class="d-flex justify-content-center align-items-center card bg-grey">
-            <div class="d-flex justify-content-center">
-                <h1 class="title2">Solicitudes de amistad</h1>
+    
+            <div class="d-flex justify-content-center bg-gradient">
+                <h1 class="title">Solicitudes de amistad</h1>
             </div>
-            <div id="listSolicitudes">
-                    <div class="row align-items-center justify-content-center">
-                        <div class="fila d-flex justify-content-center align-items-center border-3 border border-dark bg-light g-gradient">
-                            <div> 
-                                <h6>Pepe</h6>
-                            </div>
-                            <div class="d-flex botones"> 
-                                <button type="button" class="btn bg-blue"> Aceptar</button>
-                                <button type="button" class="btn btn-danger"> Rechazar </button>
-                                <button  type="button" class="btn btn-secondary"> Ver </button>
-                            </div>
-                        </div>
-
-                        <div class="fila d-flex justify-content-center align-items-center border-3 border border-dark bg-light g-gradient">
-                            <div> 
-                                <h6>Julio</h6>
-                            </div>
-                            <div class="d-flex botones"> 
-                                <button type="button" class="btn bg-blue"> Aceptar</button>
-                                <button type="button" class="btn btn-danger"> Rechazar </button>
-                                <button  type="button" class="btn btn-secondary"> Ver </button>
-                            </div>
-                        </div>
-
-                        <div class="fila d-flex justify-content-center align-items-center border-3 border border-dark bg-light g-gradient">
-                            <div> 
-                                <h6>María</h6>
-                            </div>
-                            <div class="d-flex botones"> 
-                                <button type="button" class="btn bg-blue"> Aceptar</button>
-                                <button type="button" class="btn btn-danger"> Rechazar </button>
-                                <button  type="button" class="btn btn-secondary"> Ver </button>
-                            </div>
-                        </div>
-
-                        <div class="fila d-flex justify-content-center align-items-center border-3 border border-dark bg-light g-gradient">
-                            <div> 
-                                <h6>Alejandro</h6>
-                            </div>
-                            <div class="d-flex botones"> 
-                                <button type="button" class="btn bg-blue"> Aceptar</button>
-                                <button type="button" class="btn btn-danger"> Rechazar </button>
-                                <button  type="button" class="btn btn-secondary"> Ver </button>
-                            </div>
-                        </div>
-
-                        <div class="fila d-flex justify-content-center align-items-center border-3 border border-dark bg-light g-gradient">
-                            <div> 
-                                <h6>Paco</h6>
-                            </div>
-                            <div class="d-flex botones"> 
-                                <button type="button" class="btn bg-blue"> Aceptar</button>
-                                <button type="button" class="btn btn-danger"> Rechazar </button>
-                                <button  type="button" class="btn btn-secondary"> Ver </button>
-                            </div>
-                        </div>
-                    </div>                  
+    
+            <div class="bg-grey card">
+                <div class="d-flex justify-content-center">
+                    <h1 class="title2">Solicitudes de amistad</h1>
+                </div>
+                <div id="listSolicitudes">
+                                  
+                </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/data/db.service.js"></script>
+        <script src="./friendRequestPage.js"></script>
     </body>
 </html>

@@ -1,6 +1,3 @@
-body{
-    background-image: url("/img/fondo1.png");
-}
 h1 {
     margin: 10px;
     font-size: 3rem;
@@ -28,7 +25,7 @@ h2 {
     margin-bottom: 10vh;
 }
 
-.card form input[type="text"], .card form input[type="password"] {
+.txt-input {
     width: 40vw;
     padding: 12px 10px;
     margin: 1vh;
@@ -61,16 +58,37 @@ h2 {
     text-align: center;
 }
 
+.title-sm {
+    display: none;
+}
+
 #logBtn {
     margin-top: 20px;
     border: 2px solid clear;
     border-radius: 15px;
     border-style: none;
-    padding: 1.3vw;
+    padding: min(1.3vw, 13px);
     width: 32vw;
-    max-width: 350px;
+    max-width: 320px;
     font-size: 2.25vh;
     transition: 70ms ease;
+}
+
+#logBtn:hover {
+    border-radius: 10px;
+    transform: scale(1.05);
+    transition: 70ms ease;
+}
+
+#switchLabel {
+    padding: 10px;
+}
+
+#errorTxt {
+    background-color: rgba(255,0,0,0.75);
+    padding: 12px;
+    border-radius: 20px;
+    display: none;
 }
 
 @media (max-width: 600px) {
@@ -120,14 +138,4 @@ h2 {
     #errorTxt {
         font-size: min(3.5vw, 20px);
     }
-}
-
-#logBtn:hover {
-    border-radius: 10px;
-    transform: scale(1.05);
-    transition: 70ms ease;
-}
-
-#switchLabel {
-    padding: 10px;
 }

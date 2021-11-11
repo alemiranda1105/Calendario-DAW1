@@ -54,3 +54,33 @@ img:hover{
     transition: 70ms ease;
 }
 
+
+@media (min-width: 700px){
+    .title2{
+        display: none;
+    }
+
+}
+@media (max-width: 700px) {
+    .title{
+        display: none;
+    }
+    
+    .card {
+        width: 95%;
+        height: 100%;
+        margin: 2vh;
+        background-color: rgba(73, 89, 101, 0.6);
+    }
+
+    .fila{
+        width: 100%;
+    }
+    
+    #textareas{
+        width: 80%;
+    }
+    #textareas input{
+        width: 100%;
+    }
+}

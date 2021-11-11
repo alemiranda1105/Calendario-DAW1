@@ -26,7 +26,7 @@ h1{
     text-align: center;
 }
 
-#textareas, #textareas input{
+#textareas{
     text-align: left;
     margin-bottom: 2vh;
     width: 40vw;
@@ -39,6 +39,9 @@ h1{
     cursor: pointer;
 }
 
+#textareas ul,  #textareas input{
+    width: 45vw;
+}
 
 button{
     font-weight: bold;
@@ -62,3 +65,39 @@ img:hover{
 }
 
 
+@media (min-width: 700px){
+    .title2{
+        display: none;
+    }
+
+}
+@media (max-width: 700px) {
+    .title{
+        display: none;
+    }
+    
+    .card {
+        width: 95%;
+        height: 100%;
+        margin: 2vh;
+        background-color: rgba(73, 89, 101, 0.6);
+    }
+    
+    #groupCreationForm{
+        min-width: 90vw;
+    }
+
+    #nGroup input{
+        width:60vw;
+    }
+    #textareas{
+        width: 90vw;
+    }
+    #textareas input{
+        width: 65vw;
+    }
+    #textareas ul{
+        width: 65vw;
+    }
+    
+}
