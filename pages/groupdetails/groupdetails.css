@@ -81,10 +81,10 @@ img:hover{
     }
     
     #textareas{
-        width: 80%;
+        width: 70vw;
     }
     
-    .searchInput{
-        width: 100%;
+    .searchInput input{
+        width: 70vw;
     }
 }
