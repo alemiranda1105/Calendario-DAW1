@@ -101,7 +101,7 @@
     transform: translateY(-7px);
 }
 
-.friendRequest{ 
+.friendRequest, .addFriend{ 
     text-decoration: none;
     font-size: large;
     background-image: linear-gradient(currentColor, currentColor);
@@ -111,7 +111,7 @@
     transition: background-size .3s;
 }
 
-.friendRequest:hover, .friendRequest:focus{
+.friendRequest:hover, .friendRequest:focus, .addFriend:hover, .addFriend:focus{
     color: #FCFDF8;
     background-size: 100% 2px;
 }

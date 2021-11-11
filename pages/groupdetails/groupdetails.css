@@ -57,6 +57,7 @@ img:hover{
 #groupName{
     color: black;
 }
+
 @media (min-width: 700px){
     .title2{
         display: none;

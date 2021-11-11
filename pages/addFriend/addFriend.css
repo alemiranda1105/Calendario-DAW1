@@ -1,0 +1,103 @@
+body{
+    text-align: center;
+}
+
+#goBack {
+    width: 2rem;
+    height: 2rem;
+    transition: all linear 20ms;    
+    text-decoration: none;
+}
+
+#goBack:hover{
+    transform: scale(1.05);
+    transition: 70ms ease;
+    text-decoration: none;
+}
+
+#goBack h6{
+   margin-top: 1.5vh;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+#goBack a{
+    text-decoration: none;
+    color: black;
+}
+#goBack a:hover{
+    color: black;
+}
+
+h1{
+    margin:5vh 0px;
+}
+
+.card {
+    border: 2px solid clear;
+    border-radius: 15px;
+    border-style: none;
+    box-shadow: 0 0 20px #353535;
+    padding: 0.5rem;
+    margin: auto;
+    width: 55vw;
+    height: fit-content;
+    text-align: center;
+}
+
+#textareas input{
+    margin-top: 2vh;
+    width: 45vw;
+}
+
+button{
+    font-weight: bold;
+    margin-bottom: 2vh;
+}
+
+button:hover{
+    transform: scale(1.1);
+    transition: 70ms ease;
+}
+
+.listaUsuarios{
+    width: 45vw;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    text-align: left;
+}
+
+.listaUsuarios li:hover{
+    transform: scale(1.04);
+    transition: 70ms ease;
+}
+
+@media (min-width: 700px){
+    .title2{
+        display: none;
+    
+    }
+
+}
+@media (max-width: 700px) {
+    .title{
+        display: none;
+    }
+    
+    .card {
+        width: 95%;
+        height: 100%;
+        margin: 2vh;
+        background-color: rgba(22, 22, 22, 0.6);
+    }
+
+    #textareas{
+        width: 90vw;
+    }
+    #textareas input{
+        width: 65vw;
+    }
+    .listaUsuarios{
+        width: 65vw;
+    }
+}
