@@ -19,38 +19,11 @@ async function getData(ruta) {
     }
 }
 
-<<<<<<< HEAD
 async function getUsers() {
-=======
-export async function getUsers() {
->>>>>>> cb5b462c7e5031b3f298144e1a8625920ae24723
     let result;
     try{
         result = await $.ajax({
         url: `${URL}users`,
-<<<<<<< HEAD
-=======
-        type: 'GET',
-        success: function(res) {
-            result = res;
-        },
-        error: function() {
-            console.error("No es posible completar la operación");
-        }
-    });
-    return result;
-    }catch(error){
-        console.error(error);
-    }
-}
-
-//@param id: token unico de cada user
-export async function getUserById(id) {
-    let result;
-    try{
-        result = await $.ajax({
-        url: `${URL}users/${id}`,
->>>>>>> cb5b462c7e5031b3f298144e1a8625920ae24723
         type: 'GET',
         success: function(res) {
             result = res;
@@ -114,11 +87,7 @@ async function getCurrentUser() {
     }
 }
 
-<<<<<<< HEAD
 async function getGroups() {
-=======
-export async function getGroups() {
->>>>>>> cb5b462c7e5031b3f298144e1a8625920ae24723
     let result;
     try{
         result = await $.ajax({
@@ -138,11 +107,7 @@ export async function getGroups() {
 }
 
 //@param id: identificador unico de cada grupo
-<<<<<<< HEAD
 async function getGroupById(id) {
-=======
-export async function getGroupById(id) {
->>>>>>> cb5b462c7e5031b3f298144e1a8625920ae24723
     let result;
     try{
         result = await $.ajax({
@@ -159,9 +124,4 @@ export async function getGroupById(id) {
     }catch(error){
         console.error(error);
     }
-<<<<<<< HEAD
 }
-=======
-}
-
->>>>>>> cb5b462c7e5031b3f298144e1a8625920ae24723
