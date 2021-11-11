@@ -16,7 +16,7 @@ getCurrentUser().then(({groupid}) =>{
                             </div>
                         
                             <div class="col-md-2 eGroup"> 
-                                <button  type="button" class="btn btn-secondary"> <a href="/pages/groupdetails/groupdetails.html" class="c-white">Editar</a> </button>
+                                <button  type="button" onclick="editar(${group.id})" class="btn btn-secondary"> Editar </button>
                             </div>
                             <div title="Salir del grupo" class="col-md-1 d-flex dGroup">
                                 <img src="/img/close.svg" alt="Eliminar de grupo">
@@ -27,3 +27,9 @@ getCurrentUser().then(({groupid}) =>{
         });
     };
 });
+
+
+function editar(group){
+    localStorage.setItem('groupId', group);
+    window.location.href = "/pages/groupdetails/groupdetails.html";
+}

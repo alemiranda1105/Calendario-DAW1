@@ -22,7 +22,7 @@ h1{
     text-align: center;
 }
 
-#textareas, #textareas input{
+#textareas, .searchInput input{
     text-align: left;
     margin-bottom: 2vh;
     width: 40vw;
@@ -54,7 +54,9 @@ img:hover{
     transition: 70ms ease;
 }
 
-
+#groupName{
+    color: black;
+}
 @media (min-width: 700px){
     .title2{
         display: none;
@@ -80,7 +82,8 @@ img:hover{
     #textareas{
         width: 80%;
     }
-    #textareas input{
+    
+    .searchInput{
         width: 100%;
     }
 }

@@ -24,27 +24,25 @@
             </div>
 
                 <div class="d-flex" id="nGroup">
-                    <input type="text" value="Nombre" disabled>
+                    <input type="text" id="groupName" disabled>
                     <img src="/img/pencil.svg" alt="Cambiar nombre de grupo">
                 </div>
 
-                <div id="textareas">
+                <div class="searchInput">
                     <input type="text" id="search" name="search" placeholder="Buscar..."><br>
-                    <ul class="list-group">
-                        <li class="list-group-item">Marta
-                        <img src="/img/close.svg" alt="Eliminar de grupo" class="float-end">
-                    </li>
-                        <li class="list-group-item" >Pepe
-                        <img src="/img/close.svg" alt="Eliminar de grupo" class="float-end">
-                    </li>
-                        <li class="list-group-item"> Julio
-                        <img src="/img/close.svg" alt="Eliminar de grupo" class="float-end">
-                    </li>
+                </div>
+
+                <div id="textareas">
+                    <ul id="listUsers" class="list-group">
+                        
                     </ul>
                 </div>
                 <button type="button" class="btn btn-danger">Salir del grupo</button>
             </form>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/data/db.service.js"></script>
+        <script src="./groupdetails.js"></script>
     </body>
 </html>
