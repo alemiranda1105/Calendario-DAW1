@@ -1,10 +1,13 @@
-
-
 #goBack {
     width: 2rem;
     height: 2rem;
     transition: all linear 20ms;    
     text-decoration: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    margin-left: 10px;
+
 }
 
 #goBack:hover{
@@ -23,6 +26,11 @@
     text-decoration: none;
     color: black;
 }
+
+#goBack img {
+    width: 20px;
+}
+
 #goBack a:hover{
     color: black;
 }
@@ -110,6 +118,12 @@
     background-repeat: no-repeat;
     background-size: 0% 2px;
     transition: background-size .3s;
+}
+
+.txtNoFriends{
+    color: white;
+    text-align: justify;
+    font-style: italic;
 }
 
 .friendRequest:hover, .friendRequest:focus, .addFriend:hover, .addFriend:focus{
