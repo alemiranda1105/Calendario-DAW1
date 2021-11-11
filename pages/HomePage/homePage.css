@@ -68,7 +68,7 @@ html,body {
 .calendar__day {
     text-align: center;
     font-size: 1.2em;
-
+    color: white;
 }
 
 .calendar__dates {

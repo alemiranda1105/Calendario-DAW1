@@ -28,9 +28,7 @@ a{
     margin:10px;
     padding: 10px;
     text-decoration: none;
-
     transition: 70ms ease;
-    
 }
 
 a:hover{  
