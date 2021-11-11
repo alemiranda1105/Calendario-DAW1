@@ -5,10 +5,6 @@ let email = document.getElementById("email");
 let lista = document.getElementById("friendBody");
 
 getCurrentUser().then((user) =>{
-    console.log(user.username);
-    console.log(user.email);
-    console.log(user.id);
-    console.log(user.friends);
     name.innerHTML = user.username;
     email.innerHTML = user.email;
 
