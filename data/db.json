@@ -107,6 +107,7 @@
           }
         ],
         "groupid" : ["1", "2"],
+        "friends" : ["3", "5"],
         "friendRequests" : ["2", "4"]
       },
       {
@@ -135,6 +136,7 @@
           }
         ],
         "groupid" : ["1"],
+        "friends" : ["3"],
         "friendRequests" : ["1", "4"]
       },
       {
@@ -163,6 +165,7 @@
           }
         ],
         "groupid" : ["1", "2"],
+        "friends" : ["1", "2"],
         "friendRequests" : ["4", "5"]
       },
       {
@@ -191,12 +194,13 @@
           }
         ],
         "groupid" : ["3"],
+        "friends" : ["3"],
         "friendRequests" : ["1","2","5"]
       },
       {
         "id": 5,
-        "username": "Masturbao",
-        "email": "mastur.bao@gmail.com",
+        "username": "María",
+        "email": "maria123@gmail.com",
         "password": "12345",
         "events": [
           {
@@ -219,6 +223,7 @@
           }
         ],
         "groupid" : ["1", "3"],
+        "friends" : [],
         "friendRequests" : ["1","2","3","4"]
       }
     ]

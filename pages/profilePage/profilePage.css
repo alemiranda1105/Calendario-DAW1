@@ -1,20 +1,29 @@
 
-
-#divGoBack{
-    position: absolute;
-    margin-top: 1em;
-    margin-left: 1em;
-}
-
 #goBack {
     width: 2rem;
     height: 2rem;
-    transition: all linear 200ms;
+    transition: all linear 20ms;    
+    text-decoration: none;
 }
 
 #goBack:hover{
-    width: 4rem;
-    height: 4rem;
+    transform: scale(1.05);
+    transition: 70ms ease;
+    text-decoration: none;
+}
+
+#goBack h6{
+   margin-top: 1.5vh;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+#goBack a{
+    text-decoration: none;
+    color: black;
+}
+#goBack a:hover{
+    color: black;
 }
 
 #main {
@@ -25,7 +34,7 @@
 #bgProfile{
     margin-top: 4.5rem;
     margin-bottom: 10px;;
-    width: 80%;
+    width: 90%;
     border-radius: 15px;
 }
 
@@ -48,7 +57,7 @@
     display: grid;
     gap: 1rem;
     grid-auto-columns: 1fr;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%,7rem),1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%,7em),1fr));
 }
 
 
@@ -76,13 +85,15 @@
 
 #friendBody {
     display: grid;
-    gap: 1rem;
-    grid-auto-columns: 1fr;
     grid-template-columns: repeat(auto-fill, minmax(min(100%,7rem),1fr));
 }
 
 .friendComponent {
     transition: ease-in 100ms;
+    background-color: rgba(255, 0, 0, 0.404);
+    border-radius: 15px;
+    padding-top: 5px;
+    margin: 5px;
 }
 
 .friendComponent:hover{

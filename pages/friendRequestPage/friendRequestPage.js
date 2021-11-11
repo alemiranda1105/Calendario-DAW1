@@ -32,23 +32,6 @@ getCurrentUser().then(({friendRequests}) =>{
 
         }); 
     };
-
-    /**
-    let idRequests = currenUserRequests;
-
-    /** Traer datos de los usuarios 
-    for(let i = idRequests.length; i>0; i--){
-        listUserRequests[i] = getUserById(idRequests[i]);
-    };
-
-    /** Escribir filas con solicitudes 
-    /** Falta enlace en el botón VER 
-    const writeRequests = (lista) => {
-        for(let i = idRequests.length; i>0; i--){
-            
-        }
-    }
-    */
 });
 
 
