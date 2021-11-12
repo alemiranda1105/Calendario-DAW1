@@ -18,75 +18,37 @@
     <link rel="stylesheet" href="/style/color.css">
 </head>
 <body>
-    <div class="mainContainer d-flex bg-image">
-        <div id="divMainContent" class="animate__animated animate__fadeIn">
-            <div id="divCalendario" class="d-flex">
-                <div class="calendar bg-blue">
-                    <div class="calendar__info">
-                        <div class="calendar__prev" id="prev-month">&#9664;</div>
-                        <div class="calendar__month" id="month"></div>
-                        <div class="calendar__year" id="year"></div>
-                        <div class="calendar__next" id="next-month">&#9654;</div>
-                    </div>
-                
-                    <div class="calendar__week">
-                        
-                        <div class="calendar__day ">Lun</div>
-                        <div class="calendar__day ">Mar</div>
-                        <div class="calendar__day ">Mier</div>
-                        <div class="calendar__day ">Jue</div>
-                        <div class="calendar__day ">Vie</div>
-                        <div class="calendar__day ">Sáb</div>
-                        <div class="calendar__day ">Dom</div>
-                        
-                        
-                    </div>
-                
-                    <div class="calendar__dates" id="dates"></div>
+    <div id="divMainContent" class="d-flex flex-column bg-image animate__animated animate__fadeIn">
+        <div id="divCalendario" class="d-flex">
+            <div class="calendar bg-grey">
+                <div class="calendar__info">
+                    <div class="calendar__prev c-white" id="prev-month">&#9664;</div>
+                    <div class="calendar__month c-white" id="month"></div>
+                    <div class="calendar__year c-white" id="year"></div>
+                    <div class="calendar__next c-white" id="next-month">&#9654;</div>
                 </div>
-
-                <div class="">
-                    <img class="toggle-btn" src="/img/menu.svg" alt="">
+            
+                <div class="calendar__week">
+                    
+                    <div class="calendar__day c-white">Lun</div>
+                    <div class="calendar__day c-white">Mar</div>
+                    <div class="calendar__day c-white">Mier</div>
+                    <div class="calendar__day c-white">Jue</div>
+                    <div class="calendar__day c-white">Vie</div>
+                    <div class="calendar__day c-white">Sáb</div>
+                    <div class="calendar__day c-white">Dom</div>
+                    
                 </div>
+            
+                <div class="calendar__dates" id="dates"></div>
             </div>
 
-            <div id="divFooter">
-                <div id="divBtnFooter" >
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                <button class="customBtn bg-blue mb-2">Crear evento</button>
-                            </div>
-                            
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                <button class="customBtn bg-blue mb-2">Crear Grupo</button>
-                            </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                <button class="customBtn bg-blue mb-2">Gestionar Grupos</button>
-                            </div>
+            <div class="">
+                <img class="toggle-btn" src="/img/menu.svg" alt="">
+            </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                <div id="divSwitchBtn" class="d-flex justify-content-center align-items-center">
-
-                                    <input type="checkbox" class="checkbox" id="switch-button" />
-                                    <label class="bg-checkbox" for="switch-button">
-                                        <img src="/img/individual_icon.svg" class="icon-custom"></img>
-                                        <span class="spacer"></span>
-                                        <img src="/img/group_icon.svg" class="icon-custom"></img>
-                                        <div class="ball bg-blue"></div>
-                                    </label>
-                                    
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                
-            </div> 
         </div>
-
         <aside id="sidebar" class="bg-grey">
             <div id="divImg">
                 <img id="toggleMenu" src="/img/menu_white.svg" alt="">
@@ -95,34 +57,59 @@
                     <img class="customImg" src="/img/avatar.png" alt="">
                 </a>
             </div>
-
+    
             <h3 id="eventsTitle" class="text-justify ">Próximos Eventos</h3>
             <div class="divisor"></div>
             <div id="listMain" class="d-flex flex-column justify-content-center align-items-center">
-                <ul class="ulNearEvent">
-
-                    <li class="nearEvent bg-orange">evento de prueba</li>
-                    <li class="nearEvent bg-orange">evento de prueba</li>
-                    <li class="nearEvent bg-orange">evento de prueba</li>
-                    <li class="nearEvent bg-orange">evento de prueba</li>
-                    <li class="nearEvent bg-orange">evento de prueba</li>
-                    <li class="nearEvent bg-orange">evento de prueba</li>
-
-                   
-
-
+                <ul class="ulNearEvent"> 
+                  
                 </ul>
-
-                
                 <div id="btnConfig" class="">
                     <span class="spacer"></span>
                     <button id="btnLogout" class="btn btn-danger">Logout</button>
                 </div>
             </div>
-
-        </aside>
-    </div>
     
-    <script src="./homePage.js"></script>
+        </aside>
+
+        <div id="divFooter">
+            <div id="divBtnFooter" >
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
+                            <button class="customBtn bg-grey c-white mb-2">Crear evento</button>
+                        </div>
+                        
+                        <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
+                            <button class="customBtn bg-grey c-white mb-2">Crear Grupo</button>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
+                            <button class="customBtn bg-grey c-white mb-2"><a href="/pages/groupmanagement/groupmanagement.html">Gestionar Grupos </a></button>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
+                            <div id="divSwitchBtn" class="d-flex justify-content-center align-items-center">
+
+                                <input type="checkbox" class="checkbox" id="switch-button" />
+                                <label class="bg-checkbox" for="switch-button">
+                                    <img src="/img/individual_icon.svg" class="icon-custom"></img>
+                                    <span class="spacer"></span>
+                                    <img src="/img/group_icon.svg" class="icon-custom"></img>
+                                    <div class="ball bg-blue"></div>
+                                </label>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div> 
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script type="module" src="./homePage.js"></script>
+    <script src="../../data/db.service.js"></script>
 </body>
 </html>

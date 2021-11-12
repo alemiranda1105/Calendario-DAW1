@@ -47,6 +47,13 @@ textarea {
 #group-selector {
     background-color: white;
     width: 70%;
+}
+
+#date-div {
+    width: 40vw;
+}
+
+#date-div input[type="date"] {
     padding: 10px;
     border-radius: 10px;
     border-style: none;

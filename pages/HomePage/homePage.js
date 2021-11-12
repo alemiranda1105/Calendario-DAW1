@@ -1,3 +1,5 @@
+
+
 let monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre','Octubre', 'Noviembre', 'Deciembre'];
 
 let currentDate = new Date();
@@ -22,12 +24,15 @@ nextMonthDOM.addEventListener('click', ()=>nextMonth());
 /** CALENDARIO */
 const writeMonth = (month) => {
 
+    //dias del mes pasado visibles en el mes actual
     for(let i = startDay(); i>0;i--){
-        dates.innerHTML += ` <div id="meses" class="calendar__dates calendar__item calendar__last-days">
+        dates.innerHTML += 
+        ` <div id="meses" class="calendar__dates calendar__item calendar__last-days">
             ${getTotalDays(monthNumber-1)-(i-1)}
         </div>`;
     }
 
+    //dias del mes actual
     for(let i=1; i<=getTotalDays(month); i++){
         if(i===currentDay) {
             dates.innerHTML += ` <div class="calendar__dates calendar__item calendar__today">${i}</div>`;
@@ -35,6 +40,17 @@ const writeMonth = (month) => {
             dates.innerHTML += ` <div class="calendar__dates calendar__item">${i}</div>`;
         }
     }
+
+    //dias del mes proximo en el mes actual
+    let j = 1;
+    for(let i = lastDay(); i < 6;i++){
+        dates.innerHTML += 
+        ` <div id="meses" class="calendar__dates calendar__item calendar__last-days">
+            ${j}
+        </div>`;
+        j++;
+    }
+
 }
 
 const getTotalDays = month => {
@@ -47,7 +63,6 @@ const getTotalDays = month => {
         return 30;
 
     } else {
-
         return isLeap() ? 29:28;
     }
 }
@@ -60,6 +75,16 @@ const startDay = () => {
     let start = new Date(currentYear, monthNumber, 1);
     return ((start.getDay()-1) === -1) ? 6 : start.getDay()-1;
 }
+
+const lastDay = () => {
+    let last = new Date(currentYear, monthNumber, getTotalDays(monthNumber));
+    console.log(last);
+    return ((last.getDay()-1) === -1) ? 6 : last.getDay()-1;
+}
+
+
+console.log("ultimo dia del mes", lastDay());
+
 
 const lastMonth = () => {
     if(monthNumber !== 0){
@@ -106,3 +131,20 @@ btnToggleMenu.addEventListener('click', function () {
     document.getElementById('sidebar').classList.toggle('active');
 });
 
+
+// CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST
+var datos;
+getCurrentUser().then((user) =>{
+    var listado = [];
+    for(let i = 0; i < user.events.length; i++) {
+        listado[i] = user.events[i];
+        $(".ulNearEvent").append(`<li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>`);
+    }
+});
+
+let btnLogout = document.getElementById("btnLogout");
+
+btnLogout.addEventListener('click', () => {
+    sessionStorage.removeItem('user');
+    window.location.href = "http://127.0.0.1:5500/pages/login/login.html";
+})

@@ -61,7 +61,7 @@ async function getUserById(id) {
 async function getCurrentUser() {
     let result;
     if(!sessionStorage.user) {
-        return;
+        window.location.href = "http://127.0.0.1:5500/pages/login/login.html";
     }
     let user = JSON.parse(sessionStorage.user)[0];
     let key = user.id;
@@ -111,7 +111,7 @@ async function getGroupById(id) {
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}users/${id}`,
+        url: `${URL}groups/${id}`,
         type: 'GET',
         success: function(res) {
             result = res;
