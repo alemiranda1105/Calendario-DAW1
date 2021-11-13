@@ -2,23 +2,31 @@
 
 html,body {
     margin:0px;
+    min-width: 100%;
     min-height: 100vh;
 }
 
 #divMainContent {
-    width: 100%;
+    min-width: 100vw;
     min-height: 100vh;
     transition: all linear 300ms;
 }
 
 #divMainContent.active {
-    width: 100%;
+    min-width: 100%;
 }
-
 /** ------------------- CALENDARIO -------------------*/
 #divCalendario {
     min-width: 100%;
-    padding: 2em;
+    padding: 0em 1.5em 2em;
+}
+
+@media (max-width: 768px) {
+    #divCalendario {
+        min-width: 100vw;
+        padding: 0px;
+        margin-bottom: 0.7em;
+    }
 }
 .calendar {
     min-width: 100%;
@@ -167,12 +175,11 @@ html,body {
 }
   
 .toggle-btn {
-    position: relative;
-    right: 20px;
-    top: -20px;
     cursor: pointer;
     width: 30px;
     height: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
 }
   
 #sidebar .toggle-btn {
