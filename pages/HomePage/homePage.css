@@ -14,7 +14,6 @@ html,body {
 
 #divMainContent.active {
     display: none;
-    transition: all linear 300ms;
 
 }
 /** ------------------- CALENDARIO -------------------*/
@@ -151,27 +150,22 @@ html,body {
     margin-bottom: 10px;
     border-radius: 10px;
     height: 3.5em;
-    
-    color: black;
 }
 
 #sidebar {
-    position: relative;
+    position: fixed;
     top:0px;
     right: 0px;
     z-index: 30;
     min-height: 0vh;
-    visibility: hidden;
-    display: none;
+    width: 0%;
     transition: all linear 300ms;
 }
   
 #sidebar.active {
-    width: 100%;
+    position: absolute;
+    width: 100vw;
     min-height: 100vh;
-    visibility: visible;
-    display:block;
-    transition: all linear 300ms;
 }
   
 #sidebar ul li {
@@ -253,6 +247,7 @@ html,body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     border-radius: 10px;
     color: white;
     font-weight: bold;

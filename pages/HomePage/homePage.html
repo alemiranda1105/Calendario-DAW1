@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/style/font.css">
     <link rel="stylesheet" href="/style/color.css">
 </head>
-<body class="bg-image">
+<body class="bg-image d-flex">
     <div id="divMainContent">
         <div id="divToggleBtn" class="d-flex justify-content-end align-items-center">
             <img class="toggle-btn" src="/img/menu.svg" alt="">
@@ -53,15 +53,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
-                            <a class="customBtn bg-grey " href="/pages/eventpages/addevent.html">Crear Evento</a>
+                            <a class="customBtn bg-grey mb-3" href="/pages/eventpages/addevent.html">Crear Evento</a>
                         </div>
                         
                         <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
-                            <a class="customBtn bg-grey m-3" href="/pages/groupcreation/groupcreation.html">Crear Grupo</a>
+                            <a class="customBtn bg-grey mb-3" href="/pages/groupcreation/groupcreation.html">Crear Grupo</a>
                         </div>
     
                         <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
-                            <a class="customBtn bg-grey m-3" href="/pages/groupmanagement/groupmanagement.html">Gestionar Grupos</a>
+                            <a class="customBtn bg-grey mb-3" href="/pages/groupmanagement/groupmanagement.html">Gestionar Grupos</a>
                         </div>
     
                         <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
@@ -96,32 +96,7 @@
         <h3 id="eventsTitle" class="text-justify ">Próximos Eventos</h3>
         <div class="divisor"></div>
         <div id="listMain" class="d-flex flex-column justify-content-center align-items-center">
-            <ul class="ulNearEvent"> 
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-                <li class="nearEvent bg-orange">${user.events[i].date}, ${user.events[i].name}</li>
-            </ul>
+            <ul class="ulNearEvent"></ul>
             <div id="btnConfig" class="mb-5">
                 <span class="spacer"></span>
                 <button id="btnLogout" class="btn btn-danger">Logout</button>
