@@ -33,8 +33,9 @@ const writeMonth = (month) => {
     }
 
     //dias del mes actual
+    let auxCurrentDate = new Date();
     for(let i=1; i<=getTotalDays(month); i++){
-        if(i===currentDay) {
+        if(i===currentDay && monthNumber === auxCurrentDate.getMonth() && currentYear === auxCurrentDate.getFullYear()) {
             dates.innerHTML += ` <div class="calendar__dates calendar__item calendar__today">${i}</div>`;
         }else{
             dates.innerHTML += ` <div class="calendar__dates calendar__item">${i}</div>`;
@@ -81,10 +82,6 @@ const lastDay = () => {
     console.log(last);
     return ((last.getDay()-1) === -1) ? 6 : last.getDay()-1;
 }
-
-
-console.log("ultimo dia del mes", lastDay());
-
 
 const lastMonth = () => {
     if(monthNumber !== 0){
