@@ -115,7 +115,7 @@ const setNewDate = () => {
 writeMonth(monthNumber);
 
 /** MENU DESPLEGABLE */
-// sidebar toggle
+
 const btnToggle = document.querySelector('.toggle-btn');
 const btnToggleMenu = document.querySelector('#toggleMenu');
 
@@ -126,6 +126,7 @@ btnToggle.addEventListener('click', function () {
 
 btnToggleMenu.addEventListener('click', function () {
     document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('divMainContent').classList.remove('active');
 });
 
 
