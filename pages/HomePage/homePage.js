@@ -28,7 +28,10 @@ const writeMonth = (month) => {
     for(let i = startDay(); i>0;i--){
         dates.innerHTML += 
         ` <div id="meses" class="calendar__dates calendar__item calendar__last-days">
-            ${getTotalDays(monthNumber-1)-(i-1)}
+            <div class="d-flex">
+               ${getTotalDays(monthNumber-1)-(i-1)}
+            </div>
+            
         </div>`;
     }
 
@@ -36,7 +39,25 @@ const writeMonth = (month) => {
     let auxCurrentDate = new Date();
     for(let i=1; i<=getTotalDays(month); i++){
         if(i===currentDay && monthNumber === auxCurrentDate.getMonth() && currentYear === auxCurrentDate.getFullYear()) {
-            dates.innerHTML += ` <div class="calendar__dates calendar__item calendar__today">${i}</div>`;
+            dates.innerHTML += `
+            <div class="calendar__today calendar__dates">
+                <div class="d-flex flex-column justify-content-center align-items-center divTxtDayEvent">
+                    
+                    <div class="d-flex align-self-start">
+                        ${i}
+                    </div>
+
+                    <div class="txtDayEvent bg-grey">
+                        numero1: ${i}
+                    </div>
+                    <div class="txtDayEvent">
+                        numero1: ${i}
+                    </div>
+                    <div class="txtDayEvent">
+                        numero1: ${i}
+                    </div>
+                </div>
+            </div>`;
         }else{
             dates.innerHTML += ` <div class="calendar__dates calendar__item">${i}</div>`;
         }
