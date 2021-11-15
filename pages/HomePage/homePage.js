@@ -40,26 +40,45 @@ const writeMonth = (month) => {
     for(let i=1; i<=getTotalDays(month); i++){
         if(i===currentDay && monthNumber === auxCurrentDate.getMonth() && currentYear === auxCurrentDate.getFullYear()) {
             dates.innerHTML += `
-            <div class="calendar__today calendar__dates">
-                <div class="d-flex flex-column justify-content-center align-items-center divTxtDayEvent">
+            <div class="calendar__today">
+                <div class="divTxtDayEvent">
                     
-                    <div class="d-flex align-self-start">
+                    <div class="d-flex justify-content-center">
                         ${i}
                     </div>
 
                     <div class="txtDayEvent bg-grey">
                         numero1: ${i}
                     </div>
-                    <div class="txtDayEvent">
+                    <div class="txtDayEvent bg-blue">
                         numero1: ${i}
                     </div>
-                    <div class="txtDayEvent">
+                    <div class="txtDayEvent bg-orange">
                         numero1: ${i}
                     </div>
                 </div>
             </div>`;
         }else{
-            dates.innerHTML += ` <div class="calendar__dates calendar__item">${i}</div>`;
+            dates.innerHTML += `
+            <div class=" calendar__item">
+                <div id="${i}"" class="divTxtDayEvent">
+                    <div class="">
+                        ${i}
+                    </div>
+
+                    <div class="txtDayEvent bg-blue">
+                        numero1: ${i}
+                    </div>
+
+                    <div class="txtDayEvent bg-orange">
+                        numero1: ${i}
+                    </div>
+
+                    <div class="txtDayEvent bg-danger">
+                        numero1: ${i}
+                    </div>
+                </div>
+            </div>`;
         }
     }
 
