@@ -27,8 +27,8 @@ function writeMonth(month) {
     //dias del mes pasado visibles en el mes actual
     for(let i = startDay(); i>0;i--){
         dates.innerHTML += 
-        ` <div id="meses" class="calendar__dates calendar__item calendar__last-days">
-            <div class="d-flex">
+        ` <div id="divLastDays${getTotalDays(monthNumber-1)-(i-1)}" class="calendar__item calendar__last-days">
+            <div id="lastDay${getTotalDays(monthNumber-1)-(i-1)}" class="d-flex justify-content-center">
                ${getTotalDays(monthNumber-1)-(i-1)}
             </div>
             
@@ -42,43 +42,33 @@ function writeMonth(month) {
         month: aux.getMonth()+1,
         year: aux.getFullYear()
     }
-    console.log("auxCurrentDate: ", auxCurrentDate);
-    
+
     for(let i=1; i<=getTotalDays(month); i++){
         if(i===currentDay && monthNumber === aux.getMonth() && currentYear === aux.getFullYear()) {
             dates.innerHTML += `
-            <div class="calendar__today">
-                <div id="${i}" class="divTxtDayEvent">
-                    <div class="d-flex justify-content-center">
-                        ${i}
-                    </div>
-
-                    <div class="txtDayEvent bg-grey">
-                        evento: 
-                    </div>
-                    
+            
+            <div id="divCurrentDay${i}" class="calendar__today divTxtDayEvent">
+                <div id="day${i}" class="d-flex justify-content-center">
+                    ${i}
                 </div>
+
+                <div id="eventDay${i}" class="txtDayEvent bg-grey">
+                    evento: 
+                </div>
+                
             </div>`;
         }else{
             dates.innerHTML += `
-            <div class=" calendar__item">
-                <div id="${i}" class="divTxtDayEvent">
-                    <div class="">
-                        ${i}
-                    </div>
-
-                    <div class="txtDayEvent bg-blue">
-                        numero1: ${i}
-                    </div>
-
-                    <div class="txtDayEvent bg-orange">
-                        numero1: ${i}
-                    </div>
-
-                    <div class="txtDayEvent bg-grey">
-                        numero1: ${i}
-                    </div>
+            
+            <div id="divDay${i}" class="divTxtDayEvent calendar__item">
+                <div id="day${i}">
+                    ${i}
                 </div>
+
+                <div id="eventDay${i}" class="txtDayEvent bg-blue">
+                    numero1: ${i}
+                </div>
+
             </div>`;
         }
     }
@@ -87,7 +77,7 @@ function writeMonth(month) {
     let j = 1;
     for(let i = lastDay(); i < 6;i++){
         dates.innerHTML += 
-        ` <div id="meses" class="calendar__dates calendar__item calendar__last-days">
+        ` <div id="postDays${i}" class="calendar__item calendar__last-days">
             ${j}
         </div>`;
         j++;
@@ -198,7 +188,6 @@ async function mostrarEventoListado(){
                 month: parseInt(date[1]),
                 year: parseInt(date[2])
             }
-
             fechaSalida[i] = fecha[i];
             eventoSalida[i] = user.events[i];
         }
@@ -207,9 +196,21 @@ async function mostrarEventoListado(){
     return a;
 }
 
-var calendario = document.getElementById("dates");
-mostrarEventoListado((fecha, eventos) => {
-    
+mostrarEventoListado().then((fecha, eventos) => {
+
     //IMPLEMENTAR JQUERY PARA RECORRER EL CALENDARIO YA CARGADO Y
     //AÑADIR EN SU POSICION EL EVENTO EN CASO DE QUE HAYA
+
+    $('#dates').find('div').each(function(){
+        var divIds = $(this).attr('id');
+        console.log("divIds:",divIds);
+        console.log($(this));
+        var aux = document.getElementById(divIds);
+        
+        
+        aux.addEventListener('click', () => {
+            alert(divIds);
+        })
+
+    });
 });
