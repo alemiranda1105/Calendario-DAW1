@@ -15,7 +15,7 @@ getCurrentUser().then(({friendRequests}) =>{
                     <div class="d-flex botones"> 
                             <button type="button" onclick="acceptRequest(${users.id},row${i})" class="btn bg-blue"> Aceptar</button>
                             <button type="button" onclick="declineRequest(${users.id},row${i})" class="btn btn-danger"> Rechazar </button>
-                            <button  type="button" onclick="seeRequestProfile()" class="btn btn-secondary">Ver</button>
+                            <button  type="button" onclick="seeRequestProfile(${users.id})" class="btn btn-secondary">Ver</button>
                     </div>
                 </div>
             </div>
@@ -38,9 +38,9 @@ function declineRequest(idRequest,row){
     //Implementar rechazar solicitud con base de datos
 }
 
-function seeRequestProfile(){
-    //MAL tiene que entrar en el perfil del usuario que envia la solicitud
-    window.location.href = "/pages/ProfilePage/profilePage.html";
+function seeRequestProfile(id){
+    localStorage.setItem('id', id);
+    window.location.href = "/pages/friendProfilePage/friendProfilePage.html";
 }
 
 
