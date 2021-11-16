@@ -36,13 +36,21 @@ const writeMonth = (month) => {
     }
 
     //dias del mes actual
-    let auxCurrentDate = new Date();
+    let aux = new Date();
+    var auxCurrentDate = {
+        day: aux.getDate(),
+        month: aux.getMonth()+1,
+        year: aux.getFullYear()
+    }
+    console.log("auxCurrentDate: ", auxCurrentDate);
+
     for(let i=1; i<=getTotalDays(month); i++){
-        if(i===currentDay && monthNumber === auxCurrentDate.getMonth() && currentYear === auxCurrentDate.getFullYear()) {
+        if(i===currentDay && monthNumber === aux.getMonth() && currentYear === aux.getFullYear()) {
+            
+            
             dates.innerHTML += `
             <div class="calendar__today">
-                <div class="divTxtDayEvent">
-                    
+                <div id="${i}" class="divTxtDayEvent">
                     <div class="d-flex justify-content-center">
                         ${i}
                     </div>
@@ -61,7 +69,7 @@ const writeMonth = (month) => {
         }else{
             dates.innerHTML += `
             <div class=" calendar__item">
-                <div id="${i}"" class="divTxtDayEvent">
+                <div id="${i}" class="divTxtDayEvent">
                     <div class="">
                         ${i}
                     </div>
@@ -74,7 +82,7 @@ const writeMonth = (month) => {
                         numero1: ${i}
                     </div>
 
-                    <div class="txtDayEvent bg-danger">
+                    <div class="txtDayEvent bg-grey">
                         numero1: ${i}
                     </div>
                 </div>
@@ -91,7 +99,6 @@ const writeMonth = (month) => {
         </div>`;
         j++;
     }
-
 }
 
 const getTotalDays = month => {
@@ -119,7 +126,6 @@ const startDay = () => {
 
 const lastDay = () => {
     let last = new Date(currentYear, monthNumber, getTotalDays(monthNumber));
-    console.log(last);
     return ((last.getDay()-1) === -1) ? 6 : last.getDay()-1;
 }
 
@@ -155,7 +161,6 @@ const setNewDate = () => {
 writeMonth(monthNumber);
 
 /** MENU DESPLEGABLE */
-
 const btnToggle = document.querySelector('.toggle-btn');
 const btnToggleMenu = document.querySelector('#toggleMenu');
 
@@ -171,7 +176,6 @@ btnToggleMenu.addEventListener('click', function () {
 
 
 // CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST
-var datos;
 getCurrentUser().then((user) =>{
     var listado = [];
     for(let i = 0; i < user.events.length; i++) {
@@ -186,3 +190,29 @@ btnLogout.addEventListener('click', () => {
     sessionStorage.removeItem('user');
     window.location.href = "http://127.0.0.1:5500/pages/login/login.html";
 })
+
+var fecha = [];
+async function mostrarEventoListado(){
+    var a = getCurrentUser().then((user) =>{
+        var listado = [];
+        for(let i = 0; i < user.events.length; i++) {
+            listado[i] = user.events[i];
+            var aux = listado[i].date;           
+            var date = aux.split("-");
+            fecha[i] = [{
+                day: parseInt(date[0]),
+                month: parseInt(date[1]),
+                year: parseInt(date[2])
+            }]
+        }
+        return fecha;
+    });
+    return a;
+}
+
+
+mostrarEventoListado().then((fecha)=>{
+    console.log("fuera del async",fecha.length)
+    //TODO: AÑADIR ESTA FUNCION AL CALENDARIO Y LEER SI
+    // HAY EVENTOS DE ESE DIA PARA EL USUARIO
+});

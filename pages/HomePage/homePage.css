@@ -131,16 +131,24 @@ html,body {
 
 .divTxtDayEvent {
     height: 100%;
+    width: 100%;
+    padding: 0px 5px;
 }
 
 .txtDayEvent {
+    cursor: pointer;
     text-align: center;
     font-size: 1vh;
+    color:white;
+    border-radius: 5px;
+    margin-bottom: 2px;
 }
 
+.txtDayEvent:hover {
+    background-color: red;
+}
 
 /** ---------------------------- MENU ---------------*/
-
 .spacer {
     flex: 1 1 auto;
 }
@@ -274,7 +282,6 @@ html,body {
 /** --------------- FOOTER --------------- */
 #divFooter{
     width: 100%;
-
 }
 
 .customBtn {
@@ -299,8 +306,6 @@ html,body {
 .customBtn:hover {
     color: white;
 }
-
-
 
 /** ---------------------- SWITCH BUTTON --------*/
 #divSwitchBtn{
