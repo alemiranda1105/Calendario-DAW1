@@ -1,13 +1,18 @@
+let id = localStorage.getItem('id');
+localStorage.removeItem('id');
+
+
+    //Cambiar ruta del div goBack para poder volver a la página correcta.
+
+
+
 let name = document.getElementById("name");
-let email = document.getElementById("email");
 let lista = document.getElementById("friendBody");
 
-getCurrentUser().then((user) =>{
-    name.innerHTML = user.username;
-    email.innerHTML = user.email;
-
-    for(let i = 0; i<user.friends.length; i++){
-        getUserById(user.friends[i]).then(friend =>{
+getUserById(id).then(({username, friends}) =>{
+    name.innerHTML += username;
+    for(let i = 0; i<friends.length; i++){
+        getUserById(friends[i]).then(friend =>{
             lista.innerHTML += ` 
                         <div class="friendComponent d-flex flex-column justify-content-center align-items-center">
                             <img class="imgFriend" src="/img/avatar.png" alt="">
