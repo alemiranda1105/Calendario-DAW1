@@ -22,7 +22,7 @@ nextMonthDOM.addEventListener('click', ()=>nextMonth());
 
 
 /** CALENDARIO */
-const writeMonth = (month) => {
+function writeMonth(month) {
 
     //dias del mes pasado visibles en el mes actual
     for(let i = startDay(); i>0;i--){
@@ -43,11 +43,9 @@ const writeMonth = (month) => {
         year: aux.getFullYear()
     }
     console.log("auxCurrentDate: ", auxCurrentDate);
-
+    
     for(let i=1; i<=getTotalDays(month); i++){
         if(i===currentDay && monthNumber === aux.getMonth() && currentYear === aux.getFullYear()) {
-            
-            
             dates.innerHTML += `
             <div class="calendar__today">
                 <div id="${i}" class="divTxtDayEvent">
@@ -56,14 +54,9 @@ const writeMonth = (month) => {
                     </div>
 
                     <div class="txtDayEvent bg-grey">
-                        numero1: ${i}
+                        evento: 
                     </div>
-                    <div class="txtDayEvent bg-blue">
-                        numero1: ${i}
-                    </div>
-                    <div class="txtDayEvent bg-orange">
-                        numero1: ${i}
-                    </div>
+                    
                 </div>
             </div>`;
         }else{
@@ -175,6 +168,12 @@ btnToggleMenu.addEventListener('click', function () {
 });
 
 
+let btnLogout = document.getElementById("btnLogout");
+btnLogout.addEventListener('click', () => {
+    sessionStorage.removeItem('user');
+    window.location.href = "http://127.0.0.1:5500/pages/login/login.html";
+})
+
 // CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST
 getCurrentUser().then((user) =>{
     var listado = [];
@@ -184,35 +183,33 @@ getCurrentUser().then((user) =>{
     }
 });
 
-let btnLogout = document.getElementById("btnLogout");
-
-btnLogout.addEventListener('click', () => {
-    sessionStorage.removeItem('user');
-    window.location.href = "http://127.0.0.1:5500/pages/login/login.html";
-})
-
 var fecha = [];
 async function mostrarEventoListado(){
     var a = getCurrentUser().then((user) =>{
         var listado = [];
+        var fechaSalida ={}, eventoSalida=[];
         for(let i = 0; i < user.events.length; i++) {
             listado[i] = user.events[i];
             var aux = listado[i].date;           
             var date = aux.split("-");
-            fecha[i] = [{
+            
+            fecha[i] = {
                 day: parseInt(date[0]),
                 month: parseInt(date[1]),
                 year: parseInt(date[2])
-            }]
+            }
+
+            fechaSalida[i] = fecha[i];
+            eventoSalida[i] = user.events[i];
         }
-        return fecha;
+        return {fechaSalida,eventoSalida};
     });
     return a;
 }
 
-
-mostrarEventoListado().then((fecha)=>{
-    console.log("fuera del async",fecha.length)
-    //TODO: AÑADIR ESTA FUNCION AL CALENDARIO Y LEER SI
-    // HAY EVENTOS DE ESE DIA PARA EL USUARIO
+var calendario = document.getElementById("dates");
+mostrarEventoListado((fecha, eventos) => {
+    
+    //IMPLEMENTAR JQUERY PARA RECORRER EL CALENDARIO YA CARGADO Y
+    //AÑADIR EN SU POSICION EL EVENTO EN CASO DE QUE HAYA
 });
