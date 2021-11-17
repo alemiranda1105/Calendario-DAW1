@@ -10,6 +10,13 @@
         <link rel = "stylesheet" href="eventpage.css">
     </head>
     <body class="bg-image">
+        <div id="divGoBack" class="d-flex align-items-start">
+            <div id ="goBack" class="d-flex align-items-center">
+                <a href="/pages/profilePage/profilePage.html">
+                <img src="/img/goBack.svg" alt="Volver"></a>
+                <a href="/pages/HomePage/homePage.html"> <h6>Volver</h6></a>
+            </div>
+        </div>
         <div class="justify-content-center align-items-center">
             <h1 class="title">Actualizar evento</h1>
             <div class="d-flex justify-content-center align-items-center">
@@ -38,6 +45,7 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="./eventpages.js"></script>
+        <script src="/data/db.service.js"></script>
+        <script src="./updateEvent.js"></script>
     </body>
 </html>

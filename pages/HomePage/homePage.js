@@ -146,5 +146,5 @@ let btnLogout = document.getElementById("btnLogout");
 
 btnLogout.addEventListener('click', () => {
     sessionStorage.removeItem('user');
-    window.location.href = "http://127.0.0.1:5500/pages/login/login.html";
+    window.location.href = "http://127.0.0.1:5500/pages/inicio/inicio.html";
 })
