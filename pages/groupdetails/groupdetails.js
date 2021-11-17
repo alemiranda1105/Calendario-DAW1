@@ -3,10 +3,10 @@ localStorage.removeItem('groupInfo');
 let list = document.getElementById("listUsers");
 let groupName = document.getElementById("groupName");
 let pencil = document.getElementById("pencil");
+var button = document.getElementById("leaveGroup");
 let nameAux;
 getCurrentUser().then((user) =>{
     getGroupById(groupId).then((group) => {
-        //No se escribe el contenido en el input pero al inspeccionar si tiene el contenido correcto
         groupName.value = group.name;
         nameAux = groupName.value ;
         for(let i = 0; i < group.users.length; i++){
@@ -15,8 +15,8 @@ getCurrentUser().then((user) =>{
             } else{
                 getUserById(group.users[i]).then(({username}) => {
                     list.innerHTML += `
-                            <li class="list-group-item">${username}
-                            <img src="/img/close.svg" alt="Eliminar de grupo" class="float-end">
+                            <li class="list-group-item" id="li${username}">${username}
+                            <img src="/img/close.svg" onclick="sacarDeGrupo(li${username}) "alt="Eliminar de grupo" class="float-end">
                             </li>
                     `;
                 });
@@ -39,4 +39,16 @@ function cambiaNombre(){
             nameAux = groupName.value;
         }
     }
+}
+
+function sacarDeGrupo(elem){
+    elem.remove();
+    //Solo se borra el "li" hay que implementar el borrado en la base de datos. 
+}
+
+button.addEventListener('click', () => salirGrupo());
+
+function salirGrupo(){
+    //implementar salir del grupo 
+    window.location.href = "/pages/groupmanagement/groupmanagement.html";
 }
