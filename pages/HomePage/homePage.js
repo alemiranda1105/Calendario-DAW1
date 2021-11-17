@@ -47,13 +47,13 @@ function writeMonth(month) {
         if(i===currentDay && monthNumber === aux.getMonth() && currentYear === aux.getFullYear()) {
             dates.innerHTML += `
             
-            <div id="divCurrentDay${i}" class="calendar__today divTxtDayEvent">
+            <div id="divDay${i}" class="calendar__today divTxtDayEvent">
                 <div id="day${i}" class="d-flex justify-content-center">
                     ${i}
                 </div>
 
                 <div id="eventDay${i}" class="txtDayEvent bg-grey">
-                    evento: 
+                    numero: ${i} 
                 </div>
                 
             </div>`;
@@ -66,7 +66,7 @@ function writeMonth(month) {
                 </div>
 
                 <div id="eventDay${i}" class="txtDayEvent bg-blue">
-                    numero1: ${i}
+                    numero: ${i}
                 </div>
 
             </div>`;
@@ -198,19 +198,26 @@ async function mostrarEventoListado(){
 
 mostrarEventoListado().then((fecha, eventos) => {
 
-    //IMPLEMENTAR JQUERY PARA RECORRER EL CALENDARIO YA CARGADO Y
-    //AÑADIR EN SU POSICION EL EVENTO EN CASO DE QUE HAYA
+    //AGREGAR EVENTO EN EL DIA CORRESPONDIENTE
+    //CORREGIR HACER CLICK EVENTO NO AÑADA EVENTO DE NUEVO
+    $(document).ready(function(){
+        $('#dates').find('div').each(function(){
+            var divIds = $(this).attr('id');
+            var aux = document.getElementById(divIds);
 
-    $('#dates').find('div').each(function(){
-        var divIds = $(this).attr('id');
-        console.log("divIds:",divIds);
-        console.log($(this));
-        var aux = document.getElementById(divIds);
-        
-        
-        aux.addEventListener('click', () => {
-            alert(divIds);
-        })
-
+            var id = aux.id;
+            if(id.startsWith("divDay")){
+                $(`#${id}`).click( ()=> {
+                    
+                    $(`#${id}`).append(`<div>${id}</div>`);  
+                });                
+            }
+            if(id.startsWith("eventDay")){
+                $(`#${id}`).click( (a)=> {
+                    alert($(this)[0].id)
+                    //console.log($(this));
+                });                
+            }
+        });
     });
 });
