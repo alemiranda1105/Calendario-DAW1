@@ -55,10 +55,13 @@ $('#signUpForm').submit((e) => {
     e.preventDefault();
 
     const data = {
-        "username": user,
-        "email": email,
-        "password": pass,
-        "events": []
+        username: user,
+        email: email,
+        password: pass,
+        events: [],
+        groupid: [],
+        friends: [],
+        friendRequests:[]
     };
 
     fetch(URL, {
@@ -67,7 +70,7 @@ $('#signUpForm').submit((e) => {
         body: JSON.stringify(data)
     })
     .then((res) => {
-        if(res.ok()) {
+        if(res.ok) {
             storeSession(data);
             window.location.href = "/pages/HomePage/homePage.html";
         }

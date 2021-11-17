@@ -1,6 +1,8 @@
+
 let name = document.getElementById("name");
 let email = document.getElementById("email");
 let lista = document.getElementById("friendBody");
+let divNoFriends = document.getElementById("divNoFriends");
 
 getCurrentUser().then((user) =>{
     name.innerHTML = user.username;
