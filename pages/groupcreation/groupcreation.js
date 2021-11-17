@@ -14,6 +14,22 @@ function showError(error) {
     errorTxt.style.display = "block";
 }
 
+function removeUser(user) {
+    addedFriends = addedFriends.filter(f => f.username != user);
+    console.log(addedFriends);
+    if(addedFriends.length <= 0) {
+        peopleList.innerText = '';
+    } else {
+        addedFriends.forEach(f => {
+            peopleList.innerHTML = `
+                <li class="list-group-item">${f.username}
+                    <img src="/img/close.svg" onclick="javascript:removeUser('${f.username}')" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
+                </li>
+            `;
+        });
+    }
+}
+
 
 getCurrentUser().then(data => {
     if(data === undefined) {
@@ -49,9 +65,10 @@ $('#add-button').click(e => {
                 addedFriends.push(newFriend);
                 peopleList.innerHTML += `
                     <li class="list-group-item">${newFriend.username}
-                        <img src="/img/close.svg" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
+                        <img src="/img/close.svg" onclick="javascript:removeUser('${newFriend.username}')" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
                     </li>
                 `;
+                $(friendsSearch).val('');
             }
         } else {
             alert("Introduzca un amigo");
