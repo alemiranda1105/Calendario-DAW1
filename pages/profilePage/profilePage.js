@@ -21,5 +21,6 @@ getCurrentUser().then((user) =>{
 
 function view(id){
     localStorage.setItem('id', id);
+    localStorage.setItem('url', "/pages/profilePage/profilePage.html");
     window.location.href = "/pages/friendProfilePage/friendProfilePage.html";
 }
