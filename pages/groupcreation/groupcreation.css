@@ -64,6 +64,12 @@ img:hover{
     transition: 70ms ease;
 }
 
+#error-txt {
+    background-color: rgba(255,0,0,0.75);
+    padding: 12px;
+    border-radius: 20px;
+    display: none;
+}
 
 @media (min-width: 700px){
     .title2{
@@ -98,6 +104,9 @@ img:hover{
     }
     #textareas ul{
         width: 65vw;
+    }
+    #error-txt {
+        font-size: min(3.5vw, 20px);
     }
     
 }

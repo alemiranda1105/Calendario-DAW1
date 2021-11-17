@@ -6,6 +6,15 @@ let user;
 let friends = [];
 let friendsName = [];
 let addedFriends = [];
+
+
+function showError(error) {
+    const errorTxt = document.getElementById("error-txt");
+    errorTxt.innerText = error;
+    errorTxt.style.display = "block";
+}
+
+
 getCurrentUser().then(data => {
     if(data === undefined) {
         window.location.replace("http://localhost:5500/pages/inicio/inicio.html");
@@ -50,4 +59,13 @@ $('#add-button').click(e => {
     } else {
         alert("Introduzca un nombre");
     }
+});
+
+$('#groupCreationForm').submit((e) => {
+    e.preventDefault();
+    if(addedFriends.length <= 0) {
+        showError("Añadir amigos al grupo");
+        return;
+    }
+    // Añadir llamada a la API
 });
