@@ -2,27 +2,55 @@
 
 html,body {
     margin:0px;
+    min-width: 100%;
     min-height: 100vh;
 }
 
 #divMainContent {
-    width: 100%;
+    min-width: 100vw;
     min-height: 100vh;
     transition: all linear 300ms;
 }
 
 #divMainContent.active {
-    width: 100%;
+    display: none;
 }
 
 /** ------------------- CALENDARIO -------------------*/
 #divCalendario {
     min-width: 100%;
-    padding: 2em;
+    margin-bottom:20px;
+    margin-top: 2.5em;
 }
+
+@media (max-width: 768px) {
+    #divCalendario {
+        margin-top: 2em;
+        width: 100vw;
+        margin-bottom: 0.7em;
+    }
+
+    #divNav{
+        position:fixed;
+        min-width: 100vw;
+    }
+
+    
+    #divNav .toggle-btn {
+        cursor: pointer;
+        width: 2em;
+        height: 2em;
+    }
+
+    .calendar__week .calendar__day {
+        text-align: center;
+        font-size: 4vw;
+    }
+}
+
+
 .calendar {
     min-width: 100%;
-    margin-top: 0.7em;
     box-shadow: 0px 0px 3px black;
 }
 
@@ -61,14 +89,15 @@ html,body {
 
 .calendar__day {
     text-align: center;
-    font-size: 1em;
+    font-size: 1.5vw;
 }
+
 
 .calendar__dates {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(auto-fit,7em);
+    grid-template-rows: repeat(auto-fit,13vh);
     box-shadow: 0px 0px 2px black;
     background-color: white;
     font-size: auto;
@@ -83,47 +112,77 @@ html,body {
 .calendar__item {
     text-align: center;
     font-weight: bold;
-    line-height: 3.7em;
+    box-shadow: 0.5px 0.5px 1px black;
+    width: 1fr;
+    height: 13vh;
 }
 
 .calendar__today {
     background: lightcoral;
     color: white;
     width: 100%;
-    margin: auto; 
+    box-shadow: 0px 0px 2px black;
+
 }
 
 .calendar__last-days {
     opacity: .3; 
 }
 
-/** ---------------------------- MENU ---------------*/
+.divTxtDayEvent {
+    width: 100%;
+    padding: 0px 5px;
+}
 
+.txtDayEvent {
+    cursor: pointer;
+    text-align: center;
+    font-size: 1vh;
+    color:white;
+    border-radius: 5px;
+    margin-bottom: 2px;
+}
+
+.txtDayEvent:hover {
+    background-color: red;
+}
+
+/** ---------------------------- MENU ---------------*/
 .spacer {
     flex: 1 1 auto;
 }
 
-#divImg {
+#divToggleMenu {
     width: 100%;
+    height: 3.8em;
     display: flex;
+    box-shadow: 0px 2px 5px black;
+}
+
+#toggleMenu{
+    position: relative;
+    left: 0.5em;
+    top: 0.7em;
+    cursor: pointer;
+    height: 2.5em;
+    color: white;
 }
 
 .customImg {
-    height: 5rem;
-    width: 5rem;
-    margin-top: 20px;
-    margin-right: 20px;
+    height: 3em;
+    width: 3em;
+    margin-top: 0.4em;
+    margin-right: 0.4em;
     border-radius: 5rem;
     transition: all linear 200ms;
 }
 
 .customImg:hover {
-    height: 6rem;
-    width: 6rem;
-    box-shadow: 0px 0px 30px white;
+    box-shadow: 0px 0px 30px 0px white;
 }
 
 #eventsTitle {
+    margin-top: 20px;
     margin-left: 20px;
     color: white;
     padding: 5px;
@@ -141,21 +200,22 @@ html,body {
     margin-bottom: 10px;
     border-radius: 10px;
     height: 3.5em;
-    
-    color: black;
 }
 
 #sidebar {
     position: fixed;
-    z-index: 30;
-    width: 0%;
-    min-height: 100vh;
+    top:0px;
     right: 0px;
+    z-index: 30;
+    min-height: 100vh;
+    width: 0%;
     transition: all linear 300ms;
 }
   
 #sidebar.active {
-    width: 100%;
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
 }
   
 #sidebar ul li {
@@ -165,30 +225,25 @@ html,body {
     border-bottom: 1px solid rgba(100, 100, 100, .3);
     text-align: center;
 }
-  
+
+#divNav{
+    position:fixed;
+    width: 100%;
+    height: 3em;
+    padding: 0px 2em;
+    box-shadow: 0px 3px 10px 1px black;
+}
+
 .toggle-btn {
-    position: relative;
-    right: 20px;
-    top: -20px;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    height: 2.5em;
+    width: 2.5em;
 }
   
 #sidebar .toggle-btn {
     position: absolute;
     right: 210px;
     top: 10px;
-}
-
-#toggleMenu{
-    position: relative;
-    left: 20px;
-    top: 20px;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    color: white;
 }
 
 #btnConfig{
@@ -205,20 +260,18 @@ html,body {
     transition: all linear 300ms;
 }
 
+.divisor{
+    height: 1px;
+    margin: 15px 25px;
+    background-color: white;
+}
 #btnLogout:hover {
     width: 9rem;
     height: 60px;
     background-color: transparent;
     font-weight: bold;
     color: rgba(255, 0, 0, 0.815);
-    box-shadow: 0px 5px rgb(224, 23, 56);
-    
-}
-
-.divisor{
-    height: 1px;
-    margin: 15px 25px;
-    background-color: white;
+    box-shadow: 0px 5px rgb(224, 23, 56);   
 }
 
 #btnLogout:active {
@@ -227,23 +280,34 @@ html,body {
     transform: translateY(4px);
 }
 
-
-
 /** --------------- FOOTER --------------- */
-
 #divFooter{
     width: 100%;
 }
 
 .customBtn {
-    margin: 3px;
-    width: 15em;
+    width: 11em;
     height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     border-radius: 10px;
-    color: black;
+    color: white;
     font-weight: bold;
-    border: none;
+    text-decoration: none;
+    box-shadow: 0px 7px #66747eb9;   
 }
+.customBtn:active {
+    transition: all ease-out 10ms;
+    box-shadow: 0 1px #66747eb9;
+    transform: translateY(6px);
+}
+
+.customBtn:hover {
+    color: white;
+}
+
 /** ---------------------- SWITCH BUTTON --------*/
 #divSwitchBtn{
     margin: 10px 0px;

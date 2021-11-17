@@ -1,6 +1,6 @@
 
 
-let monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre','Octubre', 'Noviembre', 'Deciembre'];
+let monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre','Octubre', 'Noviembre', 'Diciembre'];
 
 let currentDate = new Date();
 let currentDay = currentDate.getDate();
@@ -22,22 +22,54 @@ nextMonthDOM.addEventListener('click', ()=>nextMonth());
 
 
 /** CALENDARIO */
-const writeMonth = (month) => {
+function writeMonth(month) {
 
     //dias del mes pasado visibles en el mes actual
     for(let i = startDay(); i>0;i--){
         dates.innerHTML += 
-        ` <div id="meses" class="calendar__dates calendar__item calendar__last-days">
-            ${getTotalDays(monthNumber-1)-(i-1)}
+        ` <div id="divLastDays${getTotalDays(monthNumber-1)-(i-1)}" class="calendar__item calendar__last-days">
+            <div id="lastDay${getTotalDays(monthNumber-1)-(i-1)}" class="d-flex justify-content-center">
+               ${getTotalDays(monthNumber-1)-(i-1)}
+            </div>
+            
         </div>`;
     }
 
     //dias del mes actual
+    let aux = new Date();
+    var auxCurrentDate = {
+        day: aux.getDate(),
+        month: aux.getMonth()+1,
+        year: aux.getFullYear()
+    }
+
     for(let i=1; i<=getTotalDays(month); i++){
-        if(i===currentDay) {
-            dates.innerHTML += ` <div class="calendar__dates calendar__item calendar__today">${i}</div>`;
+        if(i===currentDay && monthNumber === aux.getMonth() && currentYear === aux.getFullYear()) {
+            dates.innerHTML += `
+            
+            <div id="divDay${i}" class="calendar__today divTxtDayEvent">
+                <div id="day${i}" class="d-flex justify-content-center">
+                    ${i}
+                </div>
+
+                <div id="eventDay${i}" class="txtDayEvent bg-grey">
+                    numero: ${i} 
+                </div>
+                
+            </div>`;
         }else{
-            dates.innerHTML += ` <div class="calendar__dates calendar__item">${i}</div>`;
+            dates.innerHTML += `
+            
+            <div id="divDay${i}" class="divTxtDayEvent calendar__item">
+                <div id="day${i}">
+                    ${i}
+                </div>
+
+                <div id="eventDay${i}" class="txtDayEvent bg-blue">
+                    numero: ${i}
+                </div>
+
+            </div>`;
         }
     }
 
@@ -45,12 +77,11 @@ const writeMonth = (month) => {
     let j = 1;
     for(let i = lastDay(); i < 6;i++){
         dates.innerHTML += 
-        ` <div id="meses" class="calendar__dates calendar__item calendar__last-days">
+        ` <div id="postDays${i}" class="calendar__item calendar__last-days">
             ${j}
         </div>`;
         j++;
     }
-
 }
 
 const getTotalDays = month => {
@@ -78,13 +109,8 @@ const startDay = () => {
 
 const lastDay = () => {
     let last = new Date(currentYear, monthNumber, getTotalDays(monthNumber));
-    console.log(last);
     return ((last.getDay()-1) === -1) ? 6 : last.getDay()-1;
 }
-
-
-console.log("ultimo dia del mes", lastDay());
-
 
 const lastMonth = () => {
     if(monthNumber !== 0){
@@ -118,7 +144,6 @@ const setNewDate = () => {
 writeMonth(monthNumber);
 
 /** MENU DESPLEGABLE */
-// sidebar toggle
 const btnToggle = document.querySelector('.toggle-btn');
 const btnToggleMenu = document.querySelector('#toggleMenu');
 
@@ -129,11 +154,17 @@ btnToggle.addEventListener('click', function () {
 
 btnToggleMenu.addEventListener('click', function () {
     document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('divMainContent').classList.remove('active');
 });
 
 
+let btnLogout = document.getElementById("btnLogout");
+btnLogout.addEventListener('click', () => {
+    sessionStorage.removeItem('user');
+    window.location.href = "http://127.0.0.1:5500/pages/login/login.html";
+})
+
 // CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST
-var datos;
 getCurrentUser().then((user) =>{
     var listado = [];
     for(let i = 0; i < user.events.length; i++) {
@@ -142,9 +173,51 @@ getCurrentUser().then((user) =>{
     }
 });
 
-let btnLogout = document.getElementById("btnLogout");
+var fecha = [];
+async function mostrarEventoListado(){
+    var a = getCurrentUser().then((user) =>{
+        var listado = [];
+        var fechaSalida ={}, eventoSalida=[];
+        for(let i = 0; i < user.events.length; i++) {
+            listado[i] = user.events[i];
+            var aux = listado[i].date;           
+            var date = aux.split("-");
+            
+            fecha[i] = {
+                day: parseInt(date[0]),
+                month: parseInt(date[1]),
+                year: parseInt(date[2])
+            }
+            fechaSalida[i] = fecha[i];
+            eventoSalida[i] = user.events[i];
+        }
+        return {fechaSalida,eventoSalida};
+    });
+    return a;
+}
 
-btnLogout.addEventListener('click', () => {
-    sessionStorage.removeItem('user');
-    window.location.href = "http://127.0.0.1:5500/pages/inicio/inicio.html";
-})
+mostrarEventoListado().then((fecha, eventos) => {
+
+    //AGREGAR EVENTO EN EL DIA CORRESPONDIENTE
+    //CORREGIR HACER CLICK EVENTO NO AÑADA EVENTO DE NUEVO
+    $(document).ready(function(){
+        $('#dates').find('div').each(function(){
+            var divIds = $(this).attr('id');
+            var aux = document.getElementById(divIds);
+
+            var id = aux.id;
+            if(id.startsWith("divDay")){
+                $(`#${id}`).click( ()=> {
+                    
+                    $(`#${id}`).append(`<div>${id}</div>`);  
+                });                
+            }
+            if(id.startsWith("eventDay")){
+                $(`#${id}`).click( (a)=> {
+                    alert($(this)[0].id)
+                    //console.log($(this));
+                });                
+            }
+        });
+    });
+});

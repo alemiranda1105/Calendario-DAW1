@@ -17,10 +17,15 @@
     <link rel="stylesheet" href="/style/font.css">
     <link rel="stylesheet" href="/style/color.css">
 </head>
-<body>
-    <div id="divMainContent" class="d-flex flex-column bg-image animate__animated animate__fadeIn">
+<body class="bg-image d-flex">
+    <div id="divMainContent">
+
+        <div id="divNav" class="bg-orange d-flex justify-content-end align-items-center">
+            <img class="toggle-btn" src="/img/menu.svg" alt="">
+        </div>
+    
         <div id="divCalendario" class="d-flex">
-            <div class="calendar bg-grey">
+            <div class="calendar bg-orange">
                 <div class="calendar__info">
                     <div class="calendar__prev c-white" id="prev-month">&#9664;</div>
                     <div class="calendar__month c-white" id="month"></div>
@@ -40,74 +45,66 @@
                     
                 </div>
             
-                <div class="calendar__dates" id="dates"></div>
+                <div id="dates" class="calendar__dates"></div>
             </div>
-
-
-            <div class="">
-                <img class="toggle-btn" src="/img/menu.svg" alt="">
-            </div>
-
         </div>
-        <aside id="sidebar" class="bg-grey">
-            <div id="divImg">
-                <img id="toggleMenu" src="/img/menu_white.svg" alt="">
-                <span class="spacer"></span>
-                <a href="/pages/profilePage/profilePage.html">
-                    <img class="customImg" src="/img/avatar.png" alt="">
-                </a>
-            </div>
-    
-            <h3 id="eventsTitle" class="text-justify ">Próximos Eventos</h3>
-            <div class="divisor"></div>
-            <div id="listMain" class="d-flex flex-column justify-content-center align-items-center">
-                <ul class="ulNearEvent"> 
-                  
-                </ul>
-                <div id="btnConfig" class="">
-                    <span class="spacer"></span>
-                    <button id="btnLogout" class="btn btn-danger">Logout</button>
-                </div>
-            </div>
-    
-        </aside>
-
+        
         <div id="divFooter">
             <div id="divBtnFooter" >
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
-                            <button class="customBtn bg-grey c-white mb-2"><a style="text-decoration: none;" class="c-white" href="/pages/eventpages/addevent.html">Crear evento</a></button>
+                            <a class="customBtn bg-orange mb-3" href="/pages/eventpages/addevent.html">Crear Evento</a>
                         </div>
                         
                         <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
-                            <button class="customBtn bg-grey c-white mb-2"><a style="text-decoration: none;" class="c-white" href="/pages/groupcreation/groupcreation.html">Crear Grupo</a></button>
+                            <a class="customBtn bg-orange mb-3" href="/pages/groupcreation/groupcreation.html">Crear Grupo</a>
                         </div>
-
+    
                         <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
-                            <button class="customBtn bg-grey c-white mb-2"><a style="text-decoration: none;" class="c-white" href="/pages/groupmanagement/groupmanagement.html">Gestionar Grupos </a></button>
+                            <a class="customBtn bg-orange mb-3" href="/pages/groupmanagement/groupmanagement.html">Gestionar Grupos</a>
                         </div>
-
+    
                         <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
                             <div id="divSwitchBtn" class="d-flex justify-content-center align-items-center">
-
                                 <input type="checkbox" class="checkbox" id="switch-button" />
                                 <label class="bg-checkbox" for="switch-button">
                                     <img src="/img/individual_icon.svg" class="icon-custom"></img>
                                     <span class="spacer"></span>
                                     <img src="/img/group_icon.svg" class="icon-custom"></img>
-                                    <div class="ball bg-blue"></div>
+                                    <div class="ball bg-orange"></div>
                                 </label>
                                 
                             </div>
                         </div>
-
+    
                     </div>
                 </div>
             </div>
             
         </div> 
     </div>
+
+    <aside id="sidebar" class="bg-grey">
+        <div id="divToggleMenu">
+            <img id="toggleMenu" src="/img/menu_white.svg" alt="">
+            <span class="spacer"></span>
+            <a href="/pages/profilePage/profilePage.html">
+                <img class="customImg" src="/img/avatar.png" alt="">
+            </a>
+        </div>
+
+        <h3 id="eventsTitle" class="text-justify ">Próximos Eventos</h3>
+        <div class="divisor"></div>
+        <div id="listMain" class="d-flex flex-column justify-content-center align-items-center">
+            <ul class="ulNearEvent"></ul>
+            <div id="btnConfig" class="mb-5">
+                <span class="spacer"></span>
+                <button id="btnLogout" class="btn btn-danger">Logout</button>
+            </div>
+        </div>
+    </aside>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script type="module" src="./homePage.js"></script>
     <script src="../../data/db.service.js"></script>
