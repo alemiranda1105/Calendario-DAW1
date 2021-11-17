@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>OWT</title>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
@@ -30,9 +31,9 @@
                     <input type="text" placeholder="Nombre de grupo" id="name-input" required>
                 </div>
 
-                <div>
+                <div class="nGroup">
                     <input type="text" id="search" name="search" placeholder="Buscar usuario...">
-                    <button id="add-button">Añadir</button>
+                    <button class="bg-orange c-white" id="add-button">Añadir</button>
                 </div>
                 <div id="textareas" class="d-flex flex-column align-items-center justify-content-center">
                     <ul class="list-group" id="people-list">
