@@ -152,27 +152,37 @@ html,body {
     flex: 1 1 auto;
 }
 
-#divImg {
+#divToggleMenu {
     width: 100%;
+    height: 3.8em;
     display: flex;
+    box-shadow: 0px 2px 5px black;
+}
+
+#toggleMenu{
+    position: relative;
+    left: 0.5em;
+    top: 0.7em;
+    cursor: pointer;
+    height: 2.5em;
+    color: white;
 }
 
 .customImg {
-    height: 5rem;
-    width: 5rem;
-    margin-top: 20px;
-    margin-right: 20px;
+    height: 3em;
+    width: 3em;
+    margin-top: 0.4em;
+    margin-right: 0.4em;
     border-radius: 5rem;
     transition: all linear 200ms;
 }
 
 .customImg:hover {
-    height: 6rem;
-    width: 6rem;
     box-shadow: 0px 0px 30px 0px white;
 }
 
 #eventsTitle {
+    margin-top: 20px;
     margin-left: 20px;
     color: white;
     padding: 5px;
@@ -219,12 +229,14 @@ html,body {
 #divNav{
     position:fixed;
     width: 100%;
+    height: 3em;
     padding: 0px 2em;
     box-shadow: 0px 3px 10px 1px black;
 }
 
 .toggle-btn {
     cursor: pointer;
+    height: 2.5em;
     width: 2.5em;
 }
   
@@ -232,16 +244,6 @@ html,body {
     position: absolute;
     right: 210px;
     top: 10px;
-}
-
-#toggleMenu{
-    position: relative;
-    left: 20px;
-    top: 20px;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    color: white;
 }
 
 #btnConfig{

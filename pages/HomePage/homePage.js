@@ -49,11 +49,12 @@ function writeMonth(month) {
             
             <div id="divCurrentDay${i}" class="calendar__today divTxtDayEvent">
                 <div id="day${auxCurrentDate.day}-${auxCurrentDate.month}-${auxCurrentDate.year}" class="d-flex justify-content-center">
+
                     ${i}
                 </div>
 
                 <div id="eventDay${i}" class="txtDayEvent bg-grey">
-                    evento: 
+                    numero: ${i} 
                 </div>
                 
             </div>`;
@@ -66,7 +67,7 @@ function writeMonth(month) {
                 </div>
 
                 <div id="eventDay${i}" class="txtDayEvent bg-blue">
-                    numero1: ${i}
+                    numero: ${i}
                 </div>
 
             </div>`;
@@ -197,7 +198,6 @@ async function mostrarEventoListado(){
 }
 
 mostrarEventoListado().then((fecha, eventos) => {
-
     //IMPLEMENTAR JQUERY PARA RECORRER EL CALENDARIO YA CARGADO Y
     //AÑADIR EN SU POSICION EL EVENTO EN CASO DE QUE HAYA
 
@@ -214,6 +214,7 @@ mostrarEventoListado().then((fecha, eventos) => {
             alert(divIds);
             e.stopPropagation();
         })
+
 
     });
 });
