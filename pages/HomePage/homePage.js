@@ -48,7 +48,7 @@ function writeMonth(month) {
             dates.innerHTML += `
             
             <div id="divCurrentDay${i}" class="calendar__today divTxtDayEvent">
-                <div id="day${i}" class="d-flex justify-content-center">
+                <div id="day${auxCurrentDate.day}-${auxCurrentDate.month}-${auxCurrentDate.year}" class="d-flex justify-content-center">
                     ${i}
                 </div>
 
@@ -203,13 +203,16 @@ mostrarEventoListado().then((fecha, eventos) => {
 
     $('#dates').find('div').each(function(){
         var divIds = $(this).attr('id');
-        console.log("divIds:",divIds);
-        console.log($(this));
+
         var aux = document.getElementById(divIds);
-        
-        
-        aux.addEventListener('click', () => {
+        aux.addEventListener('click', (e) => {
+            if(divIds.startsWith("divDay")){
+                
+                aux.append("<p>hola</p>")
+            }
+            
             alert(divIds);
+            e.stopPropagation();
         })
 
     });
