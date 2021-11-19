@@ -4,30 +4,14 @@ const eventName = document.getElementById("eventName");
 const eventDescription = document.getElementById("eventDescription");
 const eventDate = document.getElementById("event-date");
 const groupSelector = document.getElementById("group-selector");
-console.log("hola");
-/* Loading */
 
-/*fetch("url")
-.then(res => res.json())
-.then(data => {
-    this.data = data;
+const oldData = JSON.parse(localStorage.getItem('event'));
+localStorage.removeItem('event');
 
-    eventName.value = data.name;
-    eventDescription.value = data.description;
-    eventDate.value = data.date;
-    // Llamada al backend para ver los grupos disponibles
-});*/
+eventName.value = oldData.name;
+eventDescription.value = oldData.description;
 
-eventName.value = "Evento 1";
-eventDescription.value = "dsjasdhakslhkhjdfkashfjkldshfsakjfhsdkafhsdajkfh flas fjasfdhslajkfhsajfhsa dlsjhf asdhfsjkfhsajlfhdsajfasjlfhaksfhsdajkfhsafjahs";
-
-var now = new Date();
-
-var day = ("0" + now.getDate()).slice(-2);
-var month = ("0" + (now.getMonth() + 1)).slice(-2);
-
-var today = now.getFullYear()+"-"+(month)+"-"+(day);
-eventDate.value = today;
+eventDate.value = oldData.date.replace(/(\d\d)-(\d\d)-(\d{4})/, "$3-$2-$1");
 
 for (let i = 1; i < 6; i++) {
     groupSelector.options[groupSelector.options.length] = new Option('Grupo ' + i, 'g' + i);
