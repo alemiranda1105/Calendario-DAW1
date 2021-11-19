@@ -1,5 +1,3 @@
-
-
 let monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre','Octubre', 'Noviembre', 'Diciembre'];
 
 let currentDate = new Date();
@@ -20,7 +18,16 @@ year.textContent = currentYear.toString();
 prevMonthDOM.addEventListener('click', ()=>lastMonth());
 nextMonthDOM.addEventListener('click', ()=>nextMonth());
 
+//dias del mes actual
+let aux = new Date();
+var auxCurrentDate = {
+    day: aux.getDate(),
+    month: monthNumber,
+    year: aux.getFullYear()
+}
 
+var acd;
+var monthYear = `${auxCurrentDate.month+1}-${auxCurrentDate.month}`;
 /** CALENDARIO */
 function writeMonth(month) {
 
@@ -34,42 +41,27 @@ function writeMonth(month) {
             
         </div>`;
     }
-
-    //dias del mes actual
-    let aux = new Date();
-    var auxCurrentDate = {
-        day: aux.getDate(),
-        month: aux.getMonth()+1,
-        year: aux.getFullYear()
-    }
-
     for(let i=1; i<=getTotalDays(month); i++){
         if(i===currentDay && monthNumber === aux.getMonth() && currentYear === aux.getFullYear()) {
             dates.innerHTML += `
-            
             <div id="divCurrentDay${i}" class="calendar__today divTxtDayEvent">
-                <div id="day${auxCurrentDate.day}-${auxCurrentDate.month}-${auxCurrentDate.year}" class="d-flex justify-content-center">
-
+                <div id="day${auxCurrentDate.day}-${auxCurrentDate.month+1}-${auxCurrentDate.year}" class="d-flex justify-content-center">
                     ${i}
                 </div>
 
                 <div id="eventDay${i}" class="txtDayEvent bg-grey">
                     numero: ${i} 
                 </div>
-                
             </div>`;
         }else{
+            acd = `${i}-${auxCurrentDate.month+1}-${auxCurrentDate.year}`;
             dates.innerHTML += `
-            
             <div id="divDay${i}" class="divTxtDayEvent calendar__item">
-                <div id="day${i}">
+                <div id="day${acd}">
                     ${i}
                 </div>
 
-                <div id="eventDay${i}" class="txtDayEvent bg-blue">
-                    numero: ${i}
-                </div>
-
+               
             </div>`;
         }
     }
@@ -114,22 +106,38 @@ const lastDay = () => {
 }
 
 const lastMonth = () => {
+   
+
     if(monthNumber !== 0){
         monthNumber--;
+        auxCurrentDate.month--;
+        console.log("monthNumer", monthNumber);
+        console.log("auxCurrentDate", auxCurrentDate.month);
     }else{
         monthNumber = 11;
         currentYear--;
+        auxCurrentDate.year--;
+        console.log("monthNumer", monthNumber);
+        console.log("auxCurrentDate", auxCurrentDate.month);
     }
 
     setNewDate();
 }
 
 const nextMonth = () => {
+    
     if(monthNumber !== 11){
         monthNumber++;
+        auxCurrentDate.month++;
+        console.log("monthNumer", monthNumber+1);
+        console.log("auxCurrentDate", auxCurrentDate.month+1);
     }else{
         monthNumber = 0;
         currentYear++;
+        auxCurrentDate.month = 0;
+        auxCurrentDate.year++;
+        console.log("monthNumer", monthNumber+1);
+        console.log("auxCurrentDate", auxCurrentDate.month+1);
     }
     setNewDate();
 }
@@ -198,23 +206,29 @@ async function mostrarEventoListado(){
 }
 
 mostrarEventoListado().then((fecha, eventos) => {
-    //IMPLEMENTAR JQUERY PARA RECORRER EL CALENDARIO YA CARGADO Y
-    //AÑADIR EN SU POSICION EL EVENTO EN CASO DE QUE HAYA
-
     $('#dates').find('div').each(function(){
         var divIds = $(this).attr('id');
 
+        if(divIds.startsWith("divDay")){
+            var idNumerico= ($(this)[0].id).replace("divDay","");
+            ;
+            $($(this)).append(
+            `<div id="eventDay${idNumerico}-${monthYear}" class="txtDayEvent bg-blue">
+                numero: ${idNumerico}
+            </div>`);
+        }
         var aux = document.getElementById(divIds);
         aux.addEventListener('click', (e) => {
-            if(divIds.startsWith("divDay")){
-                
-                aux.append("<p>hola</p>")
-            }
+            
             
             alert(divIds);
             e.stopPropagation();
         })
 
+        if(divIds.startsWith("day")){
+            $(this).find("div").each(()=>{
 
+            })
+        }
     });
 });
