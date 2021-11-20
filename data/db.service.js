@@ -150,8 +150,20 @@ async function getUserEvents(user) {
             result.push(event);
         });
         result.sort((a, b) => (a.date >= b.date) ? 1 : -1);
+        result.forEach(event => {
+            event.uuid = uuid();
+        })
         return result;
     } catch(error) {
         console.error(error);
     }
+}
+
+
+// Generador de IDs
+function uuid() {
+    var S4 = function() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
 }
