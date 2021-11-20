@@ -41,13 +41,14 @@ $(document).ready(() => {
 $('#update-event').submit((e) => {
     e.preventDefault();
     const data = {
+        id: oldData.id,
         name: eventName.value,
         description: eventDescription.value,
-        date: eventDate.value,
-        group: $("#group-selector option:selected").text()
+        date: eventDate.value
     };
 
-    console.log(data);
+    alert("Evento actualizado");
+    window.location.replace("/pages/HomePage/homePage.html");
     /*fetch("url", {
         method: "POST",
         body: data
