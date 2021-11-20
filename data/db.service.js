@@ -150,11 +150,15 @@ async function getUserEvents(user) {
             result.push(event);
         });
         result.sort((a, b) => {
-            return new Date(b.date) - new Date(a.date);
+            let d1 = a.date.split('-').reverse().join('');
+            let d2 = b.date.split('-').reverse().join('');
+
+            return d1.localeCompare(d2);
         });
         result.forEach(event => {
             event.uuid = uuid();
-        })
+        });
+        console.log(result);
         return result;
     } catch(error) {
         console.error(error);
