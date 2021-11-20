@@ -49,6 +49,11 @@ function sacarDeGrupo(elem){
 button.addEventListener('click', () => salirGrupo());
 
 function salirGrupo(){
-    //implementar salir del grupo 
-    window.location.href = "/pages/groupmanagement/groupmanagement.html";
+    getCurrentUser().then(user => {
+        user.groupid = user.groupid.filter(id => id != groupId);
+        console.log(sessionStorage.getItem("user"));
+        console.log(JSON.stringify([user]));
+        sessionStorage.setItem('user', JSON.stringify([user]));
+        window.location.href = "/pages/groupmanagement/groupmanagement.html";
+    });
 }

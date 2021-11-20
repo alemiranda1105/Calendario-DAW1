@@ -248,6 +248,10 @@ li {
     height: 3.5em;
 }
 
+.event-link {
+    text-decoration: none;
+}
+
 #sidebar {
     position: fixed;
     top:0px;

@@ -23,7 +23,7 @@
                 <div class="d-flex align-items-center flex-column mb-3 card bg-grey">
                     <h1 class="title title-sm">Actualizar evento</h1>
                     <h2 id="data-txt" class="c-white">Datos</h2>
-                    <form>
+                    <form id="update-event">
                         <div class="form-floating">
                             <input type="text" class="form-control txt-input" id="eventName" placeholder="Nombre" required>
                             <label for="eventName" class="form-label">Nombre del evento</label>
@@ -33,7 +33,7 @@
                         <input type="date" name="event-date" id="event-date" required>
                         <div class="mb-3">
                             <select name="group-selector" id="group-selector" required>
-                                <option value="none" selected>Individual</option>
+                                <option value="none">Individual</option>
                                 <optgroup label="Grupos">
                                 </optgroup>
                             </select>

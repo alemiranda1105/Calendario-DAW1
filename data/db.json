@@ -36,23 +36,26 @@
           "1",
           "3"
         ],
-        "events": {
-          "1": {
+        "events": [
+          {
+            "id": 1,
             "name": "Partido",
             "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
             "date": "20-12-2021"
           },
-          "2": {
+          {
+            "id": 2,
             "name": "Partido 2",
             "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
             "date": "22-12-2021"
           },
-          "3": {
+          {
+            "id": 3,
             "name": "Partido 3",
             "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
             "date": "23-12-2021"
           }
-        }
+        ]
       },
       {
         "id": 3,
@@ -126,7 +129,7 @@
           {
             "name": "DICIEMBRE",
             "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
-            "date": "1-12-2021",
+            "date": "01-12-2021",
             "id": 7
           },
           {
