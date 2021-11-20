@@ -136,7 +136,7 @@ async function getUserEvents(user) {
                 res.forEach(g => {
                     if(g.users.filter(id => id == user.id).length == 1) {
                         g.events.forEach(event => {
-                            event.group = "g.name";
+                            event.group = g.name;
                             result.push(event);
                         });
                     }
