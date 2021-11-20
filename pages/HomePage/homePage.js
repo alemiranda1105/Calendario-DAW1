@@ -41,7 +41,7 @@ function writeMonth(month) {
         
         dates.innerHTML += 
         ` <div id="divLastDay${acd}" class="calendar__item calendar__last-days">
-            <div id="day${acd}" class="d-flex justify-content-center">
+            <div id="day${acd}" class="day d-flex justify-content-center">
                ${getTotalDays(monthNumber-1)-(i-1)}
             </div>
             
@@ -53,22 +53,22 @@ function writeMonth(month) {
         if(i===currentDay && monthNumber === aux.getMonth() && currentYear === aux.getFullYear()) {
             dates.innerHTML += `
             <div id="div${auxCurrentDate.day}-${auxCurrentDate.month+1}-${auxCurrentDate.year}" class="calendar__today divTxtDayEvent">
-                <div id="day${auxCurrentDate.day}-${auxCurrentDate.month+1}-${auxCurrentDate.year}" class="d-flex justify-content-center">
+                <div id="day${auxCurrentDate.day}-${auxCurrentDate.month+1}-${auxCurrentDate.year}" class="day d-flex justify-content-center ">
                     ${i}
                 </div>
 
-                <div id="eventDay${auxCurrentDate.day}-${auxCurrentDate.month+1}-${auxCurrentDate.year}" class="txtDayEvent bg-grey">
-                    numero: ${i} 
-                </div>
             </div>`;
         }else{
             acd = `${i}-${auxCurrentDate.month+1}-${auxCurrentDate.year}`;
             dates.innerHTML += `
             <div id="divDay${acd}" class="divTxtDayEvent calendar__item">
-                <div id="day${acd}">
+                <div id="day${acd}" class="day">
                     ${i}
                 </div>
-            </div>`;
+            </div>
+            
+            
+            `;
         }
     }
 
@@ -78,7 +78,7 @@ function writeMonth(month) {
         acd = `${j}-${auxCurrentDate.month+2}-${auxCurrentDate.year}`;
         dates.innerHTML += `
         <div id="divPostDay${acd}" class="calendar__item calendar__last-days">
-            <div id="day${acd}">
+            <div id="day${acd}" class="day">
                 ${i}
             </div>
         </div>`;
@@ -87,9 +87,6 @@ function writeMonth(month) {
 
     //UNA VEZ CARGADO EL CALENDARIO, CARGAMOS LOS EVENTOS
     mostrarEventoListado().then(({fechas,eventos}) => {
-        console.log("fecha", fechas);
-        console.log("eventos", eventos);
-    
         $('#dates').find('div').each(function(){
             var divIds = $(this).attr('id');
 
@@ -109,22 +106,30 @@ function writeMonth(month) {
             //MES ACTUAL
             if(divIds.startsWith("divDay")){
                 var idNumerico= ($(this)[0].id).replace("divDay","");
+
                 for(var i = 0; i < eventos.length; i++){
                     if(idNumerico === eventos[i].date){
+
                         $($(this)).append(
-                            `<div id="eventDay${idNumerico}" class="txtDayEvent bg-blue">
+                            `<div id="eventDay${eventos[i].id}" class="txtDayEvent bg-blue">
                                 ${eventos[i].name}
-                            </div>`);
+                            </div>
+                        `);
+
+                                              
+                        var eventId=`eventDay${eventos[i].id}`;
+                        var element = document.getElementById(eventId);
+                        element.addEventListener("click",function(){
+                            var id = eventId.replace("eventDay","");
+                            showModal(`${eventos[id-1].name}`, `${eventos[id-1].description}`, "Cerrar", "Editar", () => {
+                                //redirigir a updatePage
+                                localStorage.setItem("event", JSON.stringify(eventos[id-1]))
+                                alert(`seteado: ${eventos[id-1].id}`)
+                            });
+                        });
                     }
                 }
-    
-                //CLICK EN EL EVENTO TE LLEVA A EDITAR ESE EVENTO
-                var id = `eventDay${idNumerico}`;
-                $(`#${id}`).click((e)=>{
-                    alert(`${id}`);
-    
-                    e.stopPropagation();
-                })
+     
             }
     
             //MES PROXIMO VISIBLE
@@ -261,3 +266,44 @@ async function mostrarEventoListado(){
     return resp;
 }
 
+
+var modalWrap = null;
+/**
+ * 
+ * @param {string} title 
+ * @param {string} description content of modal body 
+ * @param {string} closeBtnLabel label of close button 
+ * @param {string} goBtnLabel label of go button 
+ * @param {function} callback callback function when click goButton
+ */
+const showModal = (title, description, closeBtnLabel, goBtnLabel, callback) => {
+  if (modalWrap !== null) {
+    modalWrap.remove();
+  }
+
+  modalWrap = document.createElement('div');
+  modalWrap.innerHTML = `
+    <div class="modal fade" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-light">
+            <h5 class="modal-title">${title}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>${description}</p>
+          </div>
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">${closeBtnLabel}</button>
+            <button type="button" class="btn btn-primary modal-success-btn" data-bs-dismiss="modal">${goBtnLabel}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  modalWrap.querySelector('.modal-success-btn').onclick = callback;
+  document.body.append(modalWrap);
+  var modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
+  modal.show();
+}
