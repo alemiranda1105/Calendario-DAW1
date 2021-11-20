@@ -18,6 +18,7 @@ html,body {
 
 /** ------------------- CALENDARIO -------------------*/
 #divCalendario {
+    overflow: hidden;
     min-width: 100%;
     margin-bottom:20px;
     margin-top: 2.5em;
@@ -35,7 +36,6 @@ html,body {
         min-width: 100vw;
     }
 
-    
     #divNav .toggle-btn {
         cursor: pointer;
         width: 2em;
@@ -46,8 +46,29 @@ html,body {
         text-align: center;
         font-size: 4vw;
     }
+
     .calendar__info {
         margin-top: 2em;
+    }
+    .calendar__last-days .day {
+        font-size: 1.5vh;
+    }
+
+    .divTxtDayEvent .day {
+        font-size: 1.5vh;
+    }
+    .divTxtDayEvent .txtDayEvent {
+        cursor: pointer;
+        font-weight: bold;
+        text-align: left;
+        font-size: 2vw;
+        color:rgb(0, 0, 0);
+        margin-bottom: 2px;
+        width: 15vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        border: 1px solid #000000;
     }
 }
 
@@ -58,9 +79,11 @@ html,body {
 
 .calendar {
     min-width: 100%;
+    overflow: hidden;
 }
 
 .calendar__info {
+    overflow: hidden;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -137,21 +160,38 @@ html,body {
 
 .divTxtDayEvent {
     width: 100%;
-    padding: 0px 5px;
+    padding: 0px 2px;
 }
 
 .txtDayEvent {
     cursor: pointer;
-    text-align: center;
-    font-size: 1vh;
-    color:white;
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.1vw;
+    color:rgb(0, 0, 0);
     border-radius: 5px;
-    margin-bottom: 2px;
+    margin-bottom: 2px; 
+    width: auto; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    border: 1px solid #000000;
 }
 
 .txtDayEvent:hover {
     background-color: red;
 }
+
+li {
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.day {
+    font-size: 1.9vh;
+}
+
 
 /** ---------------------------- MENU ---------------*/
 .spacer {
