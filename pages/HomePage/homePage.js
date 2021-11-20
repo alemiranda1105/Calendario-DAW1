@@ -230,7 +230,7 @@ btnToggleMenu.addEventListener('click', function () {
 let btnLogout = document.getElementById("btnLogout");
 btnLogout.addEventListener('click', () => {
     sessionStorage.removeItem('user');
-    window.location.href = "http://127.0.0.1:5500/pages/login/login.html";
+    window.location.href = "http://127.0.0.1:5500/pages/inicio/inicio.html";
 })
 
 // CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST
@@ -239,9 +239,9 @@ getCurrentUser().then((user) => {
     getUserEvents(user).then((events) => {
         events.forEach(event => {
             if(event.group !== undefined) {
-                $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html">${event.date}, ${event.name} (Grupo: ${event.group})</a></li>`);
+                $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name} (Grupo: ${event.group})</a></li>`);
             } else {
-                $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html">${event.date}, ${event.name}</a></li>`);
+                $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name}</a></li>`);
             }
             document.getElementById("event" + event.uuid).addEventListener("click", (e) => {
                 e.preventDefault();
