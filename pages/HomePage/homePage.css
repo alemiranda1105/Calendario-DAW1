@@ -235,6 +235,10 @@ li {
 }
 
 .ulNearEvent{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: sta;
     margin-left: 0px;
     padding: 0px;
     width: 90%;
@@ -269,7 +273,7 @@ li {
     list-style: none;
     padding: 15px 10px;
     border-bottom: 1px solid rgba(100, 100, 100, .3);
-    text-align: center;
+    text-align: left;
 }
 
 #divNav{

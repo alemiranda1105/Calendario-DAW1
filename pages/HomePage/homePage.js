@@ -123,8 +123,8 @@ function writeMonth(month) {
                             var id = eventId.replace("eventDay","");
                             showModal(`${eventos[id-1].name}`, `${eventos[id-1].description}`, "Cerrar", "Editar", () => {
                                 //redirigir a updatePage
-                                localStorage.setItem("event", JSON.stringify(eventos[id-1]))
-                                alert(`seteado: ${eventos[id-1].id}`)
+                                localStorage.setItem("event", JSON.stringify(eventos[id-1]));
+                                window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
                             });
                         });
                     }
