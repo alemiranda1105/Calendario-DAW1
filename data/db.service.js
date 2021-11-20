@@ -125,3 +125,33 @@ async function getGroupById(id) {
         console.error(error);
     }
 }
+
+async function getUserEvents(user) {
+    let result = [];
+    try {
+        await $.ajax({
+            url: `${URL}groups/`,
+            type: 'GET',
+            success: function(res) {
+                res.forEach(g => {
+                    if(g.users.filter(id => id == user.id).length == 1) {
+                        g.events.forEach(event => {
+                            event.group = "g.name";
+                            result.push(event);
+                        });
+                    }
+                });
+            },
+            error: function() {
+                console.error("No ha sido posible completar la operación");
+            }
+        });
+        user.events.forEach(event => {
+            result.push(event);
+        });
+        result.sort((a, b) => (a.date >= b.date) ? 1 : -1);
+        return result;
+    } catch(error) {
+        console.error(error);
+    }
+}
