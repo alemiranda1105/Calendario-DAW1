@@ -149,7 +149,9 @@ async function getUserEvents(user) {
         user.events.forEach(event => {
             result.push(event);
         });
-        result.sort((a, b) => (a.date >= b.date) ? 1 : -1);
+        result.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+        });
         result.forEach(event => {
             event.uuid = uuid();
         })
