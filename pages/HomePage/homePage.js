@@ -166,10 +166,6 @@ btnLogout.addEventListener('click', () => {
 
 // CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST
 
-/* 
-* BUSCAR TODOS LOS EVENTOS DEL USUARIO NO SOLO LOS INDIVIDUALES
-*/
-
 getCurrentUser().then((user) => {
     getUserEvents(user).then((events) => {
         events.forEach(event => {
@@ -184,17 +180,6 @@ getCurrentUser().then((user) => {
                 window.location.replace("http://127.0.0.1:5500/pages/eventpages/updateevent.html");
             });
         });
-        /*var listado = [];
-        for(let i = 0; i < user.events.length; i++) {
-            listado[i] = user.events[i];
-            let event = user.events[i];
-            $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.id}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html">${event.date}, ${event.name}</a></li>`);
-            document.getElementById("event" + event.id).addEventListener("click", (e) => {
-                e.preventDefault();
-                saveEvent(event);
-                //window.location.replace("http://127.0.0.1:5500/pages/eventpages/updateevent.html");
-            });
-        }*/
     });
 });
 

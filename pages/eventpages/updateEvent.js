@@ -22,7 +22,6 @@ getCurrentUser().then(data => {
     user = data;
     user.groupid.forEach((id, index) => {
         getGroupById(id).then(group => {
-            //groupSelector.options[groupSelector.options.length] = new Option(group.name);
             var opt = document.createElement('option');
             opt.value = group.name;
             opt.innerHTML = group.name;
