@@ -61,7 +61,7 @@ async function getUserById(id) {
 async function getCurrentUser() {
     let result;
     if(!sessionStorage.user) {
-        window.location.href = "http://127.0.0.1:5500/pages/login/login.html";
+        window.location.href = "http://127.0.0.1:5500/pages/inicio/inicio.html";
     }
     let user = JSON.parse(sessionStorage.user)[0];
     let key = user.id;
