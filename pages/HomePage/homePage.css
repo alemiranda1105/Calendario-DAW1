@@ -404,6 +404,7 @@ li {
 	width: 50%;
 	transform: translateX(0px);
 	transition: transform 0.2s linear;
+    box-shadow: 0 0 10px black;
 }
 
 .checkbox:checked + .bg-checkbox .ball {
