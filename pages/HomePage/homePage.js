@@ -343,38 +343,13 @@ const showModal = (title, description, closeBtnLabel, goBtnLabel, callback) => {
   modal.show();
 }
 
-async function clearGroupEvents(){
-    getCurrentUser().then(({groupid}) =>{
-        groupid.forEach(id =>{
-            getGroupById(id).then(({events}) =>{
-                //UNA VEZ CARGADO EL CALENDARIO, CARGAMOS LOS EVENTOS
-                mostrarEventoListado().then(({fechas,eventos}) => {
-                    $('#dates').find('div').each(function(){
-                        var divIds = $(this).attr('id');
-                        eventos = events;
-                                                
-                        //MES ACTUAL
-                        if(divIds.startsWith("divDay")){
-                            var idNumerico= ($(this)[0].id).replace("divDay","");
-                            for(var i = 0; i < eventos.length; i++){
-                                if(idNumerico === eventos[i].date){
-
-                                    $($(this)).remove("div");
-                                }
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    })
-}
 
 function isGroup(){
     if(groupMode){
         console.log("el valor era: ", groupMode);
         groupMode = !groupMode;
         console.log("Ahora es: ", groupMode);
+        clearGroupEvents();
         
     }else{
         console.log("el valor era: ", groupMode);
@@ -384,9 +359,8 @@ function isGroup(){
         writeMonth(monthNumber);
     }
 }
-
+var geArr = [];
 async function showGroupEvents(){
-    
     getCurrentUser().then(({groupid}) =>{
         groupid.forEach(id =>{
             getGroupById(id).then(({events}) =>{
@@ -403,15 +377,18 @@ async function showGroupEvents(){
                                 if(idNumerico === eventos[i].date){
 
                                     $($(this)).append(
-                                        `<div id="groupEventDay${eventos[i].id}" class="txtDayEvent bg-blue">
+                                        `<div id="groupEventDay${eventos[i].id}" class="groupEvent txtDayEvent bg-blue">
                                             ${eventos[i].name}
                                         </div>
                                     `);
+
+                                    geArr.push(eventos);
                                                         
                                     var eventId=`groupEventDay${eventos[i].id}`;
                                     var element = document.getElementById(eventId);
                                     element.addEventListener("click",function(){
                                         var id = eventId.replace("groupEventDay","");
+                                        console.log(id)
                                         showModal(`${eventos[id-1].name}`, `${eventos[id-1].description}`, "Cerrar", "Editar", () => {
                                             var event  = eventos[id-1];
                                             saveEvent(event);
@@ -426,5 +403,29 @@ async function showGroupEvents(){
             });
         });
     })
-    
+}
+
+
+async function clearGroupEvents(){
+    getCurrentUser().then(({groupid}) =>{
+        groupid.forEach(id =>{
+            getGroupById(id).then(({events}) =>{
+                mostrarEventoListado().then(({fechas,eventos}) => {
+                    $('#dates').find('div').each(function(){
+                        var divIds = $(this).attr('id');
+                        eventos = events;                   
+                        //MES ACTUAL
+                        if(divIds.startsWith("divDay")){
+                            $(`#${divIds}`).find("div").each(function(){
+                                var divIds = $(this).attr('id');
+                                if(divIds.startsWith("groupEventDay")){
+                                    $(`#${divIds}`).remove();
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+        });
+    })
 }
