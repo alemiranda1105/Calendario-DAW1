@@ -18,6 +18,8 @@ year.textContent = currentYear.toString();
 prevMonthDOM.addEventListener('click', ()=>lastMonth());
 nextMonthDOM.addEventListener('click', ()=>nextMonth());
 
+let switchBtn = document.getElementById("switch-button");
+switchBtn.addEventListener("click", ()=> isGroup());
 //dias del mes actual
 let aux = new Date();
 var auxCurrentDate = {
@@ -28,6 +30,8 @@ var auxCurrentDate = {
 
 var acd;
 var monthYear = `${auxCurrentDate.month+1}-${auxCurrentDate.year}`;
+
+var groupMode = false;
 /** CALENDARIO */
 function writeMonth(month) {
 
@@ -48,6 +52,7 @@ function writeMonth(month) {
         </div>`;
 
     }
+    //dias del mes actual
     for(let i=1; i<=getTotalDays(month); i++){
         acd = `${i}-${auxCurrentDate.month+1}-${auxCurrentDate.year}`;
         if(i===currentDay && monthNumber === aux.getMonth() && currentYear === aux.getFullYear()) {
@@ -71,7 +76,6 @@ function writeMonth(month) {
             `;
         }
     }
-
     //dias del mes proximo en el mes actual
     let j = 1;
     for(let i = lastDay(); i < 6;i++){
@@ -122,8 +126,8 @@ function writeMonth(month) {
                         element.addEventListener("click",function(){
                             var id = eventId.replace("eventDay","");
                             showModal(`${eventos[id-1].name}`, `${eventos[id-1].description}`, "Cerrar", "Editar", () => {
-                                //redirigir a updatePage
-                                localStorage.setItem("event", JSON.stringify(eventos[id-1]));
+                                var event  = eventos[id-1];
+                                saveEvent(event);
                                 window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
                             });
                         });
@@ -145,7 +149,18 @@ function writeMonth(month) {
                 }   
             }
         });
-    });
+    }); 
+
+    
+    if(groupMode){
+        console.log("su valor sigue siendo", groupMode)
+        showGroupEvents();
+    }else{
+        console.log("su valor sigue siendo", groupMode)
+    }
+
+    
+
 }
 
 const getTotalDays = month => {
@@ -226,7 +241,6 @@ btnToggleMenu.addEventListener('click', function () {
     document.getElementById('divMainContent').classList.remove('active');
 });
 
-
 let btnLogout = document.getElementById("btnLogout");
 btnLogout.addEventListener('click', () => {
     sessionStorage.removeItem('user');
@@ -234,7 +248,6 @@ btnLogout.addEventListener('click', () => {
 })
 
 // CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST
-
 getCurrentUser().then((user) => {
     getUserEvents(user).then((events) => {
         var today = new Date();
@@ -282,7 +295,6 @@ async function mostrarEventoListado(){
         }
         return {fechas,eventos};
     });
-
     return resp;
 }
 
@@ -329,4 +341,90 @@ const showModal = (title, description, closeBtnLabel, goBtnLabel, callback) => {
   document.body.append(modalWrap);
   var modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
   modal.show();
+}
+
+async function clearGroupEvents(){
+    getCurrentUser().then(({groupid}) =>{
+        groupid.forEach(id =>{
+            getGroupById(id).then(({events}) =>{
+                //UNA VEZ CARGADO EL CALENDARIO, CARGAMOS LOS EVENTOS
+                mostrarEventoListado().then(({fechas,eventos}) => {
+                    $('#dates').find('div').each(function(){
+                        var divIds = $(this).attr('id');
+                        eventos = events;
+                                                
+                        //MES ACTUAL
+                        if(divIds.startsWith("divDay")){
+                            var idNumerico= ($(this)[0].id).replace("divDay","");
+                            for(var i = 0; i < eventos.length; i++){
+                                if(idNumerico === eventos[i].date){
+
+                                    $($(this)).remove("div");
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    })
+}
+
+function isGroup(){
+    if(groupMode){
+        console.log("el valor era: ", groupMode);
+        groupMode = !groupMode;
+        console.log("Ahora es: ", groupMode);
+        
+    }else{
+        console.log("el valor era: ", groupMode);
+        groupMode = !groupMode;
+        console.log("Ahora es: ", groupMode);
+        dates.innerHTML = '';
+        writeMonth(monthNumber);
+    }
+}
+
+async function showGroupEvents(){
+    
+    getCurrentUser().then(({groupid}) =>{
+        groupid.forEach(id =>{
+            getGroupById(id).then(({events}) =>{
+                //UNA VEZ CARGADO EL CALENDARIO, CARGAMOS LOS EVENTOS
+                mostrarEventoListado().then(({fechas,eventos}) => {
+                    $('#dates').find('div').each(function(){
+                        var divIds = $(this).attr('id');
+                        eventos = events;
+                                                
+                        //MES ACTUAL
+                        if(divIds.startsWith("divDay")){
+                            var idNumerico= ($(this)[0].id).replace("divDay","");
+                            for(var i = 0; i < eventos.length; i++){
+                                if(idNumerico === eventos[i].date){
+
+                                    $($(this)).append(
+                                        `<div id="groupEventDay${eventos[i].id}" class="txtDayEvent bg-blue">
+                                            ${eventos[i].name}
+                                        </div>
+                                    `);
+                                                        
+                                    var eventId=`groupEventDay${eventos[i].id}`;
+                                    var element = document.getElementById(eventId);
+                                    element.addEventListener("click",function(){
+                                        var id = eventId.replace("groupEventDay","");
+                                        showModal(`${eventos[id-1].name}`, `${eventos[id-1].description}`, "Cerrar", "Editar", () => {
+                                            var event  = eventos[id-1];
+                                            saveEvent(event);
+                                            window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
+                                        });
+                                    });
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    })
+    
 }
