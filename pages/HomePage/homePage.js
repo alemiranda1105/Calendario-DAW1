@@ -238,7 +238,6 @@ btnLogout.addEventListener('click', () => {
 getCurrentUser().then((user) => {
     getUserEvents(user).then((events) => {
         var today = new Date();
-        //today = String(today.getDate()).padStart(2, '0') + "-" + String(today.getMonth() + 1).padStart(2, '0') + "-" + today.getFullYear();
         var n = 0;
         events.forEach((event) => {
             let ed = new Date(event.date.split('-').reverse().join('-'));
