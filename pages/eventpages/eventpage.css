@@ -94,29 +94,28 @@ input[type="date"] {
 }
 
 #goBack {
-    width: 2rem;
-    height: 2rem;
-    transition: all linear 20ms;    
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all linear 20ms;
 }
 
 #goBack:hover{
     transform: scale(1.05);
     transition: 70ms ease;
+}
+
+#goBack img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+#goBack a {
+    margin-bottom: 0;
     text-decoration: none;
 }
 
 #goBack h6{
-   margin-top: 1.5vh;
-   cursor: pointer;
-   text-decoration: none;
-}
-
-#goBack a{
-    text-decoration: none;
-    color: black;
-}
-#goBack a:hover{
+    margin-top: 1vh;
     color: black;
 }
 
@@ -130,7 +129,7 @@ input[type="date"] {
     }
     .card {
         width: 90vh;
-        height: 90vh;
+        height: fit-content;
         margin: 2vh;
         background-color: rgba(73, 89, 101, 0.6);
     }
