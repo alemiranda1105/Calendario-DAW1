@@ -237,18 +237,26 @@ btnLogout.addEventListener('click', () => {
 
 getCurrentUser().then((user) => {
     getUserEvents(user).then((events) => {
-        events.forEach((event, n) => {
-            if(n < 5) {
-                if(event.group !== undefined) {
-                    $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name} (Grupo: ${event.group})</a></li>`);
-                } else {
-                    $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name}</a></li>`);
+        var today = new Date();
+        var n = 0;
+        events.forEach((event) => {
+            let ed = new Date(event.date.split('-').reverse().join('-'));
+            if(ed > today) {
+                if(n < 5) {
+                    if(event.group !== undefined) {
+                        $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name} (Grupo: ${event.group})</a></li>`);
+                    } else {
+                        $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name}</a></li>`);
+                    }
+                    document.getElementById("event" + event.uuid).addEventListener("click", (e) => {
+                        e.preventDefault();
+                        saveEvent(event);
+                        window.location.replace("http://127.0.0.1:5500/pages/eventpages/updateevent.html");
+                    });
                 }
-                document.getElementById("event" + event.uuid).addEventListener("click", (e) => {
-                    e.preventDefault();
-                    saveEvent(event);
-                    window.location.replace("http://127.0.0.1:5500/pages/eventpages/updateevent.html");
-                });
+                n++;
+            } else {
+                n = (n > 0) ? n - 1 : 0;
             }
         });
     });

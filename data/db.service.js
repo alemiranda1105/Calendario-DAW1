@@ -158,7 +158,6 @@ async function getUserEvents(user) {
         result.forEach(event => {
             event.uuid = uuid();
         });
-        console.log(result);
         return result;
     } catch(error) {
         console.error(error);

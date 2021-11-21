@@ -5,9 +5,20 @@ body{
 h1{
     margin:5vh 0px;
 }
+
 #nGroup{
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     margin: 3vh;
+    height: 4vh;
+    width: 40vw;
+}
+
+#nGroup img {
+    width: 24px;
+    height: auto;
 }
 
 .card {
@@ -79,12 +90,22 @@ img:hover{
     .fila{
         width: 100%;
     }
+
+    #nGroup {
+        justify-content: center;
+        align-items: center;
+        width: 80vw;
+    }
+
+    #nGroup img {
+        width: 24px;
+    }
     
     #textareas{
-        width: 70vw;
+        width: 80vw;
     }
     
     .searchInput input{
-        width: 70vw;
+        width: 80vw;
     }
 }

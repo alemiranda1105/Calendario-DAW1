@@ -6,7 +6,6 @@ const eventDate = document.getElementById("event-date");
 const groupSelector = document.getElementById("group-selector");
 
 const oldData = JSON.parse(localStorage.getItem('event'));
-console.log(oldData.group);
 
 eventName.value = oldData.name;
 eventDescription.value = oldData.description;
@@ -26,7 +25,7 @@ getCurrentUser().then(data => {
             opt.value = group.name;
             opt.innerHTML = group.name;
             groupSelector.appendChild(opt);
-            if(oldData.group !== undefined && oldData.group === group.name) {
+            if(oldData.group && oldData.group === group.name) {
                 $("#group-selector").prop("selectedIndex", index+1);
             }
         });

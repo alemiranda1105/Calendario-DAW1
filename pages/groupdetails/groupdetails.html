@@ -2,9 +2,11 @@
 
 <html>
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>OWT</title>
+        <meta lang="es">
+        <title>OWF</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
         <link rel="stylesheet" href="/style/background.css">
         <link rel="stylesheet" href="/style/color.css">
@@ -17,30 +19,25 @@
         <div class="d-flex justify-content-center bg-gradient title">
             <h1 class="title">Detalles de grupo</h1>
         </div>
-        <form id="groupDetailsForm">
-        <div class="d-flex justify-content-center align-items-center card bg-grey">
-           
-            <div class="d-flex justify-content-center">
-                <h1 class="title2">Detalles de grupo</h1>
+        <form id="groupDetailsForm" autocomplete="off">
+            <div class="d-flex justify-content-center align-items-center card bg-grey">
+                <div class="d-flex justify-content-center">
+                    <h1 class="title2">Detalles de grupo</h1>
+                </div>
+                    <div id="nGroup">
+                        <input type="text" id="groupName" disabled required>
+                        <img src="/img/pencil.svg" id="pencil" alt="Cambiar nombre de grupo">
+                    </div>
+                    <div class="searchInput">
+                        <input type="text" id="search" name="search" placeholder="Buscar..."><br>
+                    </div>
+                    <div id="textareas">
+                        <ul id="listUsers" class="list-group"> 
+                        </ul>
+                    </div>
+                    <button type="button" id="leaveGroup" class="btn btn-danger">Salir del grupo</button>
             </div>
-
-                <div class="d-flex" id="nGroup">
-                    <input type="text" id="groupName" disabled required>
-                    <img src="/img/pencil.svg" id="pencil" alt="Cambiar nombre de grupo">
-                </div>
-
-                <div class="searchInput">
-                    <input type="text" id="search" name="search" placeholder="Buscar..."><br>
-                </div>
-
-                <div id="textareas">
-                    <ul id="listUsers" class="list-group">
-                        
-                    </ul>
-                </div>
-                <button type="button" id="leaveGroup" class="btn btn-danger">Salir del grupo</button>
-            </form>
-        </div>
+        </form>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="/data/db.service.js"></script>

@@ -1,9 +1,9 @@
 let groupId = localStorage.getItem('groupId');
 localStorage.removeItem('groupInfo');
-let list = document.getElementById("listUsers");
-let groupName = document.getElementById("groupName");
-let pencil = document.getElementById("pencil");
-var button = document.getElementById("leaveGroup");
+const list = document.getElementById("listUsers");
+const groupName = document.getElementById("groupName");
+const pencil = document.getElementById("pencil");
+const button = document.getElementById("leaveGroup");
 let nameAux;
 getCurrentUser().then((user) =>{
     getGroupById(groupId).then((group) => {
@@ -51,9 +51,8 @@ button.addEventListener('click', () => salirGrupo());
 function salirGrupo(){
     getCurrentUser().then(user => {
         user.groupid = user.groupid.filter(id => id != groupId);
-        console.log(sessionStorage.getItem("user"));
-        console.log(JSON.stringify([user]));
+        sessionStorage.removeItem('user');
         sessionStorage.setItem('user', JSON.stringify([user]));
-        window.location.href = "/pages/groupmanagement/groupmanagement.html";
+        window.location.replace("/pages/groupmanagement/groupmanagement.html");
     });
 }
