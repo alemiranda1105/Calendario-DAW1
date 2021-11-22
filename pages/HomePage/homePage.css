@@ -18,6 +18,7 @@ html,body {
 
 /** ------------------- CALENDARIO -------------------*/
 #divCalendario {
+    overflow: hidden;
     min-width: 100%;
     margin-bottom:20px;
     margin-top: 2.5em;
@@ -35,7 +36,6 @@ html,body {
         min-width: 100vw;
     }
 
-    
     #divNav .toggle-btn {
         cursor: pointer;
         width: 2em;
@@ -46,15 +46,44 @@ html,body {
         text-align: center;
         font-size: 4vw;
     }
+
+    .calendar__info {
+        margin-top: 2em;
+    }
+    .calendar__last-days .day {
+        font-size: 1.5vh;
+    }
+
+    .divTxtDayEvent .day {
+        font-size: 1.5vh;
+    }
+    .divTxtDayEvent .txtDayEvent {
+        cursor: pointer;
+        font-weight: bold;
+        text-align: left;
+        font-size: 2vw;
+        color:rgb(0, 0, 0);
+        margin-bottom: 2px;
+        width: 15vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        border: 1px solid #000000;
+    }
+}
+
+.border{
+    box-shadow: 0px 0px 0px 0.5px black;
 }
 
 
 .calendar {
     min-width: 100%;
-    box-shadow: 0px 0px 3px black;
+    overflow: hidden;
 }
 
 .calendar__info {
+    overflow: hidden;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -98,7 +127,6 @@ html,body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(auto-fit,13vh);
-    box-shadow: 0px 0px 2px black;
     background-color: white;
     font-size: auto;
 }
@@ -112,7 +140,7 @@ html,body {
 .calendar__item {
     text-align: center;
     font-weight: bold;
-    box-shadow: 0.5px 0.5px 1px black;
+    box-shadow: 0px 0px 0.5px 0.5px black;
     width: 1fr;
     height: 13vh;
 }
@@ -121,31 +149,49 @@ html,body {
     background: lightcoral;
     color: white;
     width: 100%;
-    box-shadow: 0px 0px 2px black;
+    box-shadow: 0px 0px 0.5px 0.5px black;
 
 }
 
 .calendar__last-days {
-    opacity: .3; 
+    opacity: .4;
+     
 }
 
 .divTxtDayEvent {
     width: 100%;
-    padding: 0px 5px;
+    padding: 0px 2px;
 }
 
 .txtDayEvent {
     cursor: pointer;
-    text-align: center;
-    font-size: 1vh;
-    color:white;
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.1vw;
+    color:rgb(0, 0, 0);
     border-radius: 5px;
-    margin-bottom: 2px;
+    margin-bottom: 2px; 
+    width: auto; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    border: 1px solid #000000;
 }
 
 .txtDayEvent:hover {
     background-color: red;
 }
+
+li {
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.day {
+    font-size: 1.9vh;
+}
+
 
 /** ---------------------------- MENU ---------------*/
 .spacer {
@@ -189,6 +235,10 @@ html,body {
 }
 
 .ulNearEvent{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: sta;
     margin-left: 0px;
     padding: 0px;
     width: 90%;
@@ -199,7 +249,10 @@ html,body {
 .nearEvent {
     margin-bottom: 10px;
     border-radius: 10px;
-    height: 3.5em;
+}
+
+.event-link {
+    text-decoration: none;
 }
 
 #sidebar {
@@ -223,7 +276,7 @@ html,body {
     list-style: none;
     padding: 15px 10px;
     border-bottom: 1px solid rgba(100, 100, 100, .3);
-    text-align: center;
+    text-align: left;
 }
 
 #divNav{
@@ -351,6 +404,7 @@ html,body {
 	width: 50%;
 	transform: translateX(0px);
 	transition: transform 0.2s linear;
+    box-shadow: 0 0 10px black;
 }
 
 .checkbox:checked + .bg-checkbox .ball {

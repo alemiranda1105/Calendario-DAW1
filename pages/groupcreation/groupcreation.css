@@ -5,6 +5,11 @@ body{
 h1{
     margin:5vh 0px;
 }
+
+.title2 {
+    display: none;
+}
+
 #nGroup{
     text-align: center;
     margin: 3vh;
@@ -64,21 +69,43 @@ img:hover{
     transition: 70ms ease;
 }
 
+#name-input {
+    border-style: none;
+    padding: 5px;
+    border-radius: 5px;
+}
 
-@media (min-width: 700px){
-    .title2{
+#search {
+    border-style: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#add-button {
+    border-style: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#error-txt {
+    background-color: rgba(255,0,0,0.75);
+    padding: 12px;
+    border-radius: 20px;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .title{
         display: none;
     }
 
-}
-@media (max-width: 700px) {
-    .title{
-        display: none;
+    .title2 {
+        display: initial;
     }
     
     .card {
         width: 95%;
-        height: 100%;
+        height: 90vh;
         margin: 2vh;
         background-color: rgba(73, 89, 101, 0.6);
     }
@@ -98,6 +125,9 @@ img:hover{
     }
     #textareas ul{
         width: 65vw;
+    }
+    #error-txt {
+        font-size: min(3.5vw, 20px);
     }
     
 }

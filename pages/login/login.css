@@ -1,3 +1,8 @@
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
 h1 {
     margin: 10px;
     font-size: 3rem;
@@ -12,12 +17,16 @@ h2 {
     flex-direction: column;
     border-style: none;
     border-radius: 15px;
-    padding: 0.5rem;
-    margin-top: 30px;
+    padding: 1rem;
     width: 60vw;
     height: max-content;
     text-align: center;
     box-shadow: 0 0 20px #353535;
+}
+
+#contenedor{
+    height: 100vh;
+    margin-top: -2rem;
 }
 
 .card h2 {
@@ -34,8 +43,9 @@ h2 {
     border-radius: 8px;
 }
 
-.card div {
-    width: 75vw;
+
+#login-txt {
+    margin:50px 0px
 }
 
 .card .form-check {
@@ -46,7 +56,6 @@ h2 {
     align-content: stretch;
     justify-content: center;
     align-items: center;
-    width: 32vw;
     margin: auto !important;
 }
 .form-check input[type="checkbox"] {
@@ -56,6 +65,7 @@ h2 {
 
 .title {
     text-align: center;
+    font-weight: bold;
 }
 
 .title-sm {
@@ -100,8 +110,8 @@ h2 {
         font-size: min(11.5vw, 50px);
     }
     .card {
-        width: 90vh;
-        height: 90vh;
+        width: 100%;
+        height: 80vh;
         margin: 2vh;
         background-color: rgba(73, 89, 101, 0.6);
     }
@@ -125,6 +135,7 @@ h2 {
     }
     #login-txt {
         font-size: min(9.5vw, 40px);
+        margin:20px 0px
     }
     #logBtn {
         border-radius: 7.5px;

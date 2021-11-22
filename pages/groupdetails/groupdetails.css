@@ -5,9 +5,20 @@ body{
 h1{
     margin:5vh 0px;
 }
+
 #nGroup{
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     margin: 3vh;
+    height: 4vh;
+    width: 40vw;
+}
+
+#nGroup img {
+    width: 24px;
+    height: auto;
 }
 
 .card {
@@ -58,6 +69,30 @@ img:hover{
     color: black;
 }
 
+.searchInput {
+    width: 40vw;
+}
+
+.searchInput input {
+    width: 40vw;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 5px;
+    border-style: none;
+    padding: 5px;
+}
+
+.searchInput button {
+    width: 15vw;
+    max-width: 120px;
+    min-width: 70px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 5px;
+    border-style: none;
+    padding: 5px;
+}
+
 @media (min-width: 700px){
     .title2{
         display: none;
@@ -71,7 +106,7 @@ img:hover{
     
     .card {
         width: 95%;
-        height: 100%;
+        height: fit-content;
         margin: 2vh;
         background-color: rgba(73, 89, 101, 0.6);
     }
@@ -79,12 +114,26 @@ img:hover{
     .fila{
         width: 100%;
     }
+
+    #nGroup {
+        justify-content: center;
+        align-items: center;
+        width: 80vw;
+    }
+
+    #nGroup img {
+        width: 24px;
+    }
     
     #textareas{
-        width: 70vw;
+        width: 80vw;
+    }
+
+    .searchInput {
+        width: 80vw;
     }
     
     .searchInput input{
-        width: 70vw;
+        width: 80vw;
     }
 }

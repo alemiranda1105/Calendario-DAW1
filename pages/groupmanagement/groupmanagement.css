@@ -9,96 +9,129 @@ h1{
     box-shadow: 0 0 20px #353535;
     padding: 0.5rem;
     margin: auto;
-    width: 50%;
+    width: fit-content;
     height: fit-content;
     text-align: center;
 }
 
-.fila{
-    background-color: whitesmoke;
+.group-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    background-color: #FCFDF8;
     border-radius: 15px;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    padding: 1vh;
-    width: 90%;
+    width: 55vw;
+    margin: 1rem;
+    border: 2px solid black;
 }
 
-.fila:hover{
+.group-details * {
+    margin: 0.5rem;
+}
+
+.group-details:hover {
     transform: scale(1.005);
     transition: 70ms ease;
 }
 
-#textareas{
-    text-align: left;
-    margin-bottom: 2vh;
-    margin-top: 2vh;
-    width: 95%;
+.group-details div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
 }
 
-button{
-    margin-bottom: 1vh;
-    margin-top: 1vh;
-    transition: 7000ms ease;
+#group-name {
+    font-weight: bolder;
+    width: 10rem;
 }
 
-button:hover{
+.edit-btn {
+    color: white;
+}
+
+.edit-btn:hover {
+    border-radius: 0px;
     transform: scale(1.05);
+    transition: 70ms linear;
+}
+
+.edit-btn-sm {
+    display: none;
+    background: none;
+    border: none;
+}
+
+.edit-btn-sm img {
+    width: 24px;
+    height: 24px;
+}
+
+#delete-btn {
+    background: none;
+    border: none;
+}
+
+#delete-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+#delete-btn img:hover {
+    transform: scale(1.5);
     transition: 70ms ease;
 }
 
-img{
-    margin-left: 2vh;
-    height: 4vh;
-    width: 4vh;
-}
-
-img:hover{
-    transform: scale(1.05);
-    transition: 70ms ease;
-}
-
-a{
-    text-decoration: none;
-}
-a:hover{
-    color: #FCFDF8;
-}
-
-@media (min-width: 700px){
+@media (min-width: 710px){
     .title2{
         display: none;
     }
-
-    .nGroup{
-        margin-right: 2vw;
-    }
-
-    .eGroup{
-        margin-inline: 2vw;
-    }
 }
-@media (max-width: 700px) {
+
+@media (max-width: 710px) {
     .title{
         display: none;
     }
+
+    .group-details {
+        width: 80vw;
+        height: max-content;
+        padding: 10px;
+        margin: 0.25rem;
+        justify-content: center;
+        align-items:center;
+        align-content: center;
+    }
+
+    .group-details * {
+        margin: 5px 10px 5px 10px;
+    }
     
     .card {
-        width: 95%;
-        height: 100%;
+        width: 90vw;
+        height: fit-content;
         margin: 2vh;
         background-color: rgba(73, 89, 101, 0.6);
     }
 
-    .fila{
-        width: 100%;
+    .edit-btn {
+        display: none;
     }
-    .nGroup{
-        margin-right: 15vw;
-        margin-left: -5vw;
-        justify-content: left;
-        align-items: left;
+
+    .edit-btn-sm {
+        display: initial;
     }
-    .eGroup{
-        margin-inline: 5vw;
+
+    #group-name {
+        width: 100px;
+    }
+
+    #group-icon {
+        width: 14px;
     }
 }

@@ -4,45 +4,58 @@ const eventName = document.getElementById("eventName");
 const eventDescription = document.getElementById("eventDescription");
 const eventDate = document.getElementById("event-date");
 const groupSelector = document.getElementById("group-selector");
-console.log("hola");
-/* Loading */
 
-/*fetch("url")
-.then(res => res.json())
-.then(data => {
-    this.data = data;
+const oldData = JSON.parse(localStorage.getItem('event'));
 
-    eventName.value = data.name;
-    eventDescription.value = data.description;
-    eventDate.value = data.date;
-    // Llamada al backend para ver los grupos disponibles
-});*/
+eventName.value = oldData.name;
+eventDescription.value = oldData.description;
 
-eventName.value = "Evento 1";
-eventDescription.value = "dsjasdhakslhkhjdfkashfjkldshfsakjfhsdkafhsdajkfh flas fjasfdhslajkfhsajfhsa dlsjhf asdhfsjkfhsajlfhdsajfasjlfhaksfhsdajkfhsafjahs";
+eventDate.value = oldData.date.replace(/(\d\d)-(\d\d)-(\d{4})/, "$3-$2-$1");
 
-var now = new Date();
 
-var day = ("0" + now.getDate()).slice(-2);
-var month = ("0" + (now.getMonth() + 1)).slice(-2);
+let user;
+getCurrentUser().then(data => {
+    if(data === undefined) {
+        window.location.replace("http://localhost:5500/pages/inicio/inicio.html")
+    }
+    user = data;
+    user.groupid.forEach((id, index) => {
+        getGroupById(id).then(group => {
+            var opt = document.createElement('option');
+            opt.value = group.name;
+            opt.innerHTML = group.name;
+            groupSelector.appendChild(opt);
+            if(oldData.group && oldData.group === group.name) {
+                $("#group-selector").prop("selectedIndex", index+1);
+            }
+        });
+    });
+});
 
-var today = now.getFullYear()+"-"+(month)+"-"+(day);
-eventDate.value = today;
-
-for (let i = 1; i < 6; i++) {
-    groupSelector.options[groupSelector.options.length] = new Option('Grupo ' + i, 'g' + i);
-}
-
-$('#save-btn').submit((e) => {
+$('#update-event').submit((e) => {
     e.preventDefault();
+    let group = groupSelector.options[groupSelector.selectedIndex].value;
     const data = {
+        id: oldData.id,
         name: eventName.value,
         description: eventDescription.value,
-        date: eventDate.value.toISOString().split('T')[0],
-        group: $("#group-selector option:selected").text()
+        date: eventDate.value
     };
 
-    fetch("url", {
+    console.log(group);
+
+    if(group !== 'none') {
+        data.group = group
+
+        // Llamada a la api para actualizar eventos de grupo...
+        alert("Evento de grupo actualizado");
+    } else {
+        // Llamada a la api para actualizar eventos individuales...
+        alert("Evento actualizado");
+    }
+    console.log(data);
+
+    /*fetch("url", {
         method: "POST",
         body: data
     })
@@ -53,5 +66,5 @@ $('#save-btn').submit((e) => {
         } else {
             alert("Error");
         }
-    });
+    });*/
 });

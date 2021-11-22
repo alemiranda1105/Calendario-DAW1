@@ -5,28 +5,26 @@ getCurrentUser().then(({id, groupid}) =>{
         listado.innerHTML +=`No está dentro de ningún grupo`;
     }
     for(let i = 0; i < groupid.length; i++){
-        getGroupById(groupid[i]).then(group =>{
+        getGroupById(groupid[i]).then((group) =>{
             rowactual = "row"+i;
-            listado.innerHTML += `
-                    <div class="row align-items-center justify-content-center" id="row${i}">
-                        <div class="fila d-flex align-items-center justify-content-center border-3 border border-dark bg-light bg-gradient">
-                            <div class="col-md-4 nGroup"> 
-                                <h6>${group.name}</h6>
-                            </div>
 
-                            <div class="col-md-2 d-flex cGroup">                            
-                                <h6>${group.users.length}</h6>
-                                <img src="/img/people.svg" alt="icono grupo">
-                            </div>
-                        
-                            <div class="col-md-2 eGroup"> 
-                                <button  type="button" onclick="editar(${group.id})" class="btn btn-secondary"> Editar </button>
-                            </div>
-                            <div title="Salir del grupo" class="col-md-1 d-flex dGroup">
-                                <img src="/img/close.svg" onclick="salirGrupo(${id}, ${group.id}, ${rowactual})" alt="Eliminar de grupo">
-                            </div>
+            listado.innerHTML += `
+                <div class="group-list" id="row${i}">
+                    <div class="group-details">
+                        <h6 id="group-name">${group.name}</h6>
+                        <div>
+                            <h6>${group.users.length}</h6>
+                            <img src="/img/people.svg" alt="icono grupo" id="group-icon">
                         </div>
+                        <button type="button" class="btn bg-grey edit-btn" onclick="editar(${group.id})">Editar</button>
+                        <button type="button" class="btn bg-grey edit-btn edit-btn-sm" onclick="editar(${group.id})">
+                            <img src="/img/edit-icon.svg" alt="Editar">
+                        </button>
+                        <button id="delete-btn" onclick="salirGrupo(${id}, ${group.id}, ${rowactual})">
+                            <img src="/img/close.svg" alt="Eliminar de grupo">
+                        </button>
                     </div>
+                </div>
             `;
         });
     };
