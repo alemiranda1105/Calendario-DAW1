@@ -67,6 +67,14 @@
     font-size: 1.1em;
     font-weight: bold;
     text-align: justify;
+    text-decoration: none;
+    margin: 5px;
+    
+}
+
+.dataProfileTxt:hover{
+    color: white;
+    text-decoration: none;
 }
 
 #friendList {
@@ -85,8 +93,8 @@
 }
 
 #friendBody {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%,7rem),1fr));
+    display: flex;
+    
 }
 
 .friendComponent {
@@ -95,6 +103,8 @@
     border-radius: 15px;
     padding-top: 5px;
     margin: 5px;
+    width: fit-content;
+    padding: 10px;
 }
 
 .friendComponent:hover{
