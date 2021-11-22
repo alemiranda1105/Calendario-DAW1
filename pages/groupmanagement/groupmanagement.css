@@ -25,6 +25,7 @@ h1{
     border-radius: 15px;
     width: 55vw;
     margin: 1rem;
+    border: 2px solid black;
 }
 
 .group-details * {
@@ -54,6 +55,12 @@ h1{
     color: white;
 }
 
+.edit-btn:hover {
+    border-radius: 0px;
+    transform: scale(1.05);
+    transition: 70ms linear;
+}
+
 .edit-btn-sm {
     display: none;
     background: none;
@@ -70,9 +77,14 @@ h1{
     border: none;
 }
 
-#delete-btn img{
+#delete-btn img {
     width: 24px;
     height: 24px;
+}
+
+#delete-btn img:hover {
+    transform: scale(1.5);
+    transition: 70ms ease;
 }
 
 @media (min-width: 710px){
