@@ -2,7 +2,7 @@ let monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'
 
 let currentDate = new Date();
 let currentDay = currentDate.getDate();
-let monthNumber = currentDate.getMonth()+1;
+let monthNumber = currentDate.getMonth();
 let currentYear = currentDate.getFullYear();
 
 let dates = document.getElementById('dates');
@@ -24,7 +24,7 @@ switchBtn.addEventListener("click", ()=> isGroup());
 let aux = new Date();
 var auxCurrentDate = {
     day: aux.getDay(),
-    month: aux.getMonth()+1,
+    month: aux.getMonth(),
     year: aux.getFullYear()
 }
 var acd;
