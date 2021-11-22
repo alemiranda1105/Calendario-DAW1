@@ -55,6 +55,7 @@ h1{
 }
 
 .edit-btn-sm {
+    display: none;
     background: none;
     border: none;
 }
@@ -74,69 +75,12 @@ h1{
     height: 24px;
 }
 
-/*.fila{
-    background-color: whitesmoke;
-    border-radius: 15px;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    padding: 1vh;
-    width: 90%;
-}
-
-.fila:hover{
-    transform: scale(1.005);
-    transition: 70ms ease;
-}
-
-#textareas{
-    text-align: left;
-    margin-bottom: 2vh;
-    margin-top: 2vh;
-    width: 95%;
-}*/
-
-/*button{
-    margin-bottom: 1vh;
-    margin-top: 1vh;
-    transition: 7000ms ease;
-}
-
-button:hover{
-    transform: scale(1.05);
-    transition: 70ms ease;
-}
-
-img{
-    margin-left: 2vh;
-    height: 4vh;
-    width: 4vh;
-}
-
-img:hover{
-    transform: scale(1.05);
-    transition: 70ms ease;
-}
-
-a{
-    text-decoration: none;
-}
-a:hover{
-    color: #FCFDF8;
-}*/
-
 @media (min-width: 700px){
     .title2{
         display: none;
     }
-
-    /*.nGroup{
-        margin-right: 2vw;
-    }
-
-    .eGroup{
-        margin-inline: 2vw;
-    }*/
 }
+
 @media (max-width: 700px) {
     .title{
         display: none;
@@ -151,7 +95,7 @@ a:hover{
     }
 
     .group-details * {
-        margin: 10px;
+        margin: 5px 10px 0px 10px;
     }
     
     .card {
@@ -176,17 +120,4 @@ a:hover{
     #group-icon {
         width: 14px;
     }
-
-    /*fila{
-        width: 100%;
-    }
-    .nGroup{
-        margin-right: 15vw;
-        margin-left: -5vw;
-        justify-content: left;
-        align-items: left;
-    }
-    .eGroup{
-        margin-inline: 5vw;
-    }*/
 }
