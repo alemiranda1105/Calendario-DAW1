@@ -75,19 +75,21 @@ h1{
     height: 24px;
 }
 
-@media (min-width: 700px){
+@media (min-width: 710px){
     .title2{
         display: none;
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 710px) {
     .title{
         display: none;
     }
 
     .group-details {
         width: 80vw;
+        height: max-content;
+        padding: 10px;
         margin: 0.25rem;
         justify-content: center;
         align-items:center;
@@ -95,7 +97,7 @@ h1{
     }
 
     .group-details * {
-        margin: 5px 10px 0px 10px;
+        margin: 5px 10px 5px 10px;
     }
     
     .card {
