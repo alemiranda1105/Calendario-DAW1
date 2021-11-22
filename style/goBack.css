@@ -10,16 +10,15 @@
 }
 
 #goBack img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 24px;
+    height: 24px;
 }
 
 #goBack a {
-    margin-bottom: 0;
     text-decoration: none;
 }
 
-#goBack h6{
-    margin-top: 1vh;
+#goBack h6 {
+    margin-top: 8px;
     color: black;
 }
