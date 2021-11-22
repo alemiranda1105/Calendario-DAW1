@@ -93,32 +93,6 @@ input[type="date"] {
     text-align: center;
 }
 
-#goBack {
-    display: flex;
-    align-items: center;
-    transition: all linear 20ms;
-}
-
-#goBack:hover{
-    transform: scale(1.05);
-    transition: 70ms ease;
-}
-
-#goBack img {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-#goBack a {
-    margin-bottom: 0;
-    text-decoration: none;
-}
-
-#goBack h6{
-    margin-top: 1vh;
-    color: black;
-}
-
 @media (max-width: 600px) {
     .title {
         display: none;
