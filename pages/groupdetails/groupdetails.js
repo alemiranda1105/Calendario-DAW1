@@ -59,7 +59,7 @@ $('#add-button').click(e => {
     if(user !== undefined && user) {
         let newFriend = friends.filter(f => f.username === user)[0];
         if(newFriend !== undefined) {
-            if(!groupPeople.includes(newFriend)) {
+            if(!groupPeople.includes(newFriend.id)) {
                 groupPeople.push(newFriend.id);
                 addToGroup(newFriend.username);
                 $(friendsSearch).val('');
