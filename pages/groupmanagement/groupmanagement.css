@@ -9,12 +9,72 @@ h1{
     box-shadow: 0 0 20px #353535;
     padding: 0.5rem;
     margin: auto;
-    width: 50%;
+    width: fit-content;
     height: fit-content;
     text-align: center;
 }
 
-.fila{
+.group-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    background-color: #FCFDF8;
+    border-radius: 15px;
+    width: 55vw;
+    margin: 1rem;
+}
+
+.group-details * {
+    margin: 0.5rem;
+}
+
+.group-details:hover {
+    transform: scale(1.005);
+    transition: 70ms ease;
+}
+
+.group-details div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+#group-name {
+    font-weight: bolder;
+    width: 10rem;
+}
+
+.edit-btn {
+    color: white;
+}
+
+.edit-btn-sm {
+    background: none;
+    border: none;
+}
+
+.edit-btn-sm img {
+    width: 24px;
+    height: 24px;
+}
+
+#delete-btn {
+    background: none;
+    border: none;
+}
+
+#delete-btn img{
+    width: 24px;
+    height: 24px;
+}
+
+/*.fila{
     background-color: whitesmoke;
     border-radius: 15px;
     margin-top: 2vh;
@@ -33,9 +93,9 @@ h1{
     margin-bottom: 2vh;
     margin-top: 2vh;
     width: 95%;
-}
+}*/
 
-button{
+/*button{
     margin-bottom: 1vh;
     margin-top: 1vh;
     transition: 7000ms ease;
@@ -62,34 +122,62 @@ a{
 }
 a:hover{
     color: #FCFDF8;
-}
+}*/
 
 @media (min-width: 700px){
     .title2{
         display: none;
     }
 
-    .nGroup{
+    /*.nGroup{
         margin-right: 2vw;
     }
 
     .eGroup{
         margin-inline: 2vw;
-    }
+    }*/
 }
 @media (max-width: 700px) {
     .title{
         display: none;
     }
+
+    .group-details {
+        width: 80vw;
+        margin: 0.25rem;
+        justify-content: center;
+        align-items:center;
+        align-content: center;
+    }
+
+    .group-details * {
+        margin: 10px;
+    }
     
     .card {
-        width: 95%;
-        height: 100%;
+        width: 90vw;
+        height: fit-content;
         margin: 2vh;
         background-color: rgba(73, 89, 101, 0.6);
     }
 
-    .fila{
+    .edit-btn {
+        display: none;
+    }
+
+    .edit-btn-sm {
+        display: initial;
+    }
+
+    #group-name {
+        width: 100px;
+    }
+
+    #group-icon {
+        width: 14px;
+    }
+
+    /*fila{
         width: 100%;
     }
     .nGroup{
@@ -100,5 +188,5 @@ a:hover{
     }
     .eGroup{
         margin-inline: 5vw;
-    }
+    }*/
 }
