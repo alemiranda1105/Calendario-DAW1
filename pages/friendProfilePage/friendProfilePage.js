@@ -6,7 +6,7 @@ let lista = document.getElementById("friendBody");
 
 
 goBack.innerHTML += `
-        <div id ="goBack" class="d-flex align-items-center">
+        <div id="goBack" class="d-flex align-items-center">
             <a onclick="back()">
                 <div class="d-flex align-items-center">
                     <img src="/img/goBack.svg" alt="Volver">
@@ -15,7 +15,6 @@ goBack.innerHTML += `
             </a>
         </div>
         `;
-
 function back(){
     window.history.back();
 }
