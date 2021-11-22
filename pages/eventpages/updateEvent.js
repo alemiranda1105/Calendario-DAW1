@@ -32,12 +32,9 @@ getCurrentUser().then(data => {
     });
 });
 
-$(document).ready(() => {
-    
-});
-
 $('#update-event').submit((e) => {
     e.preventDefault();
+    let group = groupSelector.options[groupSelector.selectedIndex].value;
     const data = {
         id: oldData.id,
         name: eventName.value,
@@ -45,8 +42,19 @@ $('#update-event').submit((e) => {
         date: eventDate.value
     };
 
-    alert("Evento actualizado");
-    window.location.replace("/pages/HomePage/homePage.html");
+    console.log(group);
+
+    if(group !== 'none') {
+        data.group = group
+
+        // Llamada a la api para actualizar eventos de grupo...
+        alert("Evento de grupo actualizado");
+    } else {
+        // Llamada a la api para actualizar eventos individuales...
+        alert("Evento actualizado");
+    }
+    console.log(data);
+
     /*fetch("url", {
         method: "POST",
         body: data
