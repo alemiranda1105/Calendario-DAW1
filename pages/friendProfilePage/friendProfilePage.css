@@ -1,32 +1,3 @@
-
-
-#goBack {
-    width: 2rem;
-    height: 2rem;
-    transition: all linear 20ms;    
-    text-decoration: none;
-}
-
-#goBack:hover{
-    transform: scale(1.05);
-    transition: 70ms ease;
-    text-decoration: none;
-}
-
-#goBack h6{
-   margin-top: 1.5vh;
-   cursor: pointer;
-   text-decoration: none;
-}
-
-#goBack a{
-    text-decoration: none;
-    color: black;
-}
-#goBack a:hover{
-    color: black;
-}
-
 #main {
     min-width: 90vw;
     min-height: 100vh;
@@ -67,6 +38,14 @@
     font-size: 1.1em;
     font-weight: bold;
     text-align: justify;
+    text-decoration: none;
+    margin: 5px;
+    
+}
+
+.dataProfileTxt:hover{
+    color: white;
+    text-decoration: none;
 }
 
 #friendList {
@@ -85,8 +64,8 @@
 }
 
 #friendBody {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%,7rem),1fr));
+    display: flex;
+    
 }
 
 .friendComponent {
@@ -95,6 +74,8 @@
     border-radius: 15px;
     padding-top: 5px;
     margin: 5px;
+    width: fit-content;
+    padding: 10px;
 }
 
 .friendComponent:hover{

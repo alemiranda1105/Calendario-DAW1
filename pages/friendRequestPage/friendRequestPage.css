@@ -81,6 +81,15 @@ button:hover{
     text-decoration: none;
 }
 
+h6{
+    cursor: pointer;
+}
+
+.botones button{
+    width: 110px;
+}
+
+
 @media (min-width: 700px){
     .title2{
         display: none;
@@ -101,12 +110,7 @@ button:hover{
         height: 90%;
         background-color: rgba(73, 89, 101, 0.6);
     }
-
-    #listSolicitudes{
-        min-width: 80%;
-        
-    }
     .fila{
         width: 90%;
-    }   
+    }
 }

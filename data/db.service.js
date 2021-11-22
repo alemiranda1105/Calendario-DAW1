@@ -58,6 +58,25 @@ async function getUserById(id) {
     }
 }
 
+async function getUserByUsername(username) {
+    let result;
+    try{
+        result = await $.ajax({
+        url: `${URL}users/?username=${username}`,
+        type: 'GET',
+        success: function(res) {
+            result = res;
+        },
+        error: function() {
+            console.error("No es posible completar la operación");
+        }
+    });
+    return result;
+    }catch(error){
+        console.error(error);
+    }
+}
+
 async function getCurrentUser() {
     let result;
     if(!sessionStorage.user) {
