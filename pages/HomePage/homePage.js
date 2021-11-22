@@ -2,7 +2,7 @@ let monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'
 
 let currentDate = new Date();
 let currentDay = currentDate.getDate();
-let monthNumber = currentDate.getMonth();
+let monthNumber = currentDate.getMonth()+1;
 let currentYear = currentDate.getFullYear();
 
 let dates = document.getElementById('dates');
@@ -23,14 +23,11 @@ switchBtn.addEventListener("click", ()=> isGroup());
 //dias del mes actual
 let aux = new Date();
 var auxCurrentDate = {
-    day: aux.getDate(),
-    month: aux.getMonth(),
+    day: aux.getDay(),
+    month: aux.getMonth()+1,
     year: aux.getFullYear()
 }
-
 var acd;
-var monthYear = `${auxCurrentDate.month+1}-${auxCurrentDate.year}`;
-
 var groupMode = false;
 /** CALENDARIO */
 function writeMonth(month) {
@@ -38,9 +35,9 @@ function writeMonth(month) {
     //dias del mes pasado visibles en el mes actual
     for(let i = startDay(); i>0;i--){
         if(monthNumber === 0){
-            acd = `${getTotalDays(monthNumber-1)-(i-1)}-12-${auxCurrentDate.year-1}`;
+            acd = `${getTotalDays(monthNumber-1)-(i-1)}-12-${currentYear-1}`;
         }else{
-            acd = `${getTotalDays(monthNumber-1)-(i-1)}-${monthNumber}-${auxCurrentDate.year}`;
+            acd = `${getTotalDays(monthNumber-1)-(i-1)}-${monthNumber}-${currentYear}`;
         }
         
         dates.innerHTML += 
@@ -54,20 +51,19 @@ function writeMonth(month) {
     }
     //dias del mes actual
     for(let i=1; i<=getTotalDays(month); i++){
-        acd = `${i}-${auxCurrentDate.month+1}-${auxCurrentDate.year}`;
         if(i===currentDay && monthNumber === aux.getMonth() && currentYear === aux.getFullYear()) {
             dates.innerHTML += `
-            <div id="div${auxCurrentDate.day}-${auxCurrentDate.month+1}-${auxCurrentDate.year}" class="calendar__today divTxtDayEvent">
-                <div id="day${auxCurrentDate.day}-${auxCurrentDate.month+1}-${auxCurrentDate.year}" class="day d-flex justify-content-center ">
+            <div id="div${currentDay}-${monthNumber+1}-${currentYear}" class="calendar__today divTxtDayEvent">
+                <div id="day${currentDay}-${monthNumber+1}-${currentYear}" class="day d-flex justify-content-center ">
                     ${i}
                 </div>
 
             </div>`;
         }else{
-            acd = `${i}-${auxCurrentDate.month+1}-${auxCurrentDate.year}`;
+            acd = ``;
             dates.innerHTML += `
-            <div id="divDay${acd}" class="divTxtDayEvent calendar__item">
-                <div id="day${acd}" class="day">
+            <div id="divDay${i}-${monthNumber+1}-${currentYear}" class="divTxtDayEvent calendar__item">
+                <div id="day${i}-${monthNumber+1}-${currentYear}" class="day">
                     ${i}
                 </div>
             </div>
@@ -79,7 +75,7 @@ function writeMonth(month) {
     //dias del mes proximo en el mes actual
     let j = 1;
     for(let i = lastDay(); i < 6;i++){
-        acd = `${j}-${auxCurrentDate.month+2}-${auxCurrentDate.year}`;
+        acd = `${j}-${monthNumber+1}-${currentYear}`;
         dates.innerHTML += `
         <div id="divPostDay${acd}" class="calendar__item calendar__last-days">
             <div id="day${acd}" class="day">
@@ -119,7 +115,6 @@ function writeMonth(month) {
                                 ${eventos[i].name}
                             </div>
                         `);
-
                                               
                         var eventId=`eventDay${eventos[i].id}`;
                         var element = document.getElementById(eventId);
@@ -151,16 +146,12 @@ function writeMonth(month) {
         });
     }); 
 
-    
     if(groupMode){
         console.log("su valor sigue siendo", groupMode)
         showGroupEvents();
     }else{
         console.log("su valor sigue siendo", groupMode)
     }
-
-    
-
 }
 
 const getTotalDays = month => {
@@ -195,11 +186,9 @@ const lastMonth = () => {
    
     if(monthNumber !== 0){
         monthNumber--;
-        auxCurrentDate.month--;
     }else{
         monthNumber = 11;
         currentYear--;
-        auxCurrentDate.year--;
     }
     setNewDate();
 }
@@ -207,12 +196,9 @@ const lastMonth = () => {
 const nextMonth = () => {
     if(monthNumber !== 11){
         monthNumber++;
-        auxCurrentDate.month++;
     }else{
         monthNumber = 0;
         currentYear++;
-        auxCurrentDate.month = 0;
-        auxCurrentDate.year++;
     }
     setNewDate();
 }
@@ -359,6 +345,7 @@ function isGroup(){
         writeMonth(monthNumber);
     }
 }
+
 var geArr = [];
 async function showGroupEvents(){
     getCurrentUser().then(({groupid}) =>{
@@ -404,7 +391,6 @@ async function showGroupEvents(){
         });
     })
 }
-
 
 async function clearGroupEvents(){
     getCurrentUser().then(({groupid}) =>{
