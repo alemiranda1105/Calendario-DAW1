@@ -36,27 +36,6 @@ h1{
     width: 45vw;
 }
 
-button{
-    font-weight: bold;
-    margin-bottom: 2vh;
-}
-
-button:hover{
-    transform: scale(1.1);
-    transition: 70ms ease;
-}
-
-img{
-    margin-left: 2vh;
-    height: 4vh;
-    width: 4vh;
-}
-
-img:hover{
-    transform: scale(1.4);
-    transition: 70ms ease;
-}
-
 #name-input {
     border-style: none;
     padding: 5px;
