@@ -240,7 +240,7 @@ btnToggleMenu.addEventListener('click', function () {
 let btnLogout = document.getElementById("btnLogout");
 btnLogout.addEventListener('click', () => {
     sessionStorage.removeItem('user');
-    window.location.href = "http://127.0.0.1:5500/pages/inicio/inicio.html";
+    window.location.href = "http://127.0.0.1:5500/pages/index/index.html";
 })
 
 // CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST
