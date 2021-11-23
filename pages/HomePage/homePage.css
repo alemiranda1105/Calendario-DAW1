@@ -3,12 +3,10 @@
 html,body {
     margin:0px;
     min-width: 100%;
-    min-height: 100vh;
 }
 
 #divMainContent {
     min-width: 100vw;
-    min-height: 100vh;
     transition: all linear 300ms;
 }
 
