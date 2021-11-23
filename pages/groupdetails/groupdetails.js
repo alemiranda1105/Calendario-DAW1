@@ -4,7 +4,7 @@ localStorage.removeItem('groupInfo');
 const friendsSearch = document.getElementById("search");
 const list = document.getElementById("listUsers");
 const groupName = document.getElementById("groupName");
-const pencil = document.getElementById("pencil");
+const editBtn = document.getElementById("pencil");
 const leaveBtn = document.getElementById("leaveGroup");
 let nameAux;
 
@@ -15,7 +15,7 @@ let groupPeople = [];
 function addToGroup(username) {
     list.innerHTML += `
             <li class="list-group-item" id="li${username}">${username}
-            <img src="/img/close.svg" onclick="sacarDeGrupo(li${username}) "alt="Eliminar de grupo" class="float-end">
+            <img src="/img/close.svg" onclick="sacarDeGrupo(li${username}) "alt="Eliminar de grupo" class="float-end" id="deleteImg">
             </li>
     `;
 }
@@ -77,7 +77,7 @@ $('#add-button').click(e => {
     }
 });
 
-pencil.addEventListener('click', () => cambiaNombre());
+editBtn.addEventListener('click', () => cambiaNombre());
 
 function cambiaNombre(){
     if(groupName.disabled){
@@ -85,10 +85,12 @@ function cambiaNombre(){
     } else{
         groupName.setAttribute("disabled", true);
         console.log(groupName.value, '-', nameAux);
-        if(groupName.value !== nameAux){
+        if(groupName.value !== nameAux && groupName.value !== ''){
             //Escribir nuevo nombre en la base de datos
             console.log('El nombre del grupo ha cambiado');
             nameAux = groupName.value;
+        } else {
+            groupName.value = nameAux;
         }
     }
 }

@@ -64,8 +64,8 @@
 }
 
 #friendBody {
-    display: flex;
-    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%,7rem),1fr));
 }
 
 .friendComponent {
@@ -74,8 +74,6 @@
     border-radius: 15px;
     padding-top: 5px;
     margin: 5px;
-    width: fit-content;
-    padding: 10px;
 }
 
 .friendComponent:hover{
