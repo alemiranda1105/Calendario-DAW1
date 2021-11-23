@@ -5,8 +5,6 @@ const emailTxt = document.getElementById('email');
 const passTxt = document.getElementById('password');
 const showPassword = document.getElementById('showPassword');
 
-const URL = "http://localhost:8000/users";
-
 function storeSession(data) {
     data.password = "";
     sessionStorage.setItem('user', JSON.stringify(data));
@@ -64,27 +62,34 @@ $('#signUpForm').submit((e) => {
         friendRequests:[]
     };
 
-    fetch(URL, {
+    console.log(data);
+
+    fetch(URL + "users/", {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
     })
-    .then((res) => {
-        if(res.ok) {
-            storeSession(data);
-            window.location.href = "/pages/HomePage/homePage.html";
-        }
-    });
+        .then((res) => {
+            if(res.ok) {
+                getUserByUsername(data.username).then(user => {
+                    storeSession(user);
+                    window.location.href = "/pages/HomePage/homePage.html";
+                });
+            }
+        });
+    return false;
     
 });
+
+
 
 $('#loginForm').submit((e) => {
     e.preventDefault();
 
-    /* CAMBIAR CUANDO EL BACKEND ESTÉ TERMINADO
-       NO ES SEGURO ESTE METODO
-    */
-    fetch(URL)
+     /*CAMBIAR CUANDO EL BACKEND ESTÉ TERMINADO
+       NO ES SEGURO ESTE METODO*/
+    
+    fetch("http://localhost:8000/users")
     .then(res => res.json())
     .then(data => {
         data = data.filter((user) => {

@@ -28,7 +28,7 @@ getCurrentUser().then((user)=>{
                     lista.innerHTML += ` 
                             <div class="friendComponent d-flex flex-column justify-content-center align-items-center">
                                 <img class="imgFriend" src="/img/avatar.png" alt="">
-                                <a href="/pages/profilePage/profilePage.html" class="dataProfileTxt">${friend.username} (Yo)</a>
+                                <a href="/pages/profilePage/profilePage.html" class="dataProfileTxt">Tú</a>
                             </div> 
                             `
                             ;

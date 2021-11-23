@@ -77,7 +77,18 @@ function writeMonth(month) {
     //dias del mes proximo en el mes actual
     let j = 1;
     for(let i = lastDay(); i < 6;i++){
+<<<<<<< HEAD
         acd = `${j}-${month}-${currentYear}`;
+=======
+        let day = (j < 10) ? "0" + j: j;
+        let postMonth = (monthNumber + 2 < 10) ? "0" + (monthNumber + 2): monthNumber + 2;
+        let year = currentYear;
+        if(postMonth > 12) {
+            year++;
+            postMonth = "01";
+        }
+        acd = `${day}-${postMonth}-${year}`;
+>>>>>>> bc758d6cb6a8ecbefc6870ec0f72a987c86f29da
         dates.innerHTML += `
         <div id="divPostDay${acd}" class="calendar__item calendar__last-days">
             <div id="day${acd}" class="day">
