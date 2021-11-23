@@ -21,18 +21,6 @@ h1{
     height: auto;
 }
 
-.card {
-    border: 2px solid clear;
-    border-radius: 15px;
-    border-style: none;
-    box-shadow: 0 0 20px #353535;
-    padding: 0.5rem;
-    margin: auto;
-    width: 55vw;
-    height: fit-content;
-    text-align: center;
-}
-
 #textareas, .searchInput input{
     text-align: left;
     margin-bottom: 2vh;
@@ -93,22 +81,18 @@ img:hover{
     padding: 5px;
 }
 
-@media (min-width: 700px){
-    .title2{
-        display: none;
-    }
-
+.title2{
+    display: none;
 }
-@media (max-width: 700px) {
+
+@media (max-width: 600px) {
     .title{
         display: none;
     }
-    
-    .card {
-        width: 95%;
-        height: fit-content;
-        margin: 2vh;
-        background-color: rgba(73, 89, 101, 0.6);
+
+    .title2 {
+        display: block;
+        color: white;
     }
 
     .fila{

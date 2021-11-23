@@ -2,18 +2,6 @@ h1{
     margin: 5vh auto;
 }
 
-.card {
-    border: 2px solid clear;
-    border-radius: 15px;
-    border-style: none;
-    box-shadow: 0 0 20px #353535;
-    padding: 0.5rem;
-    height: fit-content;
-    text-align: center;
-    width: 60vw;
-    margin: auto;
-}
-
 .fila{
     background-color: whitesmoke;
     border-radius: 15px;
@@ -79,26 +67,24 @@ h6{
     width: 110px;
 }
 
-@media (min-width: 700px){
-    .title2{
-        display: none;
-    }
+.title2{
+    display: none;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     .main{
         width: 100%;
         height: 100%;
     }
-    .title{
+    .title {
         display: none;
     }
-    
-    .card {
-        width: 90%;
-        height: 90%;
-        background-color: rgba(73, 89, 101, 0.6);
+
+    .title2 {
+        display: block;
+        color: white;
     }
+
     .fila{
         width: 90%;
     }

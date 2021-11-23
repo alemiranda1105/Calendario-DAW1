@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="/style/color.css">
         <link rel="stylesheet" href="/style/font.css">
         <link rel="stylesheet" href="/style/goBack.css">
+        <link rel="stylesheet" href="/style/card.css">
         <link rel = "stylesheet" href="/pages/groupcreation/groupcreation.css">
 
     </head>
@@ -28,34 +29,35 @@
                 </a>
             </div>
         </div>
-        <div class="d-flex justify-content-center bg-gradient title">
+
+        <div id="contenedor" class="d-flex flex-column justify-content-center align-items-center">
             <h1 class="title">Crear grupo</h1>
+            <div class="d-flex justify-content-center align-items-center card bg-grey">
+                <form id="groupCreationForm">
+                     <div class="d-flex justify-content-center">
+                         <h1 class="title2">Crear grupo</h1>
+                     </div>
+     
+                     <h2 class="c-white">Datos</h2>
+     
+                     <div id="nGroup">
+                         <input type="text" placeholder="Nombre de grupo" id="name-input" required>
+                     </div>
+     
+                     <div class="nGroup">
+                         <input type="text" id="search" name="search" placeholder="Buscar usuario...">
+                         <button class="bg-orange c-white" id="add-button">Añadir</button>
+                     </div>
+                     <div id="textareas" class="d-flex flex-column align-items-center justify-content-center">
+                         <ul class="list-group" id="people-list">
+                         </ul>
+                     </div>
+                     <label id="error-txt"></label><br>
+                     <input type="submit" value="Crear grupo" class="btn bg-blue" id="create-group-btn">
+                 </form>
+             </div>
         </div>
-
-        <div class="d-flex justify-content-center align-items-center card bg-grey">
-           <form id="groupCreationForm">
-                <div class="d-flex justify-content-center">
-                    <h1 class="title2">Crear grupo</h1>
-                </div>
-
-                <h2 class="c-white">Datos</h2>
-
-                <div id="nGroup">
-                    <input type="text" placeholder="Nombre de grupo" id="name-input" required>
-                </div>
-
-                <div class="nGroup">
-                    <input type="text" id="search" name="search" placeholder="Buscar usuario...">
-                    <button class="bg-orange c-white" id="add-button">Añadir</button>
-                </div>
-                <div id="textareas" class="d-flex flex-column align-items-center justify-content-center">
-                    <ul class="list-group" id="people-list">
-                    </ul>
-                </div>
-                <label id="error-txt"></label><br>
-                <input type="submit" value="Crear grupo" class="btn bg-blue" id="create-group-btn">
-            </form>
-        </div>
+    
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
