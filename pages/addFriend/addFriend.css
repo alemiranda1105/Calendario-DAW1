@@ -33,18 +33,6 @@ h1{
     margin:5vh 0px;
 }
 
-.card {
-    border: 2px solid clear;
-    border-radius: 15px;
-    border-style: none;
-    box-shadow: 0 0 20px #353535;
-    padding: 0.5rem;
-    margin: auto;
-    width: 55vw;
-    height: fit-content;
-    text-align: center;
-}
-
 #textareas input{
     margin-top: 2vh;
     width: 45vw;
@@ -72,23 +60,18 @@ button:hover{
     transition: 70ms ease;
 }
 
-@media (min-width: 700px){
-    .title2{
-        display: none;
-    
-    }
-
+.title2{
+    display: none;
 }
-@media (max-width: 700px) {
+
+
+@media (max-width: 600px) {
     .title{
         display: none;
     }
-    
-    .card {
-        width: 95%;
-        height: 100%;
-        margin: 2vh;
-        background-color: rgba(22, 22, 22, 0.6);
+
+    .title2 {
+        display: block;
     }
 
     #textareas{

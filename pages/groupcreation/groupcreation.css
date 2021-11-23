@@ -19,18 +19,6 @@ h1{
     width: 25vw;
 }
 
-.card {
-    border: 2px solid clear;
-    border-radius: 15px;
-    border-style: none;
-    box-shadow: 0 0 20px #353535;
-    padding: 0.5rem;
-    margin: auto;
-    width: 55vw;
-    height: fit-content;
-    text-align: center;
-}
-
 #textareas{
     text-align: left;
     margin-bottom: 2vh;
@@ -101,13 +89,7 @@ img:hover{
 
     .title2 {
         display: initial;
-    }
-    
-    .card {
-        width: 95%;
-        height: 90vh;
-        margin: 2vh;
-        background-color: rgba(73, 89, 101, 0.6);
+        color: white;
     }
     
     #groupCreationForm{

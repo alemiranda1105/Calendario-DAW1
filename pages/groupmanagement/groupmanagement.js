@@ -10,9 +10,9 @@ getCurrentUser().then(({id, groupid}) =>{
 
             listado.innerHTML += `
                 <div class="group-list" id="row${i}">
-                    <div class="group-details">
+                    <div class="group-details d-flex align-items-center justify-content-center">
                         <h6 id="group-name">${group.name}</h6>
-                        <div>
+                        <div class="d-flex flex-row">
                             <h6>${group.users.length}</h6>
                             <img src="/img/people.svg" alt="icono grupo" id="group-icon">
                         </div>

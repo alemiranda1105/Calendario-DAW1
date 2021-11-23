@@ -26,19 +26,6 @@ textarea {
     display: none;
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    border-style: none;
-    border-radius: 15px;
-    padding: 0.5rem;
-    margin-top: 30px;
-    width: 60vw;
-    height: max-content;
-    text-align: center;
-    box-shadow: 0 0 20px #353535;
-}
-
 #eventDescription {
     width: 40vw;
     border-radius: 10px;
@@ -100,12 +87,6 @@ input[type="date"] {
     .title-sm {
         display: initial;
         font-size: min(10.5vw, 40px);
-    }
-    .card {
-        width: 90vh;
-        height: fit-content;
-        margin: 2vh;
-        background-color: rgba(73, 89, 101, 0.6);
     }
     .txt-input {
         width: min(85vw, 300px) !important;
