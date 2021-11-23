@@ -9,7 +9,7 @@ getCurrentUser().then(({friendRequests}) =>{
             lista.innerHTML += 
             `<div class="row d-flex align-items-center justify-content-center" id="row${i}">
                 <div id="contenedorfila" class="fila d-flex align-items-center justify-content-center  border-3 border border-dark bg-light g-gradient">
-                    <div class="d-flex align-items-center"> 
+                    <div class="d-flex align-items-center" id="friend-request"> 
                         <h6 onclick="seeRequestProfile(${users.id})">${users.username}</h6>
                         <div class="botones"> 
                             <button type="button" onclick="acceptRequest(${users.id},row${i})" class="btn bg-blue"> Aceptar</button>

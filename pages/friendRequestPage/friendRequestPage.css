@@ -50,33 +50,6 @@ button:hover{
     margin-left: 7vh;
 }
 
-#goBack {
-    width: 2rem;
-    height: 2rem;
-    transition: all linear 20ms;    
-    text-decoration: none;
-}
-
-#goBack:hover{
-    transform: scale(1.05);
-    transition: 70ms ease;
-    text-decoration: none;
-}
-
-#goBack h6{
-   margin-top: 1.5vh;
-   cursor: pointer;
-   text-decoration: none;
-}
-
-#goBack a{
-    text-decoration: none;
-    color: black;
-}
-#goBack a:hover{
-    color: black;
-}
-
 .title2{
     text-decoration: none;
 }
@@ -85,10 +58,26 @@ h6{
     cursor: pointer;
 }
 
+#friend-request {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 90vw;
+}
+
+#friend-request h6 {
+    width: 30vw;
+}
+
+.botones {
+    flex: 1 1 auto;
+}
+
 .botones button{
     width: 110px;
 }
-
 
 @media (min-width: 700px){
     .title2{
@@ -112,5 +101,9 @@ h6{
     }
     .fila{
         width: 90%;
+    }
+
+    .botones {
+        margin: 0px;
     }
 }
