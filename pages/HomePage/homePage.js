@@ -358,7 +358,7 @@ var geArr = [];
 async function showGroupEvents(){
     getCurrentUser().then(({groupid}) =>{
         groupid.forEach(id =>{
-            getGroupById(id).then(({events}) =>{
+            getGroupById(id).then(({name, events}) =>{
                 //UNA VEZ CARGADO EL CALENDARIO, CARGAMOS LOS EVENTOS
                 mostrarEventoListado().then(({fechas,eventos}) => {
                     $('#dates').find('div').each(function(){
@@ -370,7 +370,7 @@ async function showGroupEvents(){
                             var idNumerico= ($(this)[0].id).replace("divDay","");
                             for(var i = 0; i < eventos.length; i++){
                                 if(idNumerico === eventos[i].date){
-
+                                    eventos[i].group = name;
                                     $($(this)).append(
                                         `<div id="groupEventDay${eventos[i].id}"  class="groupEvent txtDayEvent bg-blue">
                                             ${eventos[i].name}
