@@ -16,7 +16,7 @@ eventDate.value = oldData.date.replace(/(\d\d)-(\d\d)-(\d{4})/, "$3-$2-$1");
 let user;
 getCurrentUser().then(data => {
     if(data === undefined) {
-        window.location.replace("http://localhost:5500/pages/inicio/inicio.html")
+        window.location.replace("http://localhost:5500/pages/index/index.html")
     }
     user = data;
     user.groupid.forEach((id, index) => {
