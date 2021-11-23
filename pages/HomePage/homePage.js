@@ -51,10 +51,12 @@ function writeMonth(month) {
     }
     //dias del mes actual
     for(let i=1; i<=getTotalDays(month); i++){
+        let day = (i < 10) ? "0" + i: i;
+        let month = (monthNumber + 1 < 10) ? "0" + (monthNumber + 1): monthNumber + 1;
         if(i===currentDay && monthNumber === aux.getMonth() && currentYear === aux.getFullYear()) {
             dates.innerHTML += `
-            <div id="div${currentDay}-${monthNumber+1}-${currentYear}" class="calendar__today divTxtDayEvent">
-                <div id="day${currentDay}-${monthNumber+1}-${currentYear}" class="day d-flex justify-content-center ">
+            <div id="div${day}-${month}-${currentYear}" class="calendar__today divTxtDayEvent">
+                <div id="day${day}-${month}-${currentYear}" class="day d-flex justify-content-center ">
                     ${i}
                 </div>
 
@@ -62,8 +64,8 @@ function writeMonth(month) {
         }else{
             acd = ``;
             dates.innerHTML += `
-            <div id="divDay${i}-${monthNumber+1}-${currentYear}" class="divTxtDayEvent calendar__item">
-                <div id="day${i}-${monthNumber+1}-${currentYear}" class="day">
+            <div id="divDay${day}-${month}-${currentYear}" class="divTxtDayEvent calendar__item">
+                <div id="day${day}-${month}-${currentYear}" class="day">
                     ${i}
                 </div>
             </div>
