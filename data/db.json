@@ -109,10 +109,16 @@
             "id": 1
           },
           {
-            "name": "FUTOBL",
+            "name": "FUTBOL",
             "description": "Esdjkfbdjskbfsnmdafbsdmn,bf",
             "date": "19-11-2021",
             "id": 2
+          },
+          {
+            "name": "FUTBOL 2",
+            "description": "otro evento individual el mismo dia",
+            "date": "19-11-2021",
+            "id": 45
           },
           {
             "name": "CACA",

@@ -106,27 +106,32 @@ function writeMonth(month) {
             //MES ACTUAL
             if(divIds.startsWith("divDay")){
                 var idNumerico= ($(this)[0].id).replace("divDay","");
-
+                var geArr = [];
                 for(var i = 0; i < eventos.length; i++){
                     if(idNumerico === eventos[i].date){
 
                         $($(this)).append(
-                            `<div id="eventDay${eventos[i].id}" class="txtDayEvent bg-blue">
+                            `<div id="groupEventDay${eventos[i].id}"  class="groupEvent txtDayEvent bg-blue">
                                 ${eventos[i].name}
                             </div>
                         `);
-                                              
-                        var eventId=`eventDay${eventos[i].id}`;
-                        var element = document.getElementById(eventId);
-                        var id = eventId.replace("eventDay","");
-                        element.addEventListener("click",function(e){
+                        geArr.push(eventos);
+                                            
+                        var eventId=`groupEventDay${eventos[i].id}`;
+                        $(`#${eventId}`).click((e)=>{
                             //coger el param y obtener id para buscar su info y cargarla
-                            console.log(e);
-                            showModal(`${eventos[id-1].name}`, `${eventos[id-1].description}`, "Cerrar", "Editar", () => {
-                                var event  = eventos[id-1];
-                                saveEvent(event);
-                                window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
-                            });
+                            var idOriginal = e.target.id;
+                            var auxId = idOriginal.replace("groupEventDay", "");
+                            for(var i = 0; i < eventos.length; i++){
+                                if(eventos[i].id == auxId){
+                                    
+                                    saveEvent(eventos[i]);
+                                    //console.log(eventos[i])
+                                    showModal(`${eventos[i].name}`, `${eventos[i].description}`, "Cerrar", "Editar", (j) => {
+                                        window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
+                                    });
+                                }
+                            }
                         });
                     }
                 }
@@ -381,12 +386,10 @@ async function showGroupEvents(){
                                         for(var i = 0; i < eventos.length; i++){
                                             if(eventos[i].id == auxId){
                                                 
-                                                var j = eventos[i];
+                                                saveEvent(eventos[i]);
+                                                //console.log(eventos[i])
                                                 showModal(`${eventos[i].name}`, `${eventos[i].description}`, "Cerrar", "Editar", (j) => {
-                                                    
-                                                    console.log(j)
-                                                    //saveEvent(j);
-                                                    //window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
+                                                    window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
                                                 });
                                             }
                                         }
