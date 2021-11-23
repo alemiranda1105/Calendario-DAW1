@@ -1,12 +1,25 @@
 #goBack {
     display: flex;
     align-items: center;
+    background-color: azure;
+    border-radius: 10px;
+    box-shadow: 0 0 2px black;
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 8px;
+    margin-bottom: 10px;
     transition: all linear 20ms;
 }
 
 #goBack:hover{
     transform: scale(1.05);
-    transition: 70ms ease;
+    box-shadow: inset 0 0 10px rgba(73, 89, 101, 0.3);
+    transition: 70ms linear;
+}
+
+#goBack:active {
+    box-shadow: inset 0 0 5px rgba(73, 89, 101, 0.9);
+    transform: translateY(3px);
 }
 
 #goBack img {
