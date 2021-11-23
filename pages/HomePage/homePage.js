@@ -98,10 +98,8 @@ function writeMonth(month) {
     showIndividualEvents();
 
     if(groupMode){
-        console.log("su valor sigue siendo", groupMode)
         showGroupEvents();
     }else{
-        console.log("su valor sigue siendo", groupMode)
     }
 }
 
@@ -284,73 +282,15 @@ const showModal = (title, description, closeBtnLabel, goBtnLabel, callback) => {
 
 function isGroup(){
     if(groupMode){
-        console.log("el valor era: ", groupMode);
         groupMode = !groupMode;
-        console.log("Ahora es: ", groupMode);
-        clearGroupEvents().then( ()=>{
-
-        });
-        
+        clearGroupEvents();  
     }else{
-        console.log("el valor era: ", groupMode);
         groupMode = !groupMode;
-        console.log("Ahora es: ", groupMode);
         dates.innerHTML = '';
         writeMonth(monthNumber);
     }
 }
 
-var geArr = [];
-async function showGroupEvents(){
-    getCurrentUser().then(({groupid}) =>{
-        groupid.forEach(id =>{
-            getGroupById(id).then(({name, events}) =>{
-                //UNA VEZ CARGADO EL CALENDARIO, CARGAMOS LOS EVENTOS
-                mostrarEventoListado().then(({fechas,eventos}) => {
-                    $('#dates').find('div').each(function(){
-                        var divIds = $(this).attr('id');
-                        eventos = events;
-
-                        //mes visible anterior
-                        
-
-                        //mes actual
-                        if(divIds.startsWith("divDay")){
-                            var idNumerico= ($(this)[0].id).replace("divDay","");
-                            for(var i = 0; i < eventos.length; i++){
-                                if(idNumerico === eventos[i].date){
-                                    eventos[i].group = name;
-                                    $($(this)).append(
-                                        `<div id="groupEventDay${eventos[i].id}"  class="groupEvent txtDayEvent bg-blue">
-                                            ${eventos[i].name}
-                                        </div>
-                                    `);
-                                    geArr.push(eventos);
-                                                        
-                                    var eventId=`groupEventDay${eventos[i].id}`;
-                                    $(`#${eventId}`).click((e)=>{
-                                        //coger el param y obtener id para buscar su info y cargarla
-                                        var idOriginal = e.target.id;
-                                        var auxId = idOriginal.replace("groupEventDay", "");
-                                        for(var i = 0; i < eventos.length; i++){
-                                            if(eventos[i].id == auxId){
-                                                
-                                                saveEvent(eventos[i]);
-                                                showModal(`${eventos[i].name}`, `${eventos[i].description}`, "Cerrar", "Editar", (j) => {
-                                                    window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
-                                                });
-                                            }
-                                        }
-                                    });
-                                }
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    })
-}
 
 async function showIndividualEvents() {
     mostrarEventoListado().then(({fechas,eventos}) => {
@@ -409,7 +349,7 @@ async function showIndividualEvents() {
                 for(var i = 0; i < eventos.length; i++){
                     if(idNumerico === eventos[i].date){
                         $($(this)).append(
-                            `<div id="postEventDay${idNumerico}-${i}" class="txtDayEvent bg-blue">
+                            `<div id="postEventDay${idNumerico}-${i}" class="txtDayEvent bg-orange">
                                 ${eventos[i].name}
                             </div>`);
                     }
@@ -417,6 +357,119 @@ async function showIndividualEvents() {
             }
         });
     });
+}
+
+var geArr = [];
+async function showGroupEvents(){
+    getCurrentUser().then(({groupid}) =>{
+        groupid.forEach(id =>{
+            getGroupById(id).then(({name, events}) =>{
+                //UNA VEZ CARGADO EL CALENDARIO, CARGAMOS LOS EVENTOS
+                mostrarEventoListado().then(({fechas,eventos}) => {
+                    $('#dates').find('div').each(function(){
+                        var divIds = $(this).attr('id');
+                        eventos = events;
+
+                        //mes visible anterior
+                        if(divIds.startsWith("divLastDay")){
+                            var idNumerico= ($(this)[0].id).replace("divLastDay","");
+                            for(var i = 0; i < eventos.length; i++){
+                                if(idNumerico === eventos[i].date){
+                                    eventos[i].group = name;
+                                    $($(this)).append(
+                                        `<div id="groupEventDay${eventos[i].id}"  class="groupEvent txtDayEvent bg-blue">
+                                            ${eventos[i].name}
+                                        </div>
+                                    `);
+                                    geArr.push(eventos);
+                                                        
+                                    var eventId=`groupEventDay${eventos[i].id}`;
+                                    $(`#${eventId}`).click((e)=>{
+                                        //coger el param y obtener id para buscar su info y cargarla
+                                        var idOriginal = e.target.id;
+                                        var auxId = idOriginal.replace("groupEventDay", "");
+                                        for(var i = 0; i < eventos.length; i++){
+                                            if(eventos[i].id == auxId){
+                                                
+                                                saveEvent(eventos[i]);
+                                                showModal(`${eventos[i].name}`, `${eventos[i].description}`, "Cerrar", "Editar", (j) => {
+                                                    window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
+                                                });
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+
+                        //mes actual
+                        if(divIds.startsWith("divDay")){
+                            var idNumerico= ($(this)[0].id).replace("divDay","");
+                            for(var i = 0; i < eventos.length; i++){
+                                if(idNumerico === eventos[i].date){
+                                    eventos[i].group = name;
+                                    $($(this)).append(
+                                        `<div id="groupEventDay${eventos[i].id}"  class="groupEvent txtDayEvent bg-blue">
+                                            ${eventos[i].name}
+                                        </div>
+                                    `);
+                                    geArr.push(eventos);
+                                                        
+                                    var eventId=`groupEventDay${eventos[i].id}`;
+                                    $(`#${eventId}`).click((e)=>{
+                                        //coger el param y obtener id para buscar su info y cargarla
+                                        var idOriginal = e.target.id;
+                                        var auxId = idOriginal.replace("groupEventDay", "");
+                                        for(var i = 0; i < eventos.length; i++){
+                                            if(eventos[i].id == auxId){
+                                                
+                                                saveEvent(eventos[i]);
+                                                showModal(`${eventos[i].name}`, `${eventos[i].description}`, "Cerrar", "Editar", (j) => {
+                                                    window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
+                                                });
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+
+                        //mes visible posterior
+                        if(divIds.startsWith("divPostDay")){
+                            var idNumerico= ($(this)[0].id).replace("divPostDay","");
+                            for(var i = 0; i < eventos.length; i++){
+                                if(idNumerico === eventos[i].date){
+                                    eventos[i].group = name;
+                                    $($(this)).append(
+                                        `<div id="groupEventDay${eventos[i].id}"  class="groupEvent txtDayEvent bg-blue">
+                                            ${eventos[i].name}
+                                        </div>
+                                    `);
+                                    geArr.push(eventos);
+                                                        
+                                    var eventId=`groupEventDay${eventos[i].id}`;
+                                    $(`#${eventId}`).click((e)=>{
+                                        //coger el param y obtener id para buscar su info y cargarla
+                                        var idOriginal = e.target.id;
+                                        var auxId = idOriginal.replace("groupEventDay", "");
+                                        for(var i = 0; i < eventos.length; i++){
+                                            if(eventos[i].id == auxId){
+                                                
+                                                saveEvent(eventos[i]);
+                                                showModal(`${eventos[i].name}`, `${eventos[i].description}`, "Cerrar", "Editar", (j) => {
+                                                    window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
+                                                });
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    })
 }
 
 async function clearGroupEvents(){
@@ -428,10 +481,8 @@ async function clearGroupEvents(){
                         var divIds = $(this).attr('id');
                         eventos = events;
 
-                        
-                           
-                        //MES ACTUAL
-                        if(divIds.startsWith("divDay")){
+                        //mes completo
+                        if(divIds.startsWith("divLastDay") || divIds.startsWith("divDay") ||divIds.startsWith("divPostDay")){
                             $(`#${divIds}`).find("div").each(function(e){
                                 var divIds = $(this).attr('id');         
                                 if(divIds.startsWith("groupEventDay")){
@@ -439,7 +490,6 @@ async function clearGroupEvents(){
                                 }
                             });
                         }
-
                     });
                 });
             });
