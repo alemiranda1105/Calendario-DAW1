@@ -18,8 +18,12 @@ year.textContent = currentYear.toString();
 prevMonthDOM.addEventListener('click', ()=>lastMonth());
 nextMonthDOM.addEventListener('click', ()=>nextMonth());
 
+const dropdownMenu = document.getElementById("dropdownMenu");
+let divDropdown = document.getElementsByClassName("dropdown");
 let switchBtn = document.getElementById("switch-button");
 switchBtn.addEventListener("click", ()=> isGroup());
+
+
 //dias del mes actual
 let aux = new Date();
 var auxCurrentDate = {
@@ -96,10 +100,10 @@ function writeMonth(month) {
 
     //UNA VEZ CARGADO EL CALENDARIO, CARGAMOS LOS EVENTOS
     showIndividualEvents();
-
     if(groupMode){
         showGroupEvents();
     }else{
+        $(".dropdown").hide();
     }
 }
 
@@ -283,8 +287,11 @@ const showModal = (title, description, closeBtnLabel, goBtnLabel, callback) => {
 function isGroup(){
     if(groupMode){
         groupMode = !groupMode;
-        clearGroupEvents();  
+        clearGroupEvents();
+        $(".dropdown").hide();
     }else{
+        
+        $(".dropdown").show();
         groupMode = !groupMode;
         dates.innerHTML = '';
         writeMonth(monthNumber);
@@ -496,3 +503,36 @@ async function clearGroupEvents(){
         });
     })
 }
+
+
+
+let user;
+let groups = [];
+getCurrentUser().then(data => {
+    if(data === undefined) {
+        window.location.replace("http://localhost:5500/pages/index/index.html")
+    } else {
+        user = data;
+    }
+})
+.then(() => {
+    getGroups().then(data => {
+        data.forEach(group => {
+            let users = group.users;
+            for(var i = 0; i < users.length; i++) {
+                if(users[i] == user.id) {
+                    groups.push(group);
+                }
+            }
+        });
+        var i = 1
+        groups.forEach(grupo => {
+            dropdownMenu.innerHTML +=`
+                <li>
+                    <label><input type="checkbox" id="cbox${i}"> ${grupo.name}</label>                    
+                </li>
+            `;
+            i++;
+        })
+    });
+});
