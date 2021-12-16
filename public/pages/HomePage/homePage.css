@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+html,body {
+    margin:0px;
+    min-width: 100%;
+}
+
+#divMainContent {
+    min-width: 100vw;
+    transition: all linear 300ms;
+}
+
+#divMainContent.active {
+    display: none;
+}
+
+/** ------------------- CALENDARIO -------------------*/
+#divCalendario {
+    overflow: hidden;
+    min-width: 100%;
+    margin-bottom:20px;
+    margin-top: 2.5em;
+}
+
+@media (max-width: 768px) {
+    #divCalendario {
+        margin-top: 2em;
+        width: 100vw;
+        margin-bottom: 0.7em;
+    }
+
+    #divNav{
+        position:fixed;
+        min-width: 100vw;
+    }
+
+    #divNav .toggle-btn {
+        cursor: pointer;
+        width: 2em;
+        height: 2em;
+    }
+
+    .calendar__week .calendar__day {
+        text-align: center;
+        font-size: 4vw;
+    }
+
+    .calendar__info {
+        margin-top: 2em;
+    }
+    .calendar__last-days .day {
+        font-size: 1.5vh;
+    }
+
+    .divTxtDayEvent .day {
+        font-size: 1.5vh;
+    }
+    .divTxtDayEvent .txtDayEvent {
+        cursor: pointer;
+        font-weight: bold;
+        text-align: left;
+        font-size: 1.5vh;
+        color:rgb(0, 0, 0);
+        margin-bottom: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        border: 1px solid #000000;
+    }
+
+    .divTxtDayEvent{
+        min-width: 24px;
+    }
+}
+
+.border{
+    box-shadow: 0px 0px 0px 0.5px black;
+}
+
+
+.calendar {
+    min-width: 100%;
+    overflow: hidden;
+    border: 1px solid #000000;
+    
+}
+
+.calendar__info {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2em;
+    font-size: 1.8vw;
+    text-transform: uppercase; 
+
+}
+
+.calendar__prev, .calendar__next {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.calendar__prev {
+    width: 100%;
+    margin-left: auto;
+}
+
+.calendar__next {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-right: auto;
+}
+
+.calendar__week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 1em;
+}
+
+.calendar__day {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+
+.calendar__dates {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(auto-fill,1fr);
+    background-color: white;
+    font-size: auto;
+}
+
+.calendar__month, .calendar__year {
+    padding: 0em .5em; 
+    font-size: 2em;
+    font-weight: bold;   
+}
+
+.calendar__item {
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0px 0px 0.5px 0.5px black;
+    height: 13vh;
+}
+
+.calendar__today {
+    background: lightcoral;
+    color: white;
+    width: 100%;
+    box-shadow: 0px 0px 0.5px 0.5px black;
+
+}
+
+.calendar__last-days {
+    opacity: .4;
+     
+}
+
+.divTxtDayEvent {
+    padding: 0px 2px;
+    
+}
+
+.txtDayEvent {
+    padding: 0px 2px;
+    margin: 2px 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.1vw;
+    color:rgb(0, 0, 0);
+    border-radius: 5px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    border: 1px solid #000000;
+}
+
+.txtDayEvent:hover {
+    background-color: red;
+}
+
+li {
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.day {
+    font-size: 1.9vh;
+}
+
+
+/** ---------------------------- MENU ---------------*/
+.spacer {
+    flex: 1 1 auto;
+}
+
+#divToggleMenu {
+    width: 100%;
+    height: 3.8em;
+    display: flex;
+    box-shadow: 0px 2px 5px black;
+}
+
+#toggleMenu{
+    position: relative;
+    left: 0.5em;
+    top: 0.7em;
+    cursor: pointer;
+    height: 2.5em;
+    color: white;
+}
+
+.customImg {
+    height: 3em;
+    width: 3em;
+    margin-top: 0.4em;
+    margin-right: 0.4em;
+    border-radius: 5rem;
+    transition: all linear 200ms;
+}
+
+.customImg:hover {
+    box-shadow: 0px 0px 30px 0px white;
+}
+
+#eventsTitle {
+    margin-top: 20px;
+    margin-left: 20px;
+    color: white;
+    padding: 5px;
+}
+
+.ulNearEvent{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: sta;
+    margin-left: 0px;
+    padding: 0px;
+    width: 90%;
+    color: white;
+    font-weight: bold;
+}
+
+.nearEvent {
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.event-link {
+    text-decoration: none;
+}
+
+#sidebar {
+    position: fixed;
+    top:0px;
+    right: 0px;
+    z-index: 30;
+    min-height: 100vh;
+    width: 0%;
+    transition: all linear 300ms;
+}
+  
+#sidebar.active {
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
+}
+  
+#sidebar ul li {
+    color: rgba(230, 230, 230, .9);
+    list-style: none;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, .3);
+    text-align: left;
+}
+
+#divNav{
+    position:fixed;
+    width: 100%;
+    height: 3em;
+    padding: 0px 2em;
+    box-shadow: 0px 3px 10px 1px black;
+}
+
+.toggle-btn {
+    cursor: pointer;
+    height: 2.5em;
+    width: 2.5em;
+}
+  
+#sidebar .toggle-btn {
+    position: absolute;
+    right: 210px;
+    top: 10px;
+}
+
+#btnConfig{
+    display: flex;
+    width: 90%;
+}
+  
+#btnLogout{
+    height: 50px;
+    width: 8rem;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: bold;
+    transition: all linear 300ms;
+}
+
+.divisor{
+    height: 1px;
+    margin: 15px 25px;
+    background-color: white;
+}
+#btnLogout:hover {
+    width: 9rem;
+    height: 60px;
+    background-color: transparent;
+    font-weight: bold;
+    color: rgba(255, 0, 0, 0.815);
+    box-shadow: 0px 5px rgb(224, 23, 56);   
+}
+
+#btnLogout:active {
+    transition: all ease-out 10ms;
+    box-shadow: 0 1px rgb(224, 23, 56);
+    transform: translateY(4px);
+}
+
+/** --------------- FOOTER --------------- */
+#divFooter{
+    width: 100%;
+}
+
+.customBtn {
+    width: 11em;
+    height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0px 5px #66747eb9;   
+}
+.customBtn:active {
+    transition: all ease-out 10ms;
+    box-shadow: 0 1px #66747eb9;
+    transform: translateY(4px);
+}
+.customBtn:hover{
+    color:whitesmoke;
+}
+
+/** ---------------------- SWITCH BUTTON --------*/
+#divSwitchBtn{
+    margin: 10px 0px;
+}
+
+.icon-custom {
+    position: relative;
+    z-index: 20;
+    border: none;
+    width: 2.3em;
+    height: 22px;
+    border-radius: 20px;
+}
+
+.checkbox {
+	opacity: 0%;
+}
+
+.bg-checkbox {
+	background-color: grey;
+	border-radius: 50px;
+	cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left:-5px;
+	padding: 2px;
+	position: relative;
+	height: 26px;
+	width:5.5em;
+	transform: scale(1.5);
+}
+
+.bg-checkbox .ball {
+	border-radius: 15px;
+	position: absolute;
+    z-index: 10;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+    box-shadow: 0 0 10px black;
+}
+
+.checkbox:checked + .bg-checkbox .ball {
+	transform: translateX(100%);
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .customBtn {
+        width: 11em;
+        height: 4em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        box-shadow: 0px 5px 2px whitesmoke;   
+    }
+    .customBtn:active {
+        transition: all ease-out 10ms;
+        box-shadow: 0 1px whitesmoke;
+        transform: translateY(4px);
+    }
+
+    .bg-checkbox .ball {
+        border-radius: 15px;
+        position: absolute;
+        z-index: 10;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 50%;
+        transform: translateX(0px);
+        transition: transform 0.2s linear;
+        box-shadow: 0 0 10px whitesmoke;
+    }
+}

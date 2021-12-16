@@ -1,0 +1,59 @@
+body{
+    text-align: center;
+}
+
+h1{
+    margin:5vh 0px;
+}
+
+#textareas input{
+    margin-top: 2vh;
+    width: 45vw;
+}
+
+button{
+    font-weight: bold;
+    margin-bottom: 2vh;
+}
+
+button:hover{
+    transform: scale(1.1);
+    transition: 70ms ease;
+}
+
+.listaUsuarios{
+    width: 45vw;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    text-align: left;
+}
+
+.listaUsuarios li:hover{
+    transform: scale(1.04);
+    transition: 70ms ease;
+}
+
+.title2{
+    display: none;
+}
+
+
+@media (max-width: 600px) {
+    .title{
+        display: none;
+    }
+
+    .title2 {
+        display: block;
+    }
+
+    #textareas{
+        width: 90vw;
+    }
+    #textareas input{
+        width: 65vw;
+    }
+    .listaUsuarios{
+        width: 65vw;
+    }
+}

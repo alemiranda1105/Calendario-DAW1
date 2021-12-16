@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta lang="es">
+    <title>OWF</title>
+    <!-- BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- ANIMATE CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="./homePage.css">
+    <link rel="stylesheet" href="/style/background.css">
+    <link rel="stylesheet" href="/style/font.css">
+    <link rel="stylesheet" href="/style/color.css">
+</head>
+<body class="bg-image d-flex">
+    <div id="divMainContent">
+
+        <div id="divNav" class="bg-orange d-flex justify-content-end align-items-center">
+            <img class="toggle-btn" src="/img/menu.svg" alt="">
+        </div>
+    
+        <div id="divCalendario" class="d-flex">
+            <div class="calendar bg-orange">
+                <div class="calendar__info">
+                    <div class="calendar__prev c-white" id="prev-month">&#9664;</div>
+                    <div class="calendar__month c-white" id="month"></div>
+                    <div class="calendar__year c-white" id="year"></div>
+                    <div class="calendar__next c-white" id="next-month">&#9654;</div>
+                </div>
+            
+                <div class="calendar__week">
+                    <div class="calendar__day c-white">Lun</div>
+                    <div class="calendar__day c-white">Mar</div>
+                    <div class="calendar__day c-white">Mier</div>
+                    <div class="calendar__day c-white">Jue</div>
+                    <div class="calendar__day c-white">Vie</div>
+                    <div class="calendar__day c-white">Sáb</div>
+                    <div class="calendar__day c-white">Dom</div>
+                </div>
+            
+                <div id="dates" class="calendar__dates"></div>
+
+            </div>
+        </div>     
+        
+        <div id="divFooter">
+            <div id="divBtnFooter" >
+                <div class="container">
+                    <div class="row flex-c">
+                        <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
+                            <a class="customBtn bg-orange mb-3" href="/pages/eventpages/addevent.html">Crear Evento</a>
+                        </div>
+                        
+                        <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
+                            <a class="customBtn bg-orange mb-3" href="/pages/groupcreation/groupcreation.html">Crear Grupo</a>
+                        </div>
+    
+                        <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
+                            <a class="customBtn bg-orange mb-3" href="/pages/groupmanagement/groupmanagement.html">Gestionar Grupos</a>
+                        </div>
+    
+                        <div class="col-xs-6 col-sm-6 col-md-3 d-flex justify-content-center align-items-center">
+                            <div id="divSwitchBtn" class="d-flex justify-content-center align-items-center">
+                                <input type="checkbox" class="checkbox" id="switch-button" />
+                                <label class="bg-checkbox" for="switch-button">
+                                    <img src="/img/individual_icon.svg" class="icon-custom"></img>
+                                    <span class="spacer"></span>
+                                    <img src="/img/group_icon.svg" class="icon-custom"></img>
+                                    <div class="ball bg-orange"></div>
+                                </label>
+                                
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+            
+        </div> 
+    </div>
+
+    <aside id="sidebar" class="bg-grey">
+        <div id="divToggleMenu">
+            <img id="toggleMenu" src="/img/menu_white.svg" alt="">
+            <span class="spacer"></span>
+            <a href="/pages/profilePage/profilePage.html">
+                <img class="customImg" src="/img/avatar.png" alt="">
+            </a>
+        </div>
+
+        <h3 id="eventsTitle" class="text-justify ">Próximos Eventos</h3>
+        <div class="divisor"></div>
+        <div id="listMain" class="d-flex flex-column justify-content-center align-items-center">
+            <ul class="ulNearEvent"></ul>
+            <div id="btnConfig" class="mb-5">
+                <span class="spacer"></span>
+                <button id="btnLogout" class="btn btn-danger">Logout</button>
+            </div>
+        </div>
+    </aside>
+
+
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="module" src="./homePage.js"></script>
+    <script src="../../data/db.service.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/background.css">
+    <link rel="stylesheet" href="/style/font.css">
+    <link rel="stylesheet" href="/style/color.css">
+    <link rel="stylesheet" href="/style/goBack.css">
+    <link rel="stylesheet" href="./friendProfilePage.css">
+    
+</head>
+<body class="bg-image">
+    <div id="divGoBack" class="d-flex align-items-start">
+        
+    </div>
+    <div id="main" class="d-flex justify-content-center align-items-center">
+        <div id="bgProfile" class="bg-grey d-flex flex-column align-items-center">
+
+            <div id="cabeceraProfile">
+                <img id="imgProfile" src="/img/avatar.png" alt="imgProfile">
+            </div>
+
+            <div id="bodyProfile" class="d-flex flex-column align-items-center">
+
+                <div id="dataProfile" class="d-flex justify-content-center">
+                    <div class="">
+                        <p class="dataProfileTxt" id="name">Nombre: </p>
+
+                    </div>
+
+                </div>
+
+                <div id="friendList">
+                    <h2 id="friendTitle" class="c-white">Amigos:</h2>
+                        
+                    <div id="friendBody" class="">
+                      
+                    </div>
+            
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/data/db.service.js"></script>
+    <script src="./friendProfilePage.js"></script>
+</body>
+</html>

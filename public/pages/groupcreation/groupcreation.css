@@ -1,0 +1,94 @@
+body{
+    text-align: center;
+}
+
+h1{
+    margin:5vh 0px;
+}
+
+.title2 {
+    display: none;
+}
+
+#nGroup{
+    text-align: center;
+    margin: 3vh;
+}
+
+#nGroup input{
+    width: 25vw;
+}
+
+#textareas{
+    text-align: left;
+    margin-bottom: 2vh;
+    width: 40vw;
+}
+
+#textareas li:hover{
+    background-color: lightblue;
+    transform: scale(1.02);
+    transition: 70ms ease;
+    cursor: pointer;
+}
+
+#textareas ul,  #textareas input{
+    width: 45vw;
+}
+
+#name-input {
+    border-style: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#search {
+    border-style: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#add-button {
+    border-style: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#error-txt {
+    background-color: rgba(255,0,0,0.75);
+    padding: 12px;
+    border-radius: 20px;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .title{
+        display: none;
+    }
+
+    .title2 {
+        display: initial;
+        color: white;
+    }
+    
+    #groupCreationForm{
+        min-width: 90vw;
+    }
+
+    #nGroup input{
+        width:60vw;
+    }
+    #textareas{
+        width: 90vw;
+    }
+    #textareas input{
+        width: 65vw;
+    }
+    #textareas ul{
+        width: 65vw;
+    }
+    #error-txt {
+        font-size: min(3.5vw, 20px);
+    }
+    
+}
