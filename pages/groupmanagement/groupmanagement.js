@@ -12,9 +12,9 @@ getCurrentUser().then(user => {
             let gid = g.group;
             getGroupById(gid).then(group => {
                 rowactual = "row"+i;
-
+                i++;
                 listado.innerHTML += `
-                    <div class="group-list" id="row${i}">
+                    <div class="group-list" id="${rowactual}">
                         <div class="group-details d-flex align-items-center justify-content-center">
                             <h6 id="group-name">${group.name}</h6>
                             <div class="d-flex flex-row">
@@ -32,7 +32,6 @@ getCurrentUser().then(user => {
                     </div>
                 `;
             });
-            i++;
         });
     }
 });
@@ -44,29 +43,15 @@ function editar(group){
 }
 
 function salirGrupo(id, idg, row){
-    console.log("IdUsuario: "+id);
-    console.log("IdGrupo: "+idg);
-    //Borrar row
-    row.remove();
-/*
-    //Borrar del los grupos del usuario el grupo
-    getCurrentUser().then(({groupid})=>{
-        //ajax borrar de groupid el idg
-        try{
-            console.info(groupid);
-        } catch(error){
-            console.error(error);
-        }
-    });
-
-    //Borrar del grupo al usuario
-    getGroupById(idg).then(({users}) =>{
-        //ajax borrar de users el id
-        try{
-          //  console.log(users);
-        } catch(error){
-            console.error(error);
-        }
-    });
-*/
+    let token = getToken();
+    let data = {
+        user_id: id,
+        group_id: idg
+    };
+    fetch(URL + "group_users/leave_group?token=" + token, {
+        headers: {"Content-Type": 'application/json'},
+        method: 'DELETE',
+        body: JSON.stringify(data)
+    })
+    .then(res => $(row).remove());
 }
