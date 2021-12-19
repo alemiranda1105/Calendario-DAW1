@@ -8,8 +8,10 @@ getCurrentUser().then((user) =>{
     name.innerHTML = user.username;
     email.innerHTML = user.email;
 
-    for(let i = 0; i<user.friends.length; i++){
-        getUserById(user.friends[i]).then(friend =>{
+    user.friends.forEach(f => {
+        let f_id = f.friend
+        console.log(f_id);
+        getUserById(f_id).then(friend => {
             lista.innerHTML += ` 
                         <div class="friendComponent d-flex flex-column justify-content-center align-items-center">
                             <img class="imgFriend" src="/img/avatar.png" alt="">
@@ -18,7 +20,8 @@ getCurrentUser().then((user) =>{
                         `
             ;
         });
-    };
+    });
+    
 });
 
 function view(id){
