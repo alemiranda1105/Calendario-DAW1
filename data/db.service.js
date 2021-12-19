@@ -130,10 +130,11 @@ async function getGroups() {
 
 //@param id: identificador unico de cada grupo
 async function getGroupById(id) {
+    let token = getToken();
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}groups/${id}`,
+        url: `${URL}groups/${id}?token=${token}`,
         type: 'GET',
         success: function(res) {
             result = res;
