@@ -40,10 +40,11 @@ async function getUsers() {
 
 //@param id: token unico de cada user
 async function getUserById(id) {
+    let token = getToken();
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}users/${id}`,
+        url: `${URL}users/${id}?token=${token}`,
         type: 'GET',
         success: function(res) {
             result = res;
@@ -80,15 +81,16 @@ async function getUserByUsername(username) {
 
 async function getCurrentUser() {
     let result;
-    if(!sessionStorage.user) {
+    if(!sessionStorage.user || !getToken()) {
         window.location.href = "http://127.0.0.1:5500/pages/index/index.html";
     }
-    let user = JSON.parse(sessionStorage.user)[0];
+    let user = JSON.parse(sessionStorage.user);
+    let token = getToken();
     let key = user.id;
     if(key){
         try{
             result = await $.ajax({
-            url: `${URL}users/${key}`,
+            url: `${URL}users/${key}?token=${token}`,
             type: 'GET',
             success: function(res) {
                 result = res;
