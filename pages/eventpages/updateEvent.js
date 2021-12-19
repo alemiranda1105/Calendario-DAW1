@@ -69,17 +69,5 @@ $('#update-event').submit((e) => {
         localStorage.setItem('event', JSON.stringify(event.evento));
         window.location.href = "updateevent.html";
     });
-
-    /*fetch("url", {
-        method: "POST",
-        body: data
-    })
-    .then((res) => {
-        if(res.ok) {
-            alert("Grupo actualizado");
-            location.reload();
-        } else {
-            alert("Error");
-        }
-    });*/
+    
 });
