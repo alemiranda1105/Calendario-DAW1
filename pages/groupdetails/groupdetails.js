@@ -95,7 +95,6 @@ function cambiaNombre(){
 }
 
 function sacarDeGrupo(elem, id){
-    console.log(id);
     let token = getToken();
     let data = {
         user_id: id,
@@ -113,9 +112,21 @@ leaveBtn.addEventListener('click', () => salirGrupo());
 
 function salirGrupo(){
     getCurrentUser().then(user => {
-        user.groupid = user.groupid.filter(id => id != groupId);
-        sessionStorage.removeItem('user');
-        sessionStorage.setItem('user', JSON.stringify([user]));
-        window.location.replace("/pages/groupmanagement/groupmanagement.html");
+        let token = getToken();
+        let data = {
+            user_id: user.id,
+            group_id: groupId
+        };
+        fetch(URL + "group_users/leave_group?token=" + token, {
+            headers: {"Content-Type": 'application/json'},
+            method: 'DELETE',
+            body: JSON.stringify(data)
+        })
+        .then(res => {
+            getUserById(user.id).then(user => {
+                sessionStorage.setItem('user', JSON.stringify(user));
+                window.location.href = "/pages/groupmanagement/groupmanagement.html";
+            });
+        });
     });
 }
