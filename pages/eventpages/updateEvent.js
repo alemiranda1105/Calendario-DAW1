@@ -14,18 +14,20 @@ eventDate.value = oldData.date.replace(/(\d\d)-(\d\d)-(\d{4})/, "$3-$2-$1");
 
 
 let user;
+let groups = [];
 getCurrentUser().then(data => {
     if(data === undefined) {
-        window.location.replace("http://localhost:5500/pages/index/index.html")
+        window.location.replace("/pages/index/index.html")
     }
     user = data;
-    user.groupid.forEach((id, index) => {
-        getGroupById(id).then(group => {
+    user.groupid.forEach(({group}, index) => {
+        getGroupById(group).then(g => {
             var opt = document.createElement('option');
-            opt.value = group.name;
-            opt.innerHTML = group.name;
+            opt.value = g.name;
+            opt.innerHTML = g.name;
             groupSelector.appendChild(opt);
-            if(oldData.group && oldData.group === group.name) {
+            groups.push(g);
+            if(oldData.group_id && oldData.group_id === g.id) {
                 $("#group-selector").prop("selectedIndex", index+1);
             }
         });
@@ -35,25 +37,38 @@ getCurrentUser().then(data => {
 $('#update-event').submit((e) => {
     e.preventDefault();
     let group = groupSelector.options[groupSelector.selectedIndex].value;
+    let date = eventDate.value.replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2-$1")
     const data = {
-        id: oldData.id,
         name: eventName.value,
         description: eventDescription.value,
-        date: eventDate.value
+        date: date
     };
 
-    console.log(group);
-
     if(group !== 'none') {
-        data.group = group
-
-        // Llamada a la api para actualizar eventos de grupo...
-        alert("Evento de grupo actualizado");
+        data.individual = false;
+        groups.forEach(g => {
+            if(g.name == group) {
+                data.group_id = g.id;
+            }
+        })
+        console.log(data);
     } else {
-        // Llamada a la api para actualizar eventos individuales...
-        alert("Evento actualizado");
+        data.individual = true;
+        data.owner_id = user.id;
+        console.log(data);
     }
-    console.log(data);
+
+    fetch(URL + "event/" + oldData.id + "?token=" + getToken(), {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(event => {
+        alert("Evento actualizado");
+        localStorage.setItem('event', JSON.stringify(event.evento));
+        window.location.href = "updateevent.html";
+    });
 
     /*fetch("url", {
         method: "POST",
