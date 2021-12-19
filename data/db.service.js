@@ -1,4 +1,4 @@
-const URL = "http://localhost:8000/";
+const URL = "http://localhost:3000/api/v1/";
 
 async function getData(ruta) {
     let result;
@@ -59,10 +59,11 @@ async function getUserById(id) {
 }
 
 async function getUserByUsername(username) {
+    let token = getToken();
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}users/?username=${username}`,
+        url: `${URL}users?username=${username}&token=${token}`,
         type: 'GET',
         success: function(res) {
             result = res;
@@ -190,4 +191,9 @@ function uuid() {
        return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
     };
     return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
+function getToken() {
+    let cookies = document.cookie;
+    return cookies.split("=")[1];
 }

@@ -10,6 +10,10 @@ function storeSession(data) {
     sessionStorage.setItem('user', JSON.stringify(data));
 }
 
+function storeCookie(token) {
+    document.cookie = "token=" + token;
+}
+
 if(showPassword !== null) {
     showPassword.addEventListener('click', (e) => {
         if(passTxt.type === "password") {
@@ -56,27 +60,20 @@ $('#signUpForm').submit((e) => {
         username: user,
         email: email,
         password: pass,
-        events: [],
-        groupid: [],
-        friends: [],
-        friendRequests:[]
     };
-
-    console.log(data);
-
-    fetch(URL + "users/", {
+    fetch(URL + "users", {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
     })
-        .then((res) => {
-            if(res.ok) {
-                getUserByUsername(data.username).then(user => {
-                    storeSession(user);
-                    window.location.href = "/pages/HomePage/homePage.html";
-                });
-            }
+    .then(res => res.json())
+    .then(data => {
+        storeCookie(data.session.token);
+        getUserByUsername(data.user.username).then(user => {
+            storeSession(user);
+            window.location.href = "/pages/HomePage/homePage.html";
         });
+    });
     return false;
     
 });
