@@ -4,7 +4,7 @@ let user;
 let info = document.getElementById("info");
 getCurrentUser().then(data =>{
     if(data === undefined){
-        window.location.replace("http://localhost:5500/pages/index/index.html");
+        window.location.replace("/pages/index/index.html");
     } else{
         user = data
     }
