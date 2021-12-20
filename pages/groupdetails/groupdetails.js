@@ -59,13 +59,23 @@ $('#add-button').click(e => {
         let newFriend = friends.filter(f => f.username === user)[0];
         if(newFriend !== undefined) {
             if(!groupPeople.includes(newFriend.id)) {
-                groupPeople.push(newFriend.id);
-                addToGroup(newFriend.username, newFriend.id);
-                $(friendsSearch).val('');
-
-                /*
-                * AÑADIR LLAMADA A LA API PARA GUARDAR LOS CAMBIOS
-                */
+                let data = {
+                    user_id: newFriend.id,
+                    group_id: groupId
+                };
+                fetch(`${URL}group_users?token=${getToken()}`, {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.added) {
+                        groupPeople.push(newFriend.id);
+                        addToGroup(newFriend.username, newFriend.id);
+                        $(friendsSearch).val('');
+                    }
+                });
                
             }
         } else {
