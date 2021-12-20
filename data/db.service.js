@@ -87,7 +87,7 @@ async function getCurrentUser() {
     let user = JSON.parse(sessionStorage.user);
     let token = getToken();
     let key = user.id;
-    if(key){
+    if(key && token){
         try{
             result = await $.ajax({
             url: `${URL}users/${key}?token=${token}`,
@@ -103,9 +103,11 @@ async function getCurrentUser() {
         }catch(error){
             console.error(error);
         }
-    }else {
+    } else {
         // EN CASO DE QUE BORREN LA KEY, REDIRIGIR AL LOGIN
         sessionStorage.removeItem('user');
+        document.cookie = 'token=;';
+        window.location.href = "/pages/index/index.html";
     }
 }
 
