@@ -84,7 +84,33 @@ $('#groupCreationForm').submit((e) => {
     e.preventDefault();
     if(addedFriends.length <= 0) {
         showError("Añadir amigos al grupo");
-        return;
+    }else if (groupNameInput.value === 'undefined') {
+        showError("Escriba un nombre para el grupo");
+    } else {
+        let data = {
+            name: groupNameInput.value
+        };
+        console.log(addedFriends[0].id);
+        fetch(`${URL}groups?token=${getToken()}`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then((group_data) => {
+            data = {
+                group_id: group_data.id
+            };
+            addedFriends.push(user);
+            addedFriends.forEach(user => {
+                data.user_id = user.id;
+                fetch(`${URL}group_users?token=${getToken()}`, {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                })
+                .then(() => window.location.href = "/pages/groupmanagement/groupmanagement.html");
+            });
+        });
     }
-    // Añadir llamada a la API
 });
