@@ -23,7 +23,7 @@ async function getUsers() {
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}users`,
+        url: `${URL}users?token=${getToken()}`,
         type: 'GET',
         success: function(res) {
             result = res;
