@@ -95,9 +95,22 @@ function cambiaNombre(){
         groupName.setAttribute("disabled", true);
         console.log(groupName.value, '-', nameAux);
         if(groupName.value !== nameAux && groupName.value !== ''){
-            //Escribir nuevo nombre en la base de datos
-            console.log('El nombre del grupo ha cambiado');
-            nameAux = groupName.value;
+            let data = {
+                "name": groupName.value
+            };
+            fetch(`${URL}groups/${groupId}?token=${getToken()}`, {
+                method: 'PATCH',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            .then(res => res.json)
+            .then(data => {
+                if(data.error) {
+                    alert("Ha ocurrido un error");
+                } else {
+                    nameAux = groupName.value;
+                }
+            });
         } else {
             groupName.value = nameAux;
         }
