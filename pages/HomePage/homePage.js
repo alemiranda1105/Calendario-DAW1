@@ -221,8 +221,8 @@ async function mostrarEventoListado(){
         var listado = [];
         var fechas ={}, eventos=[];
         for(let i = 0; i < user.events.length; i++) {
-            listado[i] = user.events[i];
-            var aux = listado[i].date;           
+            listado[i] = user.events[i].event;
+            var aux = listado[i].date;
             var date = aux.split("-");
             
             auxFecha[i] = {
@@ -308,10 +308,10 @@ async function showIndividualEvents() {
             if(divIds.startsWith("divLastDay")){
                 var idNumerico= ($(this)[0].id).replace("divLastDay","");
                 for(var i = 0; i < eventos.length; i++){
-                    if(idNumerico === eventos[i].date){
+                    if(idNumerico === eventos[i].event.date){
                         $($(this)).append(
                             `<div id="lastEventDay${idNumerico}" class="txtDayEvent bg-orange">
-                                ${eventos[i].name}
+                                ${eventos[i].event.name}
                             </div>`);
                     }
                 }   
@@ -322,25 +322,25 @@ async function showIndividualEvents() {
                 var idNumerico= ($(this)[0].id).replace("divDay","");
                 var geArr = [];
                 for(var i = 0; i < eventos.length; i++){
-                    if(idNumerico === eventos[i].date){
+                    if(idNumerico === eventos[i].event.date){
 
                         $($(this)).append(
-                            `<div id="eventDay${eventos[i].id}"  class="txtDayEvent bg-orange">
-                                ${eventos[i].name}
+                            `<div id="eventDay${eventos[i].event.id}"  class="txtDayEvent bg-orange">
+                                ${eventos[i].event.name}
                             </div>
                         `);
                         geArr.push(eventos);
                                             
-                        var eventId=`eventDay${eventos[i].id}`;
+                        var eventId=`eventDay${eventos[i].event.id}`;
                         $(`#${eventId}`).click((e)=>{
                             //coger el param y obtener id para buscar su info y cargarla
                             var idOriginal = e.target.id;
                             var auxId = idOriginal.replace("eventDay", "");
                             for(var i = 0; i < eventos.length; i++){
-                                if(eventos[i].id == auxId){
-                                    saveEvent(eventos[i]);
-                                    showModal(`${eventos[i].name}`, `${eventos[i].description}`, "Cerrar", "Editar", (j) => {
-                                        window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
+                                if(eventos[i].event.id == auxId){
+                                    saveEvent(eventos[i].event);
+                                    showModal(`${eventos[i].event.name}`, `${eventos[i].event.description}`, "Cerrar", "Editar", (j) => {
+                                        window.location.href = "/pages/eventpages/updateevent.html";
                                     });
                                 }
                             }
@@ -354,10 +354,10 @@ async function showIndividualEvents() {
             if(divIds.startsWith("divPostDay")){
                 var idNumerico= ($(this)[0].id).replace("divPostDay","");
                 for(var i = 0; i < eventos.length; i++){
-                    if(idNumerico === eventos[i].date){
+                    if(idNumerico ===eventos[i].event.date){
                         $($(this)).append(
                             `<div id="postEventDay${idNumerico}-${i}" class="txtDayEvent bg-orange">
-                                ${eventos[i].name}
+                                ${eventos[i].event.name}
                             </div>`);
                     }
                 }   
@@ -384,26 +384,26 @@ async function showGroupEvents(){
                             if(divIds.startsWith("divLastDay")){
                                 var idNumerico= ($(this)[0].id).replace("divLastDay","");
                                 for(var i = 0; i < eventos.length; i++){
-                                    if(idNumerico === eventos[i].date){
-                                        eventos[i].group = name;
+                                    if(idNumerico === eventos[i].event.date){
+                                        eventos[i].event.group = name;
                                         $($(this)).append(
-                                            `<div id="groupEventDay${eventos[i].id}"  class="groupEvent txtDayEvent bg-blue">
-                                                ${eventos[i].name}
+                                            `<div id="groupEventDay${eventos[i].event.id}"  class="groupEvent txtDayEvent bg-blue">
+                                                ${eventos[i].event.name}
                                             </div>
                                         `);
                                         geArr.push(eventos);
                                                             
-                                        var eventId=`groupEventDay${eventos[i].id}`;
+                                        var eventId=`groupEventDay${eventos[i].event.id}`;
                                         $(`#${eventId}`).click((e)=>{
                                             //coger el param y obtener id para buscar su info y cargarla
                                             var idOriginal = e.target.id;
                                             var auxId = idOriginal.replace("groupEventDay", "");
                                             for(var i = 0; i < eventos.length; i++){
-                                                if(eventos[i].id == auxId){
+                                                if(eventos[i].event.id == auxId){
                                                     
-                                                    saveEvent(eventos[i]);
-                                                    showModal(`${eventos[i].name}`, `${eventos[i].description}`, "Cerrar", "Editar", (j) => {
-                                                        window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
+                                                    saveEvent(eventos[i].event);
+                                                    showModal(`${eventos[i].event.name}`, `${eventos[i].event.description}`, "Cerrar", "Editar", (j) => {
+                                                        window.location.href = "/pages/eventpages/updateevent.html";
                                                     });
                                                 }
                                             }
@@ -416,26 +416,26 @@ async function showGroupEvents(){
                             if(divIds.startsWith("divDay")){
                                 var idNumerico= ($(this)[0].id).replace("divDay","");
                                 for(var i = 0; i < eventos.length; i++){
-                                    if(idNumerico === eventos[i].date){
-                                        eventos[i].group = name;
+                                    if(idNumerico === eventos[i].event.date){
+                                        eventos[i].event.group = name;
                                         $($(this)).append(
-                                            `<div id="groupEventDay${eventos[i].id}"  class="groupEvent txtDayEvent bg-blue">
-                                                ${eventos[i].name}
+                                            `<div id="groupEventDay${eventos[i].event.id}"  class="groupEvent txtDayEvent bg-blue">
+                                                ${eventos[i].event.name}
                                             </div>
                                         `);
                                         geArr.push(eventos);
                                                             
-                                        var eventId=`groupEventDay${eventos[i].id}`;
+                                        var eventId=`groupEventDay${eventos[i].event.id}`;
                                         $(`#${eventId}`).click((e)=>{
                                             //coger el param y obtener id para buscar su info y cargarla
                                             var idOriginal = e.target.id;
                                             var auxId = idOriginal.replace("groupEventDay", "");
                                             for(var i = 0; i < eventos.length; i++){
-                                                if(eventos[i].id == auxId){
+                                                if(eventos[i].event.id == auxId){
                                                     
-                                                    saveEvent(eventos[i]);
-                                                    showModal(`${eventos[i].name}`, `${eventos[i].description}`, "Cerrar", "Editar", (j) => {
-                                                        window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
+                                                    saveEvent(eventos[i].event);
+                                                    showModal(`${eventos[i].event.name}`, `${eventos[i].event.description}`, "Cerrar", "Editar", (j) => {
+                                                        window.location.href = "/pages/eventpages/updateevent.html";
                                                     });
                                                 }
                                             }
@@ -448,26 +448,26 @@ async function showGroupEvents(){
                             if(divIds.startsWith("divPostDay")){
                                 var idNumerico= ($(this)[0].id).replace("divPostDay","");
                                 for(var i = 0; i < eventos.length; i++){
-                                    if(idNumerico === eventos[i].date){
-                                        eventos[i].group = name;
+                                    if(idNumerico === eventos[i].event.date){
+                                        eventos[i].event.group = name;
                                         $($(this)).append(
-                                            `<div id="groupEventDay${eventos[i].id}"  class="groupEvent txtDayEvent bg-blue">
-                                                ${eventos[i].name}
+                                            `<div id="groupEventDay${eventos[i].event.id}"  class="groupEvent txtDayEvent bg-blue">
+                                                ${eventos[i].event.name}
                                             </div>
                                         `);
                                         geArr.push(eventos);
                                                             
-                                        var eventId=`groupEventDay${eventos[i].id}`;
+                                        var eventId=`groupEventDay${eventos[i].event.id}`;
                                         $(`#${eventId}`).click((e)=>{
                                             //coger el param y obtener id para buscar su info y cargarla
                                             var idOriginal = e.target.id;
                                             var auxId = idOriginal.replace("groupEventDay", "");
                                             for(var i = 0; i < eventos.length; i++){
-                                                if(eventos[i].id == auxId){
+                                                if(eventos[i].event.id == auxId){
                                                     
-                                                    saveEvent(eventos[i]);
-                                                    showModal(`${eventos[i].name}`, `${eventos[i].description}`, "Cerrar", "Editar", (j) => {
-                                                        window.location.href = "http://127.0.0.1:5500/pages/eventpages/updateevent.html";
+                                                    saveEvent(eventos[i].event);
+                                                    showModal(`${eventos[i].event.name}`, `${eventos[i].event.description}`, "Cerrar", "Editar", (j) => {
+                                                        window.location.href = "/pages/eventpages/updateevent.html";
                                                     });
                                                 }
                                             }
@@ -517,14 +517,23 @@ async function clearGroupEvents(){
 let user;
 getCurrentUser().then(data => {
     if(data === undefined) {
-        window.location.replace("http://localhost:5500/pages/index/index.html")
+        window.location.replace("pages/index/index.html")
     } else {
         user = data;
     }
 })
 .then(() => {
-var groups = [];
-    getGroups().then(data => {
+    user.groupid.forEach((grupo, i) =>{
+        getGroupById(grupo.group).then( data =>{
+            dropdownMenu.innerHTML +=`
+                    <li>
+                        <label><input type="checkbox" id="${i+1}"> ${data.name}</label>                    
+                    </li>
+                `;
+        })
+    });
+    
+    /*getGroups().then(({data}) => {
         data.forEach(group => {
             let users = group.users;
             for(var i = 0; i < users.length; i++) {
@@ -542,5 +551,5 @@ var groups = [];
             `;
             i++;
         });
-    });
+    });*/
 });
