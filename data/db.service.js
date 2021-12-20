@@ -82,7 +82,7 @@ async function getUserByUsername(username) {
 async function getCurrentUser() {
     let result;
     if(!sessionStorage.user || !getToken()) {
-        window.location.href = "http://127.0.0.1:5500/pages/index/index.html";
+        window.location.href = "/pages/index/index.html";
     }
     let user = JSON.parse(sessionStorage.user);
     let token = getToken();
@@ -197,6 +197,17 @@ function uuid() {
 }
 
 function getToken() {
-    let cookies = document.cookie;
-    return cookies.split("=")[1];
+    let name = "token=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
