@@ -1,5 +1,4 @@
 let groupId = localStorage.getItem('groupId');
-localStorage.removeItem('groupInfo');
 
 const friendsSearch = document.getElementById("search");
 const list = document.getElementById("listUsers");
@@ -12,10 +11,10 @@ let friends = [];
 let friendsName = [];
 let groupPeople = [];
 
-function addToGroup(username) {
+function addToGroup(username, id) {
     list.innerHTML += `
-            <li class="list-group-item" id="li${username}">${username}
-            <img src="/img/close.svg" onclick="sacarDeGrupo(li${username}) "alt="Eliminar de grupo" class="float-end" id="deleteImg">
+            <li class="list-group-item" id="li${id}">${username}
+            <img src="/img/close.svg" onclick="sacarDeGrupo(li${id},${id})" alt="Eliminar de grupo" class="float-end" id="deleteImg">
             </li>
     `;
 }
@@ -24,20 +23,20 @@ getCurrentUser().then((user) => {
     getGroupById(groupId).then((group) => {
         groupName.value = group.name;
         nameAux = groupName.value;
-        
-        group.users.forEach(id => {
-            if(id != user.id) {
-                getUserById(id).then(({username, id}) => {
-                    groupPeople.push(id);
-                    addToGroup(username);
-                });
+        group.users.forEach(u => {
+            let u_id = u.user;
+            if(u_id != user.id) {
+                groupPeople.push(u_id);
+                getUserById(u_id).then(({username, id}) => {
+                    addToGroup(username, id);
+                })
             }
         });
     });
     return user;
 }).then(user => {
-    user.friends.forEach(id => {
-        getUserById(id).then(user => {
+    user.friends.forEach(({friend}) => {
+        getUserById(friend).then(user => {
             let friend = {
                 "username": user.username,
                 "id": user.id
@@ -61,7 +60,7 @@ $('#add-button').click(e => {
         if(newFriend !== undefined) {
             if(!groupPeople.includes(newFriend.id)) {
                 groupPeople.push(newFriend.id);
-                addToGroup(newFriend.username);
+                addToGroup(newFriend.username, newFriend.id);
                 $(friendsSearch).val('');
 
                 /*
@@ -95,18 +94,39 @@ function cambiaNombre(){
     }
 }
 
-function sacarDeGrupo(elem){
-    elem.remove();
-    //Solo se borra el "li" hay que implementar el borrado en la base de datos. 
+function sacarDeGrupo(elem, id){
+    let token = getToken();
+    let data = {
+        user_id: id,
+        group_id: groupId
+    };
+    fetch(URL + "group_users/leave_group?token=" + token, {
+        headers: {"Content-Type": 'application/json'},
+        method: 'DELETE',
+        body: JSON.stringify(data)
+    })
+    .then(res => elem.remove());
 }
 
 leaveBtn.addEventListener('click', () => salirGrupo());
 
 function salirGrupo(){
     getCurrentUser().then(user => {
-        user.groupid = user.groupid.filter(id => id != groupId);
-        sessionStorage.removeItem('user');
-        sessionStorage.setItem('user', JSON.stringify([user]));
-        window.location.replace("/pages/groupmanagement/groupmanagement.html");
+        let token = getToken();
+        let data = {
+            user_id: user.id,
+            group_id: groupId
+        };
+        fetch(URL + "group_users/leave_group?token=" + token, {
+            headers: {"Content-Type": 'application/json'},
+            method: 'DELETE',
+            body: JSON.stringify(data)
+        })
+        .then(res => {
+            getUserById(user.id).then(user => {
+                sessionStorage.setItem('user', JSON.stringify(user));
+                window.location.href = "/pages/groupmanagement/groupmanagement.html";
+            });
+        });
     });
 }

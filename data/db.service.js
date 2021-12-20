@@ -1,4 +1,4 @@
-const URL = "http://localhost:8000/";
+const URL = "http://localhost:3000/api/v1/";
 
 async function getData(ruta) {
     let result;
@@ -40,10 +40,11 @@ async function getUsers() {
 
 //@param id: token unico de cada user
 async function getUserById(id) {
+    let token = getToken();
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}users/${id}`,
+        url: `${URL}users/${id}?token=${token}`,
         type: 'GET',
         success: function(res) {
             result = res;
@@ -59,10 +60,11 @@ async function getUserById(id) {
 }
 
 async function getUserByUsername(username) {
+    let token = getToken();
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}users/?username=${username}`,
+        url: `${URL}users?username=${username}&token=${token}`,
         type: 'GET',
         success: function(res) {
             result = res;
@@ -79,15 +81,16 @@ async function getUserByUsername(username) {
 
 async function getCurrentUser() {
     let result;
-    if(!sessionStorage.user) {
+    if(!sessionStorage.user || !getToken()) {
         window.location.href = "http://127.0.0.1:5500/pages/index/index.html";
     }
-    let user = JSON.parse(sessionStorage.user)[0];
+    let user = JSON.parse(sessionStorage.user);
+    let token = getToken();
     let key = user.id;
     if(key){
         try{
             result = await $.ajax({
-            url: `${URL}users/${key}`,
+            url: `${URL}users/${key}?token=${token}`,
             type: 'GET',
             success: function(res) {
                 result = res;
@@ -127,10 +130,11 @@ async function getGroups() {
 
 //@param id: identificador unico de cada grupo
 async function getGroupById(id) {
+    let token = getToken();
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}groups/${id}`,
+        url: `${URL}groups/${id}?token=${token}`,
         type: 'GET',
         success: function(res) {
             result = res;
@@ -190,4 +194,9 @@ function uuid() {
        return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
     };
     return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
+function getToken() {
+    let cookies = document.cookie;
+    return cookies.split("=")[1];
 }
