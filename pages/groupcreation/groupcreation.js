@@ -21,9 +21,10 @@ function removeUser(user) {
         peopleList.innerText = '';
     } else {
         addedFriends.forEach(f => {
-            peopleList.innerHTML = `
-                <li class="list-group-item">${f.username}
-                    <img src="/img/close.svg" onclick="javascript:removeUser('${f.username}')" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
+            peopleList.innerHTML += `
+                <li class="list-group-item">
+                    <h6>${f.username}</h6>
+                    <img src="/img/close.svg" id="deleteImg" onclick="javascript:removeUser('${f.username}')" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
                 </li>
             `;
         });
@@ -38,8 +39,8 @@ getCurrentUser().then(data => {
         user = data;
     }
 }).then(() => {
-    user.friends.forEach(id => {
-        getUserById(id).then(user => {
+    user.friends.forEach(friend => {
+        getUserById(friend.friend).then(user => {
             let friend = {
                 "username": user.username,
                 "id": user.id
@@ -64,8 +65,9 @@ $('#add-button').click(e => {
             if(!addedFriends.includes(newFriend)) {
                 addedFriends.push(newFriend);
                 peopleList.innerHTML += `
-                    <li class="list-group-item">${newFriend.username}
-                        <img src="/img/close.svg" onclick="javascript:removeUser('${newFriend.username}')" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
+                    <li class="list-group-item">
+                        <h6>${newFriend.username}</h6>
+                        <img src="/img/close.svg" id="deleteImg" onclick="javascript:removeUser('${newFriend.username}')" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
                     </li>
                 `;
                 $(friendsSearch).val('');
