@@ -193,9 +193,9 @@ getCurrentUser().then((user) => {
             if(ed > today) {
                 if(n < 5) {
                     if(event.group !== undefined) {
-                        $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name} (Grupo: ${event.group})</a></li>`);
+                        $(".ulNearEvent").append(`<li class="nearEvent" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name} (Grupo: ${event.group})</a></li>`);
                     } else {
-                        $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name}</a></li>`);
+                        $(".ulNearEvent").append(`<li class="nearEvent" id=event${event.uuid}><a href="http://127.0.0.1:5500/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name}</a></li>`);
                     }
                     document.getElementById("event" + event.uuid).addEventListener("click", (e) => {
                         e.preventDefault();
@@ -303,7 +303,7 @@ async function showIndividualEvents() {
                 for(var i = 0; i < eventos.length; i++){
                     if(idNumerico === eventos[i].date){
                         $($(this)).append(
-                            `<div id="lastEventDay${idNumerico}" class="txtDayEvent bg-orange">
+                            `<div id="lastEventDay${idNumerico}" class="txtDayEvent ">
                                 ${eventos[i].name}
                             </div>`);
                     }
@@ -318,7 +318,7 @@ async function showIndividualEvents() {
                     if(idNumerico === eventos[i].date){
 
                         $($(this)).append(
-                            `<div id="eventDay${eventos[i].id}"  class="txtDayEvent bg-orange">
+                            `<div id="eventDay${eventos[i].id}"  class="txtDayEvent">
                                 ${eventos[i].name}
                             </div>
                         `);
