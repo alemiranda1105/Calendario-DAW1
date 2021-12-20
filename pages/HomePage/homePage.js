@@ -523,7 +523,6 @@ getCurrentUser().then(data => {
     }
 })
 .then(() => {
-    
 var groups = [];
     getGroups().then(data => {
         data.forEach(group => {
@@ -543,10 +542,5 @@ var groups = [];
             `;
             i++;
         });
-
-
-        
-
-
     });
 });
