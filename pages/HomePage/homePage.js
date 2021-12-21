@@ -196,9 +196,10 @@ getCurrentUser().then((user) => {
             if(ed > today) {
                 if(n < 5) {
                     if(event.group !== undefined) {
-                        $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href="/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name} (Grupo: ${event.group})</a></li>`);
+                        $(".ulNearEvent").append(`<li class="nearEvent" id=event${event.uuid}><a href="/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name} (Grupo: ${event.group})</a></li>`);
                     } else {
-                        $(".ulNearEvent").append(`<li class="nearEvent bg-orange" id=event${event.uuid}><a href=/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name}</a></li>`);
+                        $(".ulNearEvent").append(`<li class="nearEvent" id=event${event.uuid}><a href=/pages/eventpages/updateevent.html" class="c-white event-link">${event.date}, ${event.name}</a></li>`);
+
                     }
                     document.getElementById("event" + event.uuid).addEventListener("click", (e) => {
                         e.preventDefault();
@@ -304,8 +305,9 @@ async function showIndividualEvents() {
                 for(var i = 0; i < eventos.length; i++){
                     if(idNumerico === eventos[i].event.date){
                         $($(this)).append(
-                            `<div id="lastEventDay${idNumerico}" class="txtDayEvent bg-orange">
+                            `<div id="lastEventDay${idNumerico}" class="txtDayEvent">
                                 ${eventos[i].event.name}
+
                             </div>`);
                     }
                 }   
@@ -319,8 +321,9 @@ async function showIndividualEvents() {
                     if(idNumerico === eventos[i].event.date){
 
                         $($(this)).append(
-                            `<div id="eventDay${eventos[i].event.id}"  class="txtDayEvent bg-orange">
+                            `<div id="eventDay${eventos[i].event.id}"  class="txtDayEvent">
                                 ${eventos[i].event.name}
+
                             </div>
                         `);
                         geArr.push(eventos);
