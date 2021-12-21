@@ -7,8 +7,8 @@
       "**/node_modules/**"
     ],
     "rewrites": [ {
-      "destination": "/pages/HomePage/homePage.html",
-      "source": "/index.html"
+      "destination": "/pages/index/index.html",
+      "source": "/"
     } ]
   }
 }
