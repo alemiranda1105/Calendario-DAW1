@@ -82,7 +82,7 @@ html,body {
     min-width: 100%;
     overflow: hidden;
     border: 1px solid #000000;
-    
+    background-color: #F37E0D;
 }
 
 .calendar__info {
@@ -173,12 +173,13 @@ html,body {
     font-weight: bold;
     text-align: left;
     font-size: 1.1vw;
-    color:rgb(0, 0, 0);
+    color: white;
     border-radius: 5px; 
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; 
     border: 1px solid #000000;
+    background-color: #F37E0D;
 }
 
 .txtDayEvent:hover {
@@ -197,6 +198,7 @@ li {
 
 
 /** ---------------------------- MENU ---------------*/
+
 .spacer {
     flex: 1 1 auto;
 }
@@ -241,7 +243,7 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: sta;
+    align-items: start;
     margin-left: 0px;
     padding: 0px;
     width: 90%;
@@ -252,6 +254,7 @@ li {
 .nearEvent {
     margin-bottom: 10px;
     border-radius: 10px;
+    background-color: #F37E0D;
 }
 
 .event-link {
@@ -309,7 +312,7 @@ li {
   
 #btnLogout{
     height: 50px;
-    width: 8rem;
+    width: auto;
     border-radius: 10px;
     font-size: large;
     font-weight: bold;
@@ -352,7 +355,8 @@ li {
     color: white;
     font-weight: bold;
     text-decoration: none;
-    box-shadow: 0px 5px #66747eb9;   
+    box-shadow: 0px 5px #66747eb9; 
+    background-color: #F37E0D;  
 }
 .customBtn:active {
     transition: all ease-out 10ms;
@@ -413,7 +417,6 @@ li {
 	transform: translateX(100%);
 }
 
-
 @media (prefers-color-scheme: dark) {
     .customBtn {
         width: 11em;
@@ -426,7 +429,8 @@ li {
         color: white;
         font-weight: bold;
         text-decoration: none;
-        box-shadow: 0px 5px 2px whitesmoke;   
+        box-shadow: 0px 5px 2px whitesmoke; 
+        
     }
     .customBtn:active {
         transition: all ease-out 10ms;
@@ -445,5 +449,28 @@ li {
         transform: translateX(0px);
         transition: transform 0.2s linear;
         box-shadow: 0 0 10px whitesmoke;
+        background-color: #0a3143;
+    }
+    .calendar__dates{
+        background-color: #cecfc9;
+    }
+    .calendar__week,  .calendar__info, #divNav, .calendar, .customBtn, .event-link{
+        background-color: #0a3143;
+    }
+    .calendar__today{
+        background-color: #efefef;
+        color: black;
+        font-weight: bold;
+    }
+    .txtDayEvent, .nearEvent{
+        background-color:  #0a3143;
+    }
+    .divTxtDayEvent .txtDayEvent{
+        color: white;
+        
+    }
+    .txtDayEvent:hover {
+        background-color: whitesmoke;
+        color: black;
     }
 }

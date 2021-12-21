@@ -1,29 +1,11 @@
-const URL = "http://localhost:8000/";
-
-async function getData(ruta) {
-    let result;
-    try{
-        result = await $.ajax({
-        url: `${URL}${ruta}`,
-        type: 'GET',
-        success: function(res) {
-            result = res;
-        },
-        error: function() {
-            console.error("No es posible completar la operación");
-        }
-    });
-    return result;
-    }catch(error){
-        console.error(error);
-    }
-}
+const URL = "https://calendario-daw1.herokuapp.com/api/v1/";
 
 async function getUsers() {
+    let token = getToken();
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}users`,
+        url: `${URL}users?token=${token}`,
         type: 'GET',
         success: function(res) {
             result = res;
@@ -40,10 +22,11 @@ async function getUsers() {
 
 //@param id: token unico de cada user
 async function getUserById(id) {
+    let token = getToken();
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}users/${id}`,
+        url: `${URL}users/${id}?token=${token}`,
         type: 'GET',
         success: function(res) {
             result = res;
@@ -59,10 +42,11 @@ async function getUserById(id) {
 }
 
 async function getUserByUsername(username) {
+    let token = getToken();
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}users/?username=${username}`,
+        url: `${URL}users?username=${username}&token=${token}`,
         type: 'GET',
         success: function(res) {
             result = res;
@@ -79,15 +63,16 @@ async function getUserByUsername(username) {
 
 async function getCurrentUser() {
     let result;
-    if(!sessionStorage.user) {
-        window.location.href = "http://127.0.0.1:5500/pages/index/index.html";
+    if(!sessionStorage.user || !getToken()) {
+        window.location.href = "/pages/index/index.html";
     }
-    let user = JSON.parse(sessionStorage.user)[0];
+    let user = JSON.parse(sessionStorage.user);
+    let token = getToken();
     let key = user.id;
-    if(key){
+    if(key && token){
         try{
             result = await $.ajax({
-            url: `${URL}users/${key}`,
+            url: `${URL}users/${key}?token=${token}`,
             type: 'GET',
             success: function(res) {
                 result = res;
@@ -100,20 +85,23 @@ async function getCurrentUser() {
         }catch(error){
             console.error(error);
         }
-    }else {
+    } else {
         // EN CASO DE QUE BORREN LA KEY, REDIRIGIR AL LOGIN
         sessionStorage.removeItem('user');
+        document.cookie = 'token=;';
+        window.location.href = "/pages/index/index.html";
     }
 }
 
 async function getGroups() {
+    let token = getToken();
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}groups`,
+        url: `${URL}groups?token=${token}`,
         type: 'GET',
         success: function(res) {
-            result = res;
+            result = res.data;
         },
         error: function() {
             console.error("No es posible completar la operación");
@@ -127,10 +115,11 @@ async function getGroups() {
 
 //@param id: identificador unico de cada grupo
 async function getGroupById(id) {
+    let token = getToken();
     let result;
     try{
         result = await $.ajax({
-        url: `${URL}groups/${id}`,
+        url: `${URL}groups/${id}?token=${token}`,
         type: 'GET',
         success: function(res) {
             result = res;
@@ -146,28 +135,21 @@ async function getGroupById(id) {
 }
 
 async function getUserEvents(user) {
+    let token = getToken();
     let result = [];
+  
     try {
         await $.ajax({
-            url: `${URL}groups/`,
+            url: `${URL}event?owner_id=${user.id}&token=${token}`,
             type: 'GET',
             success: function(res) {
-                res.forEach(g => {
-                    if(g.users.filter(id => id == user.id).length == 1) {
-                        g.events.forEach(event => {
-                            event.group = g.name;
-                            result.push(event);
-                        });
-                    }
-                });
+                result = res
             },
             error: function() {
                 console.error("No ha sido posible completar la operación");
             }
         });
-        user.events.forEach(event => {
-            result.push(event);
-        });
+        
         result.sort((a, b) => {
             let d1 = a.date.split('-').reverse().join('');
             let d2 = b.date.split('-').reverse().join('');
@@ -190,4 +172,20 @@ function uuid() {
        return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
     };
     return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
+function getToken() {
+    let name = "token=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }

@@ -41,8 +41,8 @@ button:hover{
 
 #deleteImg {
     margin-left: 2vh;
-    height: 4vh;
-    width: 4vh;
+    height: 25px;
+    width: 25px;
 }
 
 #deleteImg:hover {
