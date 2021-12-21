@@ -34,7 +34,7 @@ function removeUser(user) {
 
 getCurrentUser().then(data => {
     if(data === undefined) {
-        window.location.replace("/pages/index/index.html");
+        window.location.replace("/index.html");
     } else {
         user = data;
     }

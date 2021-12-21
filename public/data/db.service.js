@@ -64,7 +64,7 @@ async function getUserByUsername(username) {
 async function getCurrentUser() {
     let result;
     if(!sessionStorage.user || !getToken()) {
-        window.location.href = "/pages/index/index.html";
+        window.location.href = "/index.html";
     }
     let user = JSON.parse(sessionStorage.user);
     let token = getToken();
@@ -89,7 +89,7 @@ async function getCurrentUser() {
         // EN CASO DE QUE BORREN LA KEY, REDIRIGIR AL LOGIN
         sessionStorage.removeItem('user');
         document.cookie = 'token=;';
-        window.location.href = "/pages/index/index.html";
+        window.location.href = "/index.html";
     }
 }
 
