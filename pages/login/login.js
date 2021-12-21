@@ -85,7 +85,7 @@ $('#loginForm').submit((e) => {
         username: this.user,
         password: this.pass
     };
-    fetch("http://localhost:3000/api/v1/" + "users/login", {
+    fetch(URL + "users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)

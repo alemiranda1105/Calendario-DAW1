@@ -64,7 +64,7 @@ async function getUserByUsername(username) {
 async function getCurrentUser() {
     let result;
     if(!sessionStorage.user || !getToken()) {
-        window.location.href = "http://127.0.0.1:5500/pages/index/index.html";
+        window.location.href = "/pages/index/index.html";
     }
     let user = JSON.parse(sessionStorage.user);
     let token = getToken();
@@ -135,22 +135,19 @@ async function getGroupById(id) {
 async function getUserEvents(user) {
     let token = getToken();
     let result = [];
+  
     try {
         await $.ajax({
             url: `${URL}event?owner_id=${user.id}&token=${token}`,
             type: 'GET',
             success: function(res) {
                 result = res
-                
             },
             error: function() {
                 console.error("No ha sido posible completar la operación");
             }
         });
-        user.events.forEach(event => {
-            result.push(event.event);
-            
-        });
+        
         result.sort((a, b) => {
             let d1 = a.date.split('-').reverse().join('');
             let d2 = b.date.split('-').reverse().join('');
