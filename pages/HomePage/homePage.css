@@ -198,6 +198,7 @@ li {
 
 
 /** ---------------------------- MENU ---------------*/
+
 .spacer {
     flex: 1 1 auto;
 }
@@ -311,7 +312,7 @@ li {
   
 #btnLogout{
     height: 50px;
-    width: 8rem;
+    width: auto;
     border-radius: 10px;
     font-size: large;
     font-weight: bold;
@@ -429,7 +430,7 @@ li {
         font-weight: bold;
         text-decoration: none;
         box-shadow: 0px 5px 2px whitesmoke; 
-        background-color: #F37E0D;
+        
     }
     .customBtn:active {
         transition: all ease-out 10ms;
