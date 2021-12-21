@@ -10,6 +10,17 @@ h1{
     display: none;
 }
 
+.list-group {
+    margin-top: 1vh;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}
+
 #nGroup{
     text-align: center;
     margin: 3vh;
@@ -36,27 +47,6 @@ h1{
     width: 45vw;
 }
 
-button{
-    font-weight: bold;
-    margin-bottom: 2vh;
-}
-
-button:hover{
-    transform: scale(1.1);
-    transition: 70ms ease;
-}
-
-img{
-    margin-left: 2vh;
-    height: 4vh;
-    width: 4vh;
-}
-
-img:hover{
-    transform: scale(1.4);
-    transition: 70ms ease;
-}
-
 #name-input {
     border-style: none;
     padding: 5px;
@@ -80,6 +70,17 @@ img:hover{
     padding: 12px;
     border-radius: 20px;
     display: none;
+}
+
+#deleteImg {
+    margin-left: 2vh;
+    height: 25px;
+    width: 25px;
+}
+
+#deleteImg:hover {
+    transform: scale(1.4);
+    transition: 70ms ease;
 }
 
 @media (max-width: 600px) {

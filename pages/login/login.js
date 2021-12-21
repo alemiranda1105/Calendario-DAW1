@@ -5,11 +5,12 @@ const emailTxt = document.getElementById('email');
 const passTxt = document.getElementById('password');
 const showPassword = document.getElementById('showPassword');
 
-const URL = "http://localhost:8000/users";
-
 function storeSession(data) {
-    data.password = "";
     sessionStorage.setItem('user', JSON.stringify(data));
+}
+
+function storeCookie(token) {
+    document.cookie = "token=" + token + ";path=/";
 }
 
 if(showPassword !== null) {
@@ -58,43 +59,45 @@ $('#signUpForm').submit((e) => {
         username: user,
         email: email,
         password: pass,
-        events: [],
-        groupid: [],
-        friends: [],
-        friendRequests:[]
     };
-
-    fetch(URL, {
+    fetch(URL + "users", {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
     })
-    .then((res) => {
-        if(res.ok) {
-            storeSession(data);
+    .then(res => res.json())
+    .then(data => {
+        storeCookie(data.session.token);
+        getUserByUsername(data.user.username).then(user => {
+            storeSession(user);
             window.location.href = "/pages/HomePage/homePage.html";
-        }
+        });
     });
+    return false;
     
 });
 
+
+
 $('#loginForm').submit((e) => {
     e.preventDefault();
-
-    /* CAMBIAR CUANDO EL BACKEND ESTÉ TERMINADO
-       NO ES SEGURO ESTE METODO
-    */
-    fetch(URL)
+    const data = {
+        username: this.user,
+        password: this.pass
+    };
+    fetch(URL + "users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
     .then(res => res.json())
     .then(data => {
-        data = data.filter((user) => {
-            return (user.username === this.user && user.password === this.pass);
+        storeCookie(data.session.token);
+        console.log(document.cookie);
+        getUserByUsername(data.user.username).then(user => {
+            storeSession(user);
+            window.location.href = "/pages/HomePage/homePage.html";
         });
-        if(data.length < 1) {
-            throw 'Usuario y/o contraseña incorrecta';
-        }
-        storeSession(data);
-        window.location.href = "/pages/HomePage/homePage.html";
     })
     .catch((error) => {
         const errorTxt = document.getElementById("errorTxt");
