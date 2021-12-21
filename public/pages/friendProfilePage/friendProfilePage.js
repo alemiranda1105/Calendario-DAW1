@@ -19,12 +19,16 @@ function back(){
     window.history.back();
 }
 
-getCurrentUser().then((user)=>{
-    getUserById(id).then(({username, friends}) =>{
-        nameTxt.innerHTML += username;
-        for(let i = 0; i<friends.length; i++){
-            getUserById(friends[i]).then(friend =>{
-                if(friend.id == user.id){
+let friendID = localStorage.getItem('id');
+console.log(friendID);
+
+getCurrentUser().then(user => {
+    getUserById(friendID).then(({username, friends}) => {
+        nameTxt.innerHTML = username;
+        friends.forEach(f => {
+            let f_id = f.friend;
+            getUserById(f_id).then(friend => {
+                if(f_id == user.id) {
                     lista.innerHTML += ` 
                             <div class="friendComponent d-flex flex-column justify-content-center align-items-center">
                                 <img class="imgFriend" src="/img/avatar.png" alt="">
@@ -32,7 +36,7 @@ getCurrentUser().then((user)=>{
                             </div> 
                             `
                             ;
-                } else{
+                } else {
                     lista.innerHTML += ` 
                             <div class="friendComponent d-flex flex-column justify-content-center align-items-center">
                                 <img class="imgFriend" src="/img/avatar.png" alt="">
@@ -42,7 +46,7 @@ getCurrentUser().then((user)=>{
                             ;
                 }
             });
-        };
+        });
     });
 });
 

@@ -21,9 +21,10 @@ function removeUser(user) {
         peopleList.innerText = '';
     } else {
         addedFriends.forEach(f => {
-            peopleList.innerHTML = `
-                <li class="list-group-item">${f.username}
-                    <img src="/img/close.svg" onclick="javascript:removeUser('${f.username}')" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
+            peopleList.innerHTML += `
+                <li class="list-group-item">
+                    <h6>${f.username}</h6>
+                    <img src="/img/close.svg" id="deleteImg" onclick="javascript:removeUser('${f.username}')" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
                 </li>
             `;
         });
@@ -33,13 +34,13 @@ function removeUser(user) {
 
 getCurrentUser().then(data => {
     if(data === undefined) {
-        window.location.replace("http://localhost:5500/pages/index/index.html");
+        window.location.replace("/pages/index/index.html");
     } else {
         user = data;
     }
 }).then(() => {
-    user.friends.forEach(id => {
-        getUserById(id).then(user => {
+    user.friends.forEach(friend => {
+        getUserById(friend.friend).then(user => {
             let friend = {
                 "username": user.username,
                 "id": user.id
@@ -64,8 +65,9 @@ $('#add-button').click(e => {
             if(!addedFriends.includes(newFriend)) {
                 addedFriends.push(newFriend);
                 peopleList.innerHTML += `
-                    <li class="list-group-item">${newFriend.username}
-                        <img src="/img/close.svg" onclick="javascript:removeUser('${newFriend.username}')" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
+                    <li class="list-group-item">
+                        <h6>${newFriend.username}</h6>
+                        <img src="/img/close.svg" id="deleteImg" onclick="javascript:removeUser('${newFriend.username}')" alt="Eliminar de grupo" class="float-end" title="Sacar grupo">
                     </li>
                 `;
                 $(friendsSearch).val('');
@@ -82,7 +84,33 @@ $('#groupCreationForm').submit((e) => {
     e.preventDefault();
     if(addedFriends.length <= 0) {
         showError("Añadir amigos al grupo");
-        return;
+    }else if (groupNameInput.value === 'undefined') {
+        showError("Escriba un nombre para el grupo");
+    } else {
+        let data = {
+            name: groupNameInput.value
+        };
+        console.log(addedFriends[0].id);
+        fetch(`${URL}groups?token=${getToken()}`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then((group_data) => {
+            data = {
+                group_id: group_data.id
+            };
+            addedFriends.push(user);
+            addedFriends.forEach(user => {
+                data.user_id = user.id;
+                fetch(`${URL}group_users?token=${getToken()}`, {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                })
+                .then(() => window.location.href = "/pages/groupmanagement/groupmanagement.html");
+            });
+        });
     }
-    // Añadir llamada a la API
 });

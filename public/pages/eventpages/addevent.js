@@ -4,32 +4,22 @@ const eventDescription = document.getElementById("eventDescription");
 const eventDate = document.getElementById("event-date");
 const groupSelector = document.getElementById("group-selector");
 
-const url = "http://localhost:8000/groups/";
-
 let user;
 let groups = [];
 
 getCurrentUser().then(data => {
     if(data === undefined) {
-        window.location.replace("http://localhost:5500/pages/index/index.html")
+        window.location.replace("/pages/index/index.html")
     } else {
         user = data;
     }
 })
 .then(() => {
-    getGroups().then(data => {
-        data.forEach(group => {
-            let users = group.users;
-            for(var i = 0; i < users.length; i++) {
-                if(users[i] == user.id) {
-                    groups.push(group);
-                }
-            }
+    user.groupid.forEach(({group}) => {
+        getGroupById(group).then(g => {
+            groups.push(g);
+            groupSelector.options[groupSelector.options.length] = new Option(g.id + ". " + g.name);
         });
-    
-        groups.forEach(grupo => {
-            groupSelector.options[groupSelector.options.length] = new Option(grupo.id + ". " + grupo.name);
-        })
     });
 });
 
@@ -40,9 +30,7 @@ $('#group-form').submit((e) => {
     selectedGroup = selectedGroup.split(". ");
     const groupId = selectedGroup[0];
     const groupName = selectedGroup[1];
-
-    let group = groups.filter(g => g.id == groupId)[0];
-    console.log(group.events);
+    var individual = !groupName;
 
     var date = eventDate.value.split("-");
     date = date.reverse();
@@ -51,27 +39,29 @@ $('#group-form').submit((e) => {
     dateStr = dateStr.substring(0, dateStr.length-1);
 
     const data = {
-        "id": group.events.length+1,
-        "name": eventName.value,
-        "description": eventDescription.value,
-        "date": dateStr
+        name: eventName.value,
+        description: eventDescription.value,
+        date: dateStr,
+        individual: individual
     };
 
-    group.events.push(data);
-    console.log(group);
-
-    // Actualizar este código para el proximo sprint
-
-    /*fetch(url, {
-        method: "PUT",
-        body: JSON.stringify(group)
+    if(individual) {
+        data.owner_id = user.id;
+    } else {
+        data.group_id = parseInt(groupId);
+    }
+    console.log(data);
+    let token = getToken();
+    fetch(URL + "event?token=" + token, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
     })
-    .then((res) => {
-        if(res.ok) {
-            alert("Grupo actualizado");
-        } else {
-            console.log("error");
-        }
-    });*/
+    .then(res => res.json())
+    .then(event => {
+        alert("Evento creado");
+        localStorage.setItem('event', JSON.stringify(event.evento));
+        window.location.href = "updateevent.html";
+    });
 
 });
