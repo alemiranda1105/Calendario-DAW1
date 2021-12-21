@@ -198,6 +198,7 @@ li {
 
 
 /** ---------------------------- MENU ---------------*/
+
 .spacer {
     flex: 1 1 auto;
 }
@@ -311,7 +312,7 @@ li {
   
 #btnLogout{
     height: 50px;
-    width: 8rem;
+    width: auto;
     border-radius: 10px;
     font-size: large;
     font-weight: bold;
