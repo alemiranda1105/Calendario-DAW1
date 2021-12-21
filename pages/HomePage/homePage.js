@@ -191,6 +191,7 @@ getCurrentUser().then((user) => {
         var today = new Date();
         var n = 0;
         events.forEach((event) => {
+            event.owner_id = user.id;
             console.log("event", event);
             let ed = new Date(event.date.split('-').reverse().join('-'));
             if(ed > today) {
@@ -367,12 +368,13 @@ var geArr = [];
 async function showGroupEvents(){
     getCurrentUser().then(({groupid}) =>{
         groupid.forEach(id =>{
-            getGroupById(id.group).then(({name, events}) =>{
+            getGroupById(id.group).then(({id, name, events}) =>{
                 //UNA VEZ CARGADO EL CALENDARIO, CARGAMOS LOS EVENTOS
                 mostrarEventoListado().then(({fechas,eventos}) => {
                     $('#dates').find('div').each(function(){
                         var divIds = $(this).attr('id');
                         eventos = events;
+                        eventos.forEach(({event}) => event.group_id = id);
 
                         //mes visible anterior
                         if(divIds.startsWith("divLastDay")){

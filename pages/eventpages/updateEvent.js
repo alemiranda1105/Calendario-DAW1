@@ -50,11 +50,13 @@ $('#update-event').submit((e) => {
             if(g.name == group) {
                 data.group_id = g.id;
             }
-        })
+        });
+        data.owner_id = null;
         console.log(data);
     } else {
         data.individual = true;
         data.owner_id = user.id;
+        data.group_id = null;
         console.log(data);
     }
 
