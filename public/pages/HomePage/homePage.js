@@ -181,7 +181,7 @@ btnToggleMenu.addEventListener('click', function () {
 let btnLogout = document.getElementById("btnLogout");
 btnLogout.addEventListener('click', () => {
     sessionStorage.removeItem('user');
-    window.location.href = "/pages/index/index.html";
+    window.location.href = "/index.html";
 })
 
 // CONEXION A LA BASE DE DATOS MEDIANTE PETICIONES REST

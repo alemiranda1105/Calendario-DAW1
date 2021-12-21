@@ -17,7 +17,7 @@ let user;
 let groups = [];
 getCurrentUser().then(data => {
     if(data === undefined) {
-        window.location.replace("/pages/index/index.html")
+        window.location.replace("/index.html")
     }
     user = data;
     user.groupid.forEach(({group}, index) => {
