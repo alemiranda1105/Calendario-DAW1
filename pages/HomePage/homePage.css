@@ -355,6 +355,8 @@ li {
     font-weight: bold;
     text-decoration: none;
     box-shadow: 0px 5px #66747eb9;   
+    background-color: #F37E0D;
+
 }
 .customBtn:active {
     transition: all ease-out 10ms;
@@ -428,7 +430,7 @@ li {
         font-weight: bold;
         text-decoration: none;
         box-shadow: 0px 5px 2px whitesmoke; 
-        background-color: #F37E0D;
+        
     }
     .customBtn:active {
         transition: all ease-out 10ms;
